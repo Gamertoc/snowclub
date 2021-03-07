@@ -319,6 +319,9 @@ public class FormularfeldControl extends AbstractControl
       return font;
     }
     ArrayList<String> fonts = new ArrayList<>();
+    fonts.add("Qanelas");
+    fonts.add("QanelasSemiBold");
+    fonts.add("QanelasBold");
     fonts.add("FreeSans");
     fonts.add("FreeSans-Bold");
     fonts.add("FreeSans-BoldOblique");

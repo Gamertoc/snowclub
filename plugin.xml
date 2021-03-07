@@ -11,11 +11,11 @@
   <menu>
     <item name="JVerein" >
   	  <item name="&amp;Über" 
-            action="de.jost_net.JVerein.gui.action.AboutAction" 
+            action="eu.snoware.SnowClub.gui.action.AboutAction" 
             icon="gtk-info.png"  />
       <item name="-" />
       <item name="Lizenzinformationen"
-            action="de.jost_net.JVerein.gui.action.LizenzAction"
+            action="eu.snoware.SnowClub.gui.action.LizenzAction"
             icon="text-x-generic.png" />
     </item>
   </menu>
@@ -34,7 +34,7 @@
    
   <services>
     <service name="database" depends="" autostart="true"
-	  class="de.jost_net.JVerein.server.JVereinDBServiceImpl" />
+	  class="eu.snoware.SnowClub.server.JVereinDBServiceImpl" />
   </services>
 	
   <requires jameica="2.8+">

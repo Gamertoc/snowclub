@@ -262,7 +262,7 @@ public class JVereinPlugin extends AbstractPlugin
     // Unter "database.driver" ist die JVerein-Klasse mit den Parametern der
     // Datenbank gespeichert
     // String d1 = s1.getString("database.driver",
-    // "de.jost_net.JVerein.server.DBSupportH2Impl");
+    // "eu.snoware.SnowClub.server.DBSupportH2Impl");
     try
     {
       // Die Parameterklasse wird geladen

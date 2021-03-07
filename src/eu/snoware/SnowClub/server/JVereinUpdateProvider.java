@@ -254,7 +254,7 @@ public class JVereinUpdateProvider
     try
     {
       DecimalFormat df = new DecimalFormat("0000");
-      String clazzname = "de.jost_net.JVerein.server.DDLTool.Updates.Update"
+      String clazzname = "eu.snoware.SnowClub.server.DDLTool.Updates.Update"
           + df.format(currentversion);
       Class<?> clazz = Class.forName(clazzname);
       Constructor<?> ctor = clazz.getConstructor(String.class,
