@@ -49,8 +49,8 @@ import eu.snoware.SnowClub.Variable.VarTools;
 import eu.snoware.SnowClub.keys.Abrechnungsausgabe;
 import eu.snoware.SnowClub.rmi.Abrechnungslauf;
 import eu.snoware.SnowClub.rmi.Lastschrift;
-import eu.snoware.SnowClub.util.JVDateFormatDATETIME;
-import eu.snoware.SnowClub.util.JVDateFormatTTMMJJJJ;
+import eu.snoware.SnowClub.util.SCDateFormatDATETIME;
+import eu.snoware.SnowClub.util.SCDateFormatTTMMJJJJ;
 import eu.snoware.SnowClub.util.StringTool;
 
 public class Ct1Ueberweisung
@@ -85,7 +85,7 @@ public class Ct1Ueberweisung
     ueb.setBIC(Einstellungen.getEinstellung().getBic());
     ueb.setIBAN(Einstellungen.getEinstellung().getIban());
     ueb.setMessageID(abrl.getID() + " "
-        + new JVDateFormatDATETIME().format(abrl.getDatum()));
+        + new SCDateFormatDATETIME().format(abrl.getDatum()));
     ueb.setName(Einstellungen.getEinstellung().getName());
     ueb.setSammelbuchung(false);
 
@@ -171,7 +171,7 @@ public class Ct1Ueberweisung
       ResourceNotFoundException, IOException
   {
     VelocityContext context = new VelocityContext();
-    context.put("dateformat", new JVDateFormatTTMMJJJJ());
+    context.put("dateformat", new SCDateFormatTTMMJJJJ());
     context.put("decimalformat", Einstellungen.DECIMALFORMAT);
     Map<String, Object> map = new LastschriftMap().getMap(ls, null);
     map = new AllgemeineMap().getMap(map);

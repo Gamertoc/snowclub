@@ -39,7 +39,7 @@ import de.willuhn.util.Settings;
 import eu.snoware.SnowClub.Einstellungen;
 import eu.snoware.SnowClub.keys.Datentyp;
 import eu.snoware.SnowClub.rmi.Felddefinition;
-import eu.snoware.SnowClub.util.JVDateFormatTTMMJJJJ;
+import eu.snoware.SnowClub.util.SCDateFormatTTMMJJJJ;
 
 public class ZusatzfelderAuswahlDialog extends AbstractDialog<Object>
 {
@@ -109,7 +109,7 @@ public class ZusatzfelderAuswahlDialog extends AbstractDialog<Object>
           {
             try
             {
-              inputvon.setValue(new JVDateFormatTTMMJJJJ().parse(datum));
+              inputvon.setValue(new SCDateFormatTTMMJJJJ().parse(datum));
             }
             catch (ParseException e)
             {
@@ -133,7 +133,7 @@ public class ZusatzfelderAuswahlDialog extends AbstractDialog<Object>
           {
             try
             {
-              inputbis.setValue(new JVDateFormatTTMMJJJJ().parse(datum));
+              inputbis.setValue(new SCDateFormatTTMMJJJJ().parse(datum));
             }
             catch (ParseException e)
             {
@@ -272,7 +272,7 @@ public class ZusatzfelderAuswahlDialog extends AbstractDialog<Object>
               if (inp.getValue() != null)
               {
                 settings.setAttribute("zusatzfeld." + counter + ".value",
-                    new JVDateFormatTTMMJJJJ().format((Date) inp.getValue()));
+                    new SCDateFormatTTMMJJJJ().format((Date) inp.getValue()));
                 selcounter++;
               }
               else

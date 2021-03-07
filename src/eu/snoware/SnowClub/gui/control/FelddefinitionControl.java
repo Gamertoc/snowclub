@@ -42,7 +42,7 @@ import eu.snoware.SnowClub.gui.menu.FelddefinitionMenu;
 import eu.snoware.SnowClub.keys.Datentyp;
 import eu.snoware.SnowClub.rmi.Felddefinition;
 import eu.snoware.SnowClub.rmi.Zusatzfelder;
-import eu.snoware.SnowClub.util.JVDateFormatTTMMJJJJ;
+import eu.snoware.SnowClub.util.SCDateFormatTTMMJJJJ;
 
 public class FelddefinitionControl extends AbstractControl
 {
@@ -327,7 +327,7 @@ public class FelddefinitionControl extends AbstractControl
               {
                 Zusatzfelder z1 = (Zusatzfelder) Einstellungen.getDBService()
                     .createObject(Zusatzfelder.class, z.getID());
-                z1.setFeld(new JVDateFormatTTMMJJJJ().format(z.getFeldDatum()));
+                z1.setFeld(new SCDateFormatTTMMJJJJ().format(z.getFeldDatum()));
                 z1.setFeldDatum(null);
                 z1.store();
               }

@@ -83,7 +83,7 @@ public class MitgliedSpaltenauswahl extends Spaltenauswahl
     add("Mandat Version", "mandatversion", false, true);
     add("Mandat Sequence", "mandatsequence", false, true);
     add("Geburtsdatum", "geburtsdatum", true,
-        new DateFormatter(new JVDateFormatTTMMJJJJ()), Column.ALIGN_AUTO, true);
+        new DateFormatter(new SCDateFormatTTMMJJJJ()), Column.ALIGN_AUTO, true);
     add("Alter", "alter", false, true);
     add("Geschlecht", "geschlecht", false, true);
     add("Telefon privat", "telefonprivat", true, true);
@@ -91,20 +91,20 @@ public class MitgliedSpaltenauswahl extends Spaltenauswahl
     add("Handy", "handy", false, true);
     add("Email", "email", false, true);
     add("Eintritt", "eintritt", true,
-        new DateFormatter(new JVDateFormatTTMMJJJJ()), Column.ALIGN_AUTO,
+        new DateFormatter(new SCDateFormatTTMMJJJJ()), Column.ALIGN_AUTO,
         false);
     add("Beitragsgruppe", "beitragsgruppe", false,
         new BeitragsgruppeFormatter(), Column.ALIGN_LEFT, false);
     add("Austritt", "austritt", true,
-        new DateFormatter(new JVDateFormatTTMMJJJJ()), Column.ALIGN_AUTO,
+        new DateFormatter(new SCDateFormatTTMMJJJJ()), Column.ALIGN_AUTO,
         false);
     add("Kündigung", "kuendigung", false,
-        new DateFormatter(new JVDateFormatTTMMJJJJ()), Column.ALIGN_AUTO,
+        new DateFormatter(new SCDateFormatTTMMJJJJ()), Column.ALIGN_AUTO,
         false);
     add("Eingabedatum", "eingabedatum", false,
-        new DateFormatter(new JVDateFormatTTMMJJJJ()), Column.ALIGN_AUTO, true);
+        new DateFormatter(new SCDateFormatTTMMJJJJ()), Column.ALIGN_AUTO, true);
     add("letzte Änderung", "letzteaenderung", false,
-        new DateFormatter(new JVDateFormatTTMMJJJJ()), Column.ALIGN_AUTO, true);
+        new DateFormatter(new SCDateFormatTTMMJJJJ()), Column.ALIGN_AUTO, true);
     try
     {
       DBIterator<Felddefinition> it = Einstellungen.getDBService()
@@ -116,7 +116,7 @@ public class MitgliedSpaltenauswahl extends Spaltenauswahl
         {
           case Datentyp.DATUM:
             add(fd.getLabel(), "zusatzfelder_" + fd.getName(), false,
-                new DateFormatter(new JVDateFormatTTMMJJJJ()),
+                new DateFormatter(new SCDateFormatTTMMJJJJ()),
                 Column.ALIGN_AUTO, true);
             break;
           case Datentyp.WAEHRUNG:

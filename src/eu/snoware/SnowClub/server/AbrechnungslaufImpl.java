@@ -22,7 +22,7 @@ import java.util.Date;
 import de.willuhn.datasource.db.AbstractDBObject;
 import eu.snoware.SnowClub.Einstellungen;
 import eu.snoware.SnowClub.rmi.Abrechnungslauf;
-import eu.snoware.SnowClub.util.JVDateFormatTTMMJJJJ;
+import eu.snoware.SnowClub.util.SCDateFormatTTMMJJJJ;
 
 public class AbrechnungslaufImpl extends AbstractDBObject implements
     Abrechnungslauf
@@ -260,7 +260,7 @@ public class AbrechnungslaufImpl extends AbstractDBObject implements
   public String getIDText() throws RemoteException
   {
     return getID() + " " + "vom" + " "
-        + new JVDateFormatTTMMJJJJ().format(getDatum());
+        + new SCDateFormatTTMMJJJJ().format(getDatum());
   }
 
   @Override

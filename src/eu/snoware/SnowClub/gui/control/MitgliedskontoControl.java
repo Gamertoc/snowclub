@@ -83,7 +83,7 @@ import eu.snoware.SnowClub.keys.Zahlungsweg;
 import eu.snoware.SnowClub.rmi.Buchungsart;
 import eu.snoware.SnowClub.rmi.Mitglied;
 import eu.snoware.SnowClub.rmi.Mitgliedskonto;
-import eu.snoware.SnowClub.util.JVDateFormatTTMMJJJJ;
+import eu.snoware.SnowClub.util.SCDateFormatTTMMJJJJ;
 
 public class MitgliedskontoControl extends AbstractControl
 {
@@ -213,7 +213,7 @@ public class MitgliedskontoControl extends AbstractControl
       d = getMitgliedskonto().getDatum();
     }
 
-    this.datum = new DateInput(d, new JVDateFormatTTMMJJJJ());
+    this.datum = new DateInput(d, new SCDateFormatTTMMJJJJ());
     this.datum.setTitle("Datum");
     this.datum.setText("Bitte Datum wählen");
     this.datum.addListener(new Listener()
@@ -324,7 +324,7 @@ public class MitgliedskontoControl extends AbstractControl
     {
       try
       {
-        d = new JVDateFormatTTMMJJJJ().parse(tmp);
+        d = new SCDateFormatTTMMJJJJ().parse(tmp);
       }
       catch (ParseException e)
       {
@@ -332,7 +332,7 @@ public class MitgliedskontoControl extends AbstractControl
       }
     }
 
-    this.vondatum = new DateInput(d, new JVDateFormatTTMMJJJJ());
+    this.vondatum = new DateInput(d, new SCDateFormatTTMMJJJJ());
     this.vondatum.setTitle("Anfangsdatum");
     this.vondatum.setText("Bitte Anfangsdatum wählen");
     vondatum.addListener(new FilterListener());
@@ -352,14 +352,14 @@ public class MitgliedskontoControl extends AbstractControl
     {
       try
       {
-        d = new JVDateFormatTTMMJJJJ().parse(tmp);
+        d = new SCDateFormatTTMMJJJJ().parse(tmp);
       }
       catch (ParseException e)
       {
         //
       }
     }
-    this.bisdatum = new DateInput(d, new JVDateFormatTTMMJJJJ());
+    this.bisdatum = new DateInput(d, new SCDateFormatTTMMJJJJ());
     this.bisdatum.setTitle("Endedatum");
     this.bisdatum.setText("Bitte Endedatum wählen");
     bisdatum.addListener(new FilterListener());
@@ -565,7 +565,7 @@ public class MitgliedskontoControl extends AbstractControl
     };
     mitgliedskontoTree.addColumn("Name, Vorname", "name");
     mitgliedskontoTree.addColumn("Datum", "datum",
-        new DateFormatter(new JVDateFormatTTMMJJJJ()));
+        new DateFormatter(new SCDateFormatTTMMJJJJ()));
     mitgliedskontoTree.addColumn("Zweck1", "zweck1");
     mitgliedskontoTree.addColumn("Zahlungsweg", "zahlungsweg",
         new ZahlungswegFormatter());
@@ -595,7 +595,7 @@ public class MitgliedskontoControl extends AbstractControl
     {
       mitgliedskontoList = new TablePart(mitgliedskonten, action);
       mitgliedskontoList.addColumn("Datum", "datum",
-          new DateFormatter(new JVDateFormatTTMMJJJJ()));
+          new DateFormatter(new SCDateFormatTTMMJJJJ()));
       mitgliedskontoList.addColumn("Abrechnungslauf", "abrechnungslauf");
       mitgliedskontoList.addColumn("Name", "mitglied");
       mitgliedskontoList.addColumn("Zweck", "zweck1");
@@ -709,7 +709,7 @@ public class MitgliedskontoControl extends AbstractControl
       if (d1 != null)
       {
         settings.setAttribute(datumverwendung + "datumvon",
-            new JVDateFormatTTMMJJJJ().format(d1));
+            new SCDateFormatTTMMJJJJ().format(d1));
         vd = new java.sql.Date(d1.getTime());
       }
       else
@@ -723,7 +723,7 @@ public class MitgliedskontoControl extends AbstractControl
       if (d1 != null)
       {
         settings.setAttribute(datumverwendung + "datumbis",
-            new JVDateFormatTTMMJJJJ().format(d1));
+            new SCDateFormatTTMMJJJJ().format(d1));
         bd = new java.sql.Date(d1.getTime());
       }
       else

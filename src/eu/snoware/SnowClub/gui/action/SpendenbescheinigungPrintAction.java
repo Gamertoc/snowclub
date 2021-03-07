@@ -47,8 +47,8 @@ import eu.snoware.SnowClub.rmi.Buchung;
 import eu.snoware.SnowClub.rmi.Formular;
 import eu.snoware.SnowClub.rmi.Spendenbescheinigung;
 import eu.snoware.SnowClub.util.Dateiname;
-import eu.snoware.SnowClub.util.JVDateFormatJJJJ;
-import eu.snoware.SnowClub.util.JVDateFormatTTMMJJJJ;
+import eu.snoware.SnowClub.util.SCDateFormatJJJJ;
+import eu.snoware.SnowClub.util.SCDateFormatTTMMJJJJ;
 
 /**
  * Action zur Generierung von Spendenbescheinigungen aus der Datenbank.<br>
@@ -411,7 +411,7 @@ public class SpendenbescheinigungPrintAction implements Action
           + " nach dem letzten uns zugegangenen Freistellungsbescheid bzw. nach der Anlage zum Körperschaftssteuerbescheid des Finanzamtes "
           + Einstellungen.getEinstellung().getFinanzamt() + ", StNr. "
           + Einstellungen.getEinstellung().getSteuernummer() + ", vom "
-          + new JVDateFormatTTMMJJJJ()
+          + new SCDateFormatTTMMJJJJ()
               .format(Einstellungen.getEinstellung().getBescheiddatum())
           + " nach § 5 Abs. 1 Nr. 9 des Körperschaftsteuergesetzes von der Körperschaftsteuer und nach § 3 Nr. 6 des Gewerbesteuergesetzes von der Gewerbesteuer befreit.";
       rpt.add(txt, 9);
@@ -424,10 +424,10 @@ public class SpendenbescheinigungPrintAction implements Action
           + " durch vorläufige Bescheinigung des Finanzamtes "
           + Einstellungen.getEinstellung().getFinanzamt() + ", StNr. "
           + Einstellungen.getEinstellung().getSteuernummer() + ", vom "
-          + new JVDateFormatTTMMJJJJ()
+          + new SCDateFormatTTMMJJJJ()
               .format(Einstellungen.getEinstellung().getBescheiddatum())
           + " ab "
-          + new JVDateFormatTTMMJJJJ()
+          + new SCDateFormatTTMMJJJJ()
               .format(Einstellungen.getEinstellung().getVorlaeufigab())
           + " als steuerbegünstigten Zwecken dienend anerkannt.";
       rpt.add(txt, 9);
@@ -454,7 +454,7 @@ public class SpendenbescheinigungPrintAction implements Action
 
     rpt.add(
         "\n\n" + Einstellungen.getEinstellung().getOrt() + ", "
-            + new JVDateFormatTTMMJJJJ().format(spb.getBescheinigungsdatum()),
+            + new SCDateFormatTTMMJJJJ().format(spb.getBescheinigungsdatum()),
         9);
 
     rpt.add(
@@ -746,7 +746,7 @@ public class SpendenbescheinigungPrintAction implements Action
           + " nach dem letzten uns zugegangenen Freistellungsbescheid bzw. nach der Anlage zum Körperschaftssteuerbescheid des Finanzamtes "
           + Einstellungen.getEinstellung().getFinanzamt() + ", StNr. "
           + Einstellungen.getEinstellung().getSteuernummer() + ", vom "
-          + new JVDateFormatTTMMJJJJ()
+          + new SCDateFormatTTMMJJJJ()
               .format(Einstellungen.getEinstellung().getBescheiddatum())
           + " nach § 5 Abs. 1 Nr. 9 des Körperschaftsteuergesetzes von der Körperschaftsteuer und nach § 3 Nr. 6 des Gewerbesteuergesetzes von der Gewerbesteuer befreit.";
       rpt.add(txt, 8);
@@ -758,10 +758,10 @@ public class SpendenbescheinigungPrintAction implements Action
           + " durch vorläufige Bescheinigung des Finanzamtes "
           + Einstellungen.getEinstellung().getFinanzamt() + ", StNr. "
           + Einstellungen.getEinstellung().getSteuernummer() + ", vom "
-          + new JVDateFormatTTMMJJJJ()
+          + new SCDateFormatTTMMJJJJ()
               .format(Einstellungen.getEinstellung().getBescheiddatum())
           + " ab "
-          + new JVDateFormatTTMMJJJJ()
+          + new SCDateFormatTTMMJJJJ()
               .format(Einstellungen.getEinstellung().getVorlaeufigab())
           + " als begünstigten Zwecken dienend anerkannt.";
       rpt.add(txt, 8);
@@ -815,7 +815,7 @@ public class SpendenbescheinigungPrintAction implements Action
 
     rpt.add(
         "\n\n" + Einstellungen.getEinstellung().getOrt() + ", "
-            + new JVDateFormatTTMMJJJJ().format(spb.getBescheinigungsdatum()),
+            + new SCDateFormatTTMMJJJJ().format(spb.getBescheinigungsdatum()),
         9);
 
     rpt.add(
@@ -1112,7 +1112,7 @@ public class SpendenbescheinigungPrintAction implements Action
           + Einstellungen.getEinstellung().getFinanzamt() + ", StNr. "
           + Einstellungen.getEinstellung().getSteuernummer()
           + ", mit Bescheid vom "
-          + new JVDateFormatTTMMJJJJ()
+          + new SCDateFormatTTMMJJJJ()
               .format(Einstellungen.getEinstellung().getBescheiddatum())
           + " nach § 60a AO gesondert festgestellt. Wir fördern nach unserer Satzung "
           + Einstellungen.getEinstellung().getBeguenstigterzweck();
@@ -1127,13 +1127,13 @@ public class SpendenbescheinigungPrintAction implements Action
           + "des Finanzamtes " + Einstellungen.getEinstellung().getFinanzamt()
           + ", StNr. " + Einstellungen.getEinstellung().getSteuernummer()
           + ", vom "
-          + new JVDateFormatTTMMJJJJ()
+          + new SCDateFormatTTMMJJJJ()
               .format(Einstellungen.getEinstellung().getBescheiddatum())
           + " für den letzten Veranlagungszeitraum "
-          + new JVDateFormatJJJJ()
+          + new SCDateFormatJJJJ()
               .format(Einstellungen.getEinstellung().getVeranlagungVon())
           + " bis "
-          + new JVDateFormatJJJJ()
+          + new SCDateFormatJJJJ()
               .format(Einstellungen.getEinstellung().getVeranlagungBis())
           + " nach § 5 Abs. 1 Nr. 9 des Körperschaftsteuergesetzes von der Körperschaftsteuer und nach "
           + "§ 3 Nr. 6 des Gewerbesteuergesetzes von der Gewerbesteuer befreit.";
@@ -1188,7 +1188,7 @@ public class SpendenbescheinigungPrintAction implements Action
 
     rpt.add(
         "\n\n" + Einstellungen.getEinstellung().getOrt() + ", "
-            + new JVDateFormatTTMMJJJJ().format(spb.getBescheinigungsdatum()),
+            + new SCDateFormatTTMMJJJJ().format(spb.getBescheinigungsdatum()),
         9);
 
     rpt.add(

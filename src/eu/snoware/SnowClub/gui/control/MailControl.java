@@ -63,8 +63,8 @@ import eu.snoware.SnowClub.rmi.Mail;
 import eu.snoware.SnowClub.rmi.MailAnhang;
 import eu.snoware.SnowClub.rmi.MailEmpfaenger;
 import eu.snoware.SnowClub.rmi.Mitglied;
-import eu.snoware.SnowClub.util.JVDateFormatDATETIME;
-import eu.snoware.SnowClub.util.JVDateFormatTTMMJJJJ;
+import eu.snoware.SnowClub.util.SCDateFormatDATETIME;
+import eu.snoware.SnowClub.util.SCDateFormatTTMMJJJJ;
 
 public class MailControl extends AbstractControl
 {
@@ -137,7 +137,7 @@ public class MailControl extends AbstractControl
     empfaenger.addColumn("Mail-Adresse", "mailadresse");
     empfaenger.addColumn("Name", "name");
     empfaenger.addColumn("Versand", "versand",
-        new DateFormatter(new JVDateFormatDATETIME()));
+        new DateFormatter(new SCDateFormatDATETIME()));
     empfaenger.setContextMenu(new MailAuswahlMenu(this));
     empfaenger.setRememberOrder(true);
     empfaenger.setSummary(false);
@@ -610,9 +610,9 @@ public class MailControl extends AbstractControl
     mailsList = new TablePart(mails, new MailDetailAction());
     mailsList.addColumn("Betreff", "betreff");
     mailsList.addColumn("Bearbeitung", "bearbeitung",
-        new DateFormatter(new JVDateFormatDATETIME()));
+        new DateFormatter(new SCDateFormatDATETIME()));
     mailsList.addColumn("Versand", "versand",
-        new DateFormatter(new JVDateFormatDATETIME()));
+        new DateFormatter(new SCDateFormatDATETIME()));
     mailsList.setRememberColWidths(true);
     mailsList.setContextMenu(new MailMenu());
     mailsList.setRememberOrder(true);
@@ -627,7 +627,7 @@ public class MailControl extends AbstractControl
     public EvalMail(MailEmpfaenger empf) throws RemoteException
     {
       context = new VelocityContext();
-      context.put("dateformat", new JVDateFormatTTMMJJJJ());
+      context.put("dateformat", new SCDateFormatTTMMJJJJ());
       context.put("decimalformat", Einstellungen.DECIMALFORMAT);
       context.put("email", empf.getMailAdresse());
       context.put("empf", empf.getMitglied());

@@ -45,10 +45,10 @@ import de.willuhn.logging.Logger;
 import de.willuhn.util.ApplicationException;
 import de.willuhn.util.ProgressMonitor;
 import eu.snoware.SnowClub.Einstellungen;
-import eu.snoware.SnowClub.JVereinPlugin;
+import eu.snoware.SnowClub.SnowClubPlugin;
 import eu.snoware.SnowClub.rmi.Adresstyp;
 import eu.snoware.SnowClub.rmi.Mitglied;
-import eu.snoware.SnowClub.util.JVDateFormatJJJJMMTT;
+import eu.snoware.SnowClub.util.SCDateFormatJJJJMMTT;
 
 /**
  * Action zum Einspielen eines XML-Backups.
@@ -89,7 +89,7 @@ public class BackupRestoreAction implements Action
 
     FileDialog fd = new FileDialog(GUI.getShell(), SWT.OPEN);
     fd.setFileName(
-        "jverein-" + new JVDateFormatJJJJMMTT().format(new Date()) + ".xml");
+        "jverein-" + new SCDateFormatJJJJMMTT().format(new Date()) + ".xml");
     fd.setFilterExtensions(new String[] { "*.xml" });
     fd.setText("Bitte wählen Sie die Backup-Datei aus");
     String f = fd.open();
@@ -118,7 +118,7 @@ public class BackupRestoreAction implements Action
         monitor.setStatusText("Importiere Backup");
         Logger.info("importing backup " + file.getAbsolutePath());
         final ClassLoader loader = Application.getPluginLoader()
-            .getPlugin(JVereinPlugin.class).getManifest().getClassLoader();
+            .getPlugin(SnowClubPlugin.class).getManifest().getClassLoader();
 
         Reader reader = null;
         try

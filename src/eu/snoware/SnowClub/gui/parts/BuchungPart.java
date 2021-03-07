@@ -29,7 +29,7 @@ import de.willuhn.jameica.gui.util.LabelGroup;
 import de.willuhn.jameica.gui.util.ScrolledContainer;
 import de.willuhn.jameica.gui.util.SimpleContainer;
 import eu.snoware.SnowClub.Einstellungen;
-import eu.snoware.SnowClub.JVereinPlugin;
+import eu.snoware.SnowClub.SnowClubPlugin;
 import eu.snoware.SnowClub.gui.control.BuchungsControl;
 import eu.snoware.SnowClub.gui.control.DokumentControl;
 import eu.snoware.SnowClub.rmi.Buchung;
@@ -88,7 +88,7 @@ public class BuchungPart implements Part
     grSpendeninfos.addHeadline("Spendendetails");
     grSpendeninfos.addLabelPair("Erstattungsverzicht", control.getVerzicht());
 
-    if (JVereinPlugin.isArchiveServiceActive())
+    if (SnowClubPlugin.isArchiveServiceActive())
     {
       Buchung bu = (Buchung) control.getCurrentObject();
       if (!bu.isNewObject())

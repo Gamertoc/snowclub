@@ -32,7 +32,7 @@ import de.willuhn.jameica.plugin.AbstractPlugin;
 import de.willuhn.jameica.system.Application;
 import de.willuhn.util.ApplicationException;
 import eu.snoware.SnowClub.Einstellungen;
-import eu.snoware.SnowClub.JVereinPlugin;
+import eu.snoware.SnowClub.SnowClubPlugin;
 import eu.snoware.SnowClub.rmi.Version;
 
 public class AboutView extends AbstractDialog<Object>
@@ -64,7 +64,7 @@ public class AboutView extends AbstractDialog<Object>
     LabelGroup group = new LabelGroup(parent, "Information");
 
     AbstractPlugin p = Application.getPluginLoader()
-        .getPlugin(JVereinPlugin.class);
+        .getPlugin(SnowClubPlugin.class);
 
     group.addLabelPair("Version",
         new LabelInput("" + p.getManifest().getVersion()));

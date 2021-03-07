@@ -1,7 +1,7 @@
 <plugin xmlns="http://www.willuhn.de/schema/jameica-plugin"
         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
         xsi:schemaLocation="http://www.willuhn.de/schema/jameica-plugin http://www.willuhn.de/schema/jameica-plugin-1.2.xsd"
-        name="jverein" version="2.8.18" class="eu.snoware.SnowClub.JVereinPlugin">
+        name="snowclub" version="2.8.18" class="eu.snoware.SnowClub.SnowClubPlugin">
 
   <description>OpenSource-Vereinsverwaltung</description>
   <url>https://www.jverein.de/updates/2.8/jverein.2.8.18.zip</url>
@@ -9,7 +9,7 @@
   <license>GPL - http://www.gnu.org/copyleft/gpl.html</license>
   <icon>jverein-icon-64x64.png</icon>
   <menu>
-    <item name="JVerein" >
+    <item name="SnowClub" >
   	  <item name="&amp;Über" 
             action="eu.snoware.SnowClub.gui.action.AboutAction" 
             icon="gtk-info.png"  />
@@ -20,21 +20,21 @@
     </item>
   </menu>
   <classfinder>
-    <include>jverein\.jar</include>
+    <include>snowclub\.jar</include>
     <include>.*\.class</include>
   </classfinder>
 
   <navigation>
-    <item name="JVerein"		
+    <item name="SnowClub"		
 	  icon-close="folder.png" 
 	  icon-open="folder-open.png" 	
-    id="jverein.main">
+    id="snowclub.main">
     </item>
   </navigation>
    
   <services>
     <service name="database" depends="" autostart="true"
-	  class="eu.snoware.SnowClub.server.JVereinDBServiceImpl" />
+	  class="eu.snoware.SnowClub.server.SnowClubDBServiceImpl" />
   </services>
 	
   <requires jameica="2.8+">

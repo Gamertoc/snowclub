@@ -37,7 +37,7 @@ import eu.snoware.SnowClub.io.Adressbuch.Adressaufbereitung;
 import eu.snoware.SnowClub.keys.Zahlungsweg;
 import eu.snoware.SnowClub.rmi.Mitglied;
 import eu.snoware.SnowClub.util.Dateiname;
-import eu.snoware.SnowClub.util.JVDateFormatTTMMJJJJ;
+import eu.snoware.SnowClub.util.SCDateFormatTTMMJJJJ;
 
 public class Kontoauszug
 {
@@ -110,7 +110,7 @@ public class Kontoauszug
     rpt.add(
         String.format("Kontoauszug %s", Adressaufbereitung.getVornameName(m)),
         18);
-    JVDateFormatTTMMJJJJ jv = new JVDateFormatTTMMJJJJ();
+    SCDateFormatTTMMJJJJ jv = new SCDateFormatTTMMJJJJ();
     rpt.add(String.format("Stand: %s", jv.format(new Date())), 16);
 
     rpt.addHeaderColumn(" ", Element.ALIGN_CENTER, 20, BaseColor.LIGHT_GRAY);

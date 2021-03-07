@@ -38,7 +38,7 @@ import eu.snoware.SnowClub.Einstellungen;
 import eu.snoware.SnowClub.rmi.Beitragsgruppe;
 import eu.snoware.SnowClub.rmi.Mitglied;
 import eu.snoware.SnowClub.rmi.MitgliedNextBGruppe;
-import eu.snoware.SnowClub.util.JVDateFormatTTMMJJJJ;
+import eu.snoware.SnowClub.util.SCDateFormatTTMMJJJJ;
 
 /**
  * @author Rolf Mamat
@@ -140,7 +140,7 @@ public class MitgliedNextBGruppeChecker extends AbstractBox
     {
       aenderungsListenPart = new TablePart(null);
       aenderungsListenPart.addColumn("Datum", MitgliedNextBGruppe.COL_AB_DATUM,
-          new DateFormatter(new JVDateFormatTTMMJJJJ()));
+          new DateFormatter(new SCDateFormatTTMMJJJJ()));
       aenderungsListenPart.addColumn("Mitglied",
           MitgliedNextBGruppe.VIEW_NAME_VORNAME);
       aenderungsListenPart.addColumn("Von Beitragsgruppe",

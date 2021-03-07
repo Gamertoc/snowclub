@@ -62,7 +62,7 @@ import eu.snoware.SnowClub.io.FileViewer;
 import eu.snoware.SnowClub.io.Reporter;
 import eu.snoware.SnowClub.rmi.Kursteilnehmer;
 import eu.snoware.SnowClub.util.Dateiname;
-import eu.snoware.SnowClub.util.JVDateFormatTTMMJJJJ;
+import eu.snoware.SnowClub.util.SCDateFormatTTMMJJJJ;
 
 public class KursteilnehmerControl extends AbstractControl
 {
@@ -304,7 +304,7 @@ public class KursteilnehmerControl extends AbstractControl
     {
       d = null;
     }
-    this.mandatdatum = new DateInput(d, new JVDateFormatTTMMJJJJ());
+    this.mandatdatum = new DateInput(d, new SCDateFormatTTMMJJJJ());
     this.mandatdatum.setTitle("Datum des Mandats");
     this.mandatdatum.setName("Datum des Mandats");
     this.mandatdatum.setText("Bitte Datum des Mandats wählen");
@@ -356,7 +356,7 @@ public class KursteilnehmerControl extends AbstractControl
       return geburtsdatum;
     }
     Date d = getKursteilnehmer().getGeburtsdatum();
-    this.geburtsdatum = new DateInput(d, new JVDateFormatTTMMJJJJ());
+    this.geburtsdatum = new DateInput(d, new SCDateFormatTTMMJJJJ());
     this.geburtsdatum.setTitle("Geburtsdatum");
     this.geburtsdatum.setText(("Bitte Geburtsdatum wählen"));
     this.geburtsdatum.setMandatory(true);
@@ -400,14 +400,14 @@ public class KursteilnehmerControl extends AbstractControl
     {
       try
       {
-        d = new JVDateFormatTTMMJJJJ().parse(tmp);
+        d = new SCDateFormatTTMMJJJJ().parse(tmp);
       }
       catch (ParseException e)
       {
         //
       }
     }
-    this.eingabedatumvon = new DateInput(d, new JVDateFormatTTMMJJJJ());
+    this.eingabedatumvon = new DateInput(d, new SCDateFormatTTMMJJJJ());
     this.eingabedatumvon.setTitle("Eingabedatum");
     this.eingabedatumvon.setText("Beginn des Eingabe-Zeitraumes");
     eingabedatumvon.addListener(new FilterListener());
@@ -426,14 +426,14 @@ public class KursteilnehmerControl extends AbstractControl
     {
       try
       {
-        d = new JVDateFormatTTMMJJJJ().parse(tmp);
+        d = new SCDateFormatTTMMJJJJ().parse(tmp);
       }
       catch (ParseException e)
       {
         //
       }
     }
-    this.eingabedatumbis = new DateInput(d, new JVDateFormatTTMMJJJJ());
+    this.eingabedatumbis = new DateInput(d, new SCDateFormatTTMMJJJJ());
     this.eingabedatumbis.setTitle("Eingabedatum");
     this.eingabedatumbis.setText("Ende des Eingabe-Zeitraumes");
     eingabedatumbis.addListener(new FilterListener());
@@ -452,14 +452,14 @@ public class KursteilnehmerControl extends AbstractControl
     {
       try
       {
-        d = new JVDateFormatTTMMJJJJ().parse(tmp);
+        d = new SCDateFormatTTMMJJJJ().parse(tmp);
       }
       catch (ParseException e)
       {
         //
       }
     }
-    this.abbuchungsdatumvon = new DateInput(d, new JVDateFormatTTMMJJJJ());
+    this.abbuchungsdatumvon = new DateInput(d, new SCDateFormatTTMMJJJJ());
     this.abbuchungsdatumvon.setTitle("Abbuchungsdatum");
     this.abbuchungsdatumvon.setText("Beginn des Abbuchungszeitraumes");
     return abbuchungsdatumvon;
@@ -477,14 +477,14 @@ public class KursteilnehmerControl extends AbstractControl
     {
       try
       {
-        d = new JVDateFormatTTMMJJJJ().parse(tmp);
+        d = new SCDateFormatTTMMJJJJ().parse(tmp);
       }
       catch (ParseException e)
       {
         //
       }
     }
-    this.abbuchungsdatumbis = new DateInput(d, new JVDateFormatTTMMJJJJ());
+    this.abbuchungsdatumbis = new DateInput(d, new SCDateFormatTTMMJJJJ());
     this.abbuchungsdatumbis.setTitle("Abbuchungsdatum");
     this.abbuchungsdatumbis.setText("Ende des Abbuchungszeitraumes");
     return abbuchungsdatumbis;
@@ -509,9 +509,9 @@ public class KursteilnehmerControl extends AbstractControl
         new CurrencyFormatter("", Einstellungen.DECIMALFORMAT));
     part.addColumn("Mandats-ID", "mandatid");
     part.addColumn("Eingabedatum", "eingabedatum",
-        new DateFormatter(new JVDateFormatTTMMJJJJ()));
+        new DateFormatter(new SCDateFormatTTMMJJJJ()));
     part.addColumn("Abbuchungsdatum", "abbudatum",
-        new DateFormatter(new JVDateFormatTTMMJJJJ()));
+        new DateFormatter(new SCDateFormatTTMMJJJJ()));
     part.setContextMenu(new KursteilnehmerMenu(part));
 
     return part;
@@ -574,7 +574,7 @@ public class KursteilnehmerControl extends AbstractControl
       if (tmp != null)
       {
         settings.setAttribute("eingabedatum.von",
-            new JVDateFormatTTMMJJJJ().format(tmp));
+            new SCDateFormatTTMMJJJJ().format(tmp));
       }
       else
       {
@@ -588,7 +588,7 @@ public class KursteilnehmerControl extends AbstractControl
       if (tmp != null)
       {
         settings.setAttribute("eingabedatum.bis",
-            new JVDateFormatTTMMJJJJ().format(tmp));
+            new SCDateFormatTTMMJJJJ().format(tmp));
       }
       else
       {
@@ -602,7 +602,7 @@ public class KursteilnehmerControl extends AbstractControl
       if (tmp != null)
       {
         settings.setAttribute("abbuchungsdatum.von",
-            new JVDateFormatTTMMJJJJ().format(tmp));
+            new SCDateFormatTTMMJJJJ().format(tmp));
       }
       else
       {
@@ -616,7 +616,7 @@ public class KursteilnehmerControl extends AbstractControl
       if (tmp != null)
       {
         settings.setAttribute("abbuchungsdatum.bis",
-            new JVDateFormatTTMMJJJJ().format(tmp));
+            new SCDateFormatTTMMJJJJ().format(tmp));
       }
       else
       {
@@ -686,14 +686,14 @@ public class KursteilnehmerControl extends AbstractControl
       {
         Date d = (Date) abbuchungsdatumvon.getValue();
         subtitle += "Abbuchungsdatum von" + " "
-            + new JVDateFormatTTMMJJJJ().format(d) + "  ";
+            + new SCDateFormatTTMMJJJJ().format(d) + "  ";
         list.addFilter("abbudatum >= ?",
             new Object[] { new java.sql.Date(d.getTime()) });
       }
       if (abbuchungsdatumbis.getValue() != null)
       {
         Date d = (Date) abbuchungsdatumbis.getValue();
-        subtitle += " " + "bis" + " " + new JVDateFormatTTMMJJJJ().format(d)
+        subtitle += " " + "bis" + " " + new SCDateFormatTTMMJJJJ().format(d)
             + "  ";
         list.addFilter("abbudatum <= ?",
             new Object[] { new java.sql.Date(d.getTime()) });

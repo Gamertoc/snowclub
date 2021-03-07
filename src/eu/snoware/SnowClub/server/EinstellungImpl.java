@@ -34,7 +34,7 @@ import de.willuhn.jameica.system.Settings;
 import de.willuhn.logging.Logger;
 import de.willuhn.util.ApplicationException;
 import eu.snoware.SnowClub.Einstellungen;
-import eu.snoware.SnowClub.JVereinPlugin;
+import eu.snoware.SnowClub.SnowClubPlugin;
 import eu.snoware.SnowClub.io.AltersgruppenParser;
 import eu.snoware.SnowClub.io.JubilaeenParser;
 import eu.snoware.SnowClub.keys.Altermodel;
@@ -150,7 +150,7 @@ public class EinstellungImpl extends AbstractDBObject implements Einstellung
 
       if (getDokumentenspeicherung())
       {
-        if (!JVereinPlugin.isArchiveServiceActive())
+        if (!SnowClubPlugin.isArchiveServiceActive())
         {
           throw new ApplicationException(
               "Plugin jameica.messaging ist nicht installiert oder im LAN verfügbar! Wird zur Dokumentenspeicherung benötigt!");

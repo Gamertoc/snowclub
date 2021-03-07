@@ -32,7 +32,7 @@ import de.willuhn.jameica.system.OperationCanceledException;
 import eu.snoware.SnowClub.Einstellungen;
 import eu.snoware.SnowClub.gui.menu.ZusatzbetragVorlageMenu;
 import eu.snoware.SnowClub.rmi.ZusatzbetragVorlage;
-import eu.snoware.SnowClub.util.JVDateFormatTTMMJJJJ;
+import eu.snoware.SnowClub.util.SCDateFormatTTMMJJJJ;
 
 /**
  * Ein Dialog, zur Auswahl und Bearbeitung von Zusatzbetrag-Vorlagen
@@ -94,12 +94,12 @@ public class ZusatzbetragVorlageDialog
       }
     });
     tab.addColumn("Startdatum", "startdatum",
-        new DateFormatter(new JVDateFormatTTMMJJJJ()));
+        new DateFormatter(new SCDateFormatTTMMJJJJ()));
     tab.addColumn("nächste Fälligkeit", "faelligkeit",
-        new DateFormatter(new JVDateFormatTTMMJJJJ()));
+        new DateFormatter(new SCDateFormatTTMMJJJJ()));
     tab.addColumn("Intervall", "intervalltext");
     tab.addColumn("Endedatum", "endedatum",
-        new DateFormatter(new JVDateFormatTTMMJJJJ()));
+        new DateFormatter(new SCDateFormatTTMMJJJJ()));
     tab.addColumn("Buchungstext", "buchungstext");
     tab.addColumn("Betrag", "betrag",
         new CurrencyFormatter("", Einstellungen.DECIMALFORMAT));

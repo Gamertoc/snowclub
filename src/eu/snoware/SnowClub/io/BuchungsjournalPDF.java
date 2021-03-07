@@ -29,7 +29,7 @@ import de.willuhn.util.ApplicationException;
 import eu.snoware.SnowClub.Queries.BuchungQuery;
 import eu.snoware.SnowClub.keys.ArtBuchungsart;
 import eu.snoware.SnowClub.rmi.Buchung;
-import eu.snoware.SnowClub.util.JVDateFormatTTMMJJJJ;
+import eu.snoware.SnowClub.util.SCDateFormatTTMMJJJJ;
 
 public class BuchungsjournalPDF
 {
@@ -53,7 +53,7 @@ public class BuchungsjournalPDF
       for (Buchung b : query.get())
       {
         reporter.addColumn(b.getID(), Element.ALIGN_RIGHT);
-        reporter.addColumn(new JVDateFormatTTMMJJJJ().format(b.getDatum()),
+        reporter.addColumn(new SCDateFormatTTMMJJJJ().format(b.getDatum()),
             Element.ALIGN_LEFT);
         reporter.addColumn(b.getKonto().getNummer(), Element.ALIGN_RIGHT);
         if (b.getAuszugsnummer() != null)

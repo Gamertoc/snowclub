@@ -80,7 +80,7 @@ import eu.snoware.SnowClub.server.SpendenbescheinigungImpl;
 import eu.snoware.SnowClub.server.WiedervorlageImpl;
 import eu.snoware.SnowClub.server.ZusatzbetragImpl;
 import eu.snoware.SnowClub.server.ZusatzfelderImpl;
-import eu.snoware.SnowClub.util.JVDateFormatJJJJMMTT;
+import eu.snoware.SnowClub.util.SCDateFormatJJJJMMTT;
 
 /**
  * Action zum Erstellen eines Komplett-Backups im XML-Format.
@@ -98,7 +98,7 @@ public class BackupCreateAction implements Action
     FileDialog fd = new FileDialog(GUI.getShell(), SWT.SAVE);
     fd.setFilterPath(System.getProperty("user.home"));
     fd.setFileName("jverein-backup-"
-        + new JVDateFormatJJJJMMTT().format(new Date()) + ".xml");
+        + new SCDateFormatJJJJMMTT().format(new Date()) + ".xml");
     fd.setFilterExtensions(new String[] { "*.xml" });
     fd.setText(
         "Bitte wählen Sie die Datei, in der das Backup gespeichert wird");

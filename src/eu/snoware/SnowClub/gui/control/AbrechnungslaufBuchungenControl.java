@@ -51,7 +51,7 @@ import eu.snoware.SnowClub.io.AbrechnungslaufPDF;
 import eu.snoware.SnowClub.rmi.Abrechnungslauf;
 import eu.snoware.SnowClub.rmi.Mitgliedskonto;
 import eu.snoware.SnowClub.util.Dateiname;
-import eu.snoware.SnowClub.util.JVDateFormatTTMMJJJJ;
+import eu.snoware.SnowClub.util.SCDateFormatTTMMJJJJ;
 
 public class AbrechnungslaufBuchungenControl extends AbstractControl
 {
@@ -154,7 +154,7 @@ public class AbrechnungslaufBuchungenControl extends AbstractControl
     {
       SollbuchungsList = new TablePart(it, new MitgliedDetailAction());
       SollbuchungsList.addColumn("Fälligkeit", "datum",
-          new DateFormatter(new JVDateFormatTTMMJJJJ()));
+          new DateFormatter(new SCDateFormatTTMMJJJJ()));
 
       SollbuchungsList.addColumn("Mitglied", "mitglied");
       SollbuchungsList.addColumn("Zweck", "zweck1");

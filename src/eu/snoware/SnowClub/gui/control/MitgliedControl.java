@@ -144,8 +144,8 @@ import eu.snoware.SnowClub.server.EigenschaftenNode;
 import eu.snoware.SnowClub.server.MitgliedUtils;
 import eu.snoware.SnowClub.util.Dateiname;
 import eu.snoware.SnowClub.util.Datum;
-import eu.snoware.SnowClub.util.JVDateFormatTIMESTAMP;
-import eu.snoware.SnowClub.util.JVDateFormatTTMMJJJJ;
+import eu.snoware.SnowClub.util.SCDateFormatTIMESTAMP;
+import eu.snoware.SnowClub.util.SCDateFormatTTMMJJJJ;
 import eu.snoware.SnowClub.util.LesefeldAuswerter;
 import eu.snoware.SnowClub.util.MitgliedSpaltenauswahl;
 
@@ -663,7 +663,7 @@ public class MitgliedControl extends AbstractControl
     {
       d = null;
     }
-    this.geburtsdatum = new DateInput(d, new JVDateFormatTTMMJJJJ());
+    this.geburtsdatum = new DateInput(d, new SCDateFormatTTMMJJJJ());
     this.geburtsdatum.setName("Geburtsdatum");
     this.geburtsdatum.setTitle("Geburtsdatum");
     this.geburtsdatum.setText("Bitte Geburtsdatum wählen");
@@ -871,7 +871,7 @@ public class MitgliedControl extends AbstractControl
     {
       d = null;
     }
-    this.mandatdatum = new DateInput(d, new JVDateFormatTTMMJJJJ());
+    this.mandatdatum = new DateInput(d, new SCDateFormatTTMMJJJJ());
     this.mandatdatum.setTitle("Datum des Mandats");
     this.mandatdatum.setName("Datum des Mandats");
     this.mandatdatum.setText("Bitte Datum des Mandats wählen");
@@ -928,7 +928,7 @@ public class MitgliedControl extends AbstractControl
     }
 
     Date d = getMitglied().getLetzteLastschrift();
-    this.letztelastschrift = new DateInput(d, new JVDateFormatTTMMJJJJ());
+    this.letztelastschrift = new DateInput(d, new SCDateFormatTTMMJJJJ());
     this.letztelastschrift.setEnabled(false);
     this.letztelastschrift.setName("letzte Lastschrift");
     return letztelastschrift;
@@ -1158,7 +1158,7 @@ public class MitgliedControl extends AbstractControl
     {
       d = null;
     }
-    this.eintritt = new DateInput(d, new JVDateFormatTTMMJJJJ());
+    this.eintritt = new DateInput(d, new SCDateFormatTTMMJJJJ());
     this.eintritt.setTitle("Eintrittsdatum");
     this.eintritt.setName("Eintrittsdatum");
     this.eintritt.setText("Bitte Eintrittsdatum wählen");
@@ -1522,7 +1522,7 @@ public class MitgliedControl extends AbstractControl
     }
     Date d = getMitglied().getAustritt();
 
-    this.austritt = new DateInput(d, new JVDateFormatTTMMJJJJ());
+    this.austritt = new DateInput(d, new SCDateFormatTTMMJJJJ());
     this.austritt.setTitle("Austrittsdatum");
     this.austritt.setName("Austrittsdatum");
     this.austritt.setText("Bitte Austrittsdatum wählen");
@@ -1550,7 +1550,7 @@ public class MitgliedControl extends AbstractControl
     }
     Date d = getMitglied().getKuendigung();
 
-    this.kuendigung = new DateInput(d, new JVDateFormatTTMMJJJJ());
+    this.kuendigung = new DateInput(d, new SCDateFormatTTMMJJJJ());
     this.kuendigung.setName("Kündigungsdatum");
     this.kuendigung.setTitle("Kündigungsdatum");
     this.kuendigung.setText("Bitte Kündigungsdatum wählen");
@@ -1578,7 +1578,7 @@ public class MitgliedControl extends AbstractControl
     }
     Date d = getMitglied().getSterbetag();
 
-    this.sterbetag = new DateInput(d, new JVDateFormatTTMMJJJJ());
+    this.sterbetag = new DateInput(d, new SCDateFormatTTMMJJJJ());
     this.sterbetag.setName("Sterbetag");
     this.sterbetag.setTitle("Sterbetag");
     this.sterbetag.setText("Bitte Sterbetag wählen");
@@ -1686,7 +1686,7 @@ public class MitgliedControl extends AbstractControl
           break;
         case Datentyp.DATUM:
           Date d = zf.getFeldDatum();
-          DateInput di = new DateInput(d, new JVDateFormatTTMMJJJJ());
+          DateInput di = new DateInput(d, new SCDateFormatTTMMJJJJ());
           di.setName(fd.getLabel());
           di.setTitle(fd.getLabel());
           di.setText(String.format("Bitte %s wählen", fd.getLabel()));
@@ -1844,14 +1844,14 @@ public class MitgliedControl extends AbstractControl
     zusatzbetraegeList.setRememberOrder(true);
 
     zusatzbetraegeList.addColumn("Startdatum", "startdatum",
-        new DateFormatter(new JVDateFormatTTMMJJJJ()));
+        new DateFormatter(new SCDateFormatTTMMJJJJ()));
     zusatzbetraegeList.addColumn("nächste Fälligkeit", "faelligkeit",
-        new DateFormatter(new JVDateFormatTTMMJJJJ()));
+        new DateFormatter(new SCDateFormatTTMMJJJJ()));
     zusatzbetraegeList.addColumn("letzte Ausführung", "ausfuehrung",
-        new DateFormatter(new JVDateFormatTTMMJJJJ()));
+        new DateFormatter(new SCDateFormatTTMMJJJJ()));
     zusatzbetraegeList.addColumn("Intervall", "intervalltext");
     zusatzbetraegeList.addColumn("Endedatum", "endedatum",
-        new DateFormatter(new JVDateFormatTTMMJJJJ()));
+        new DateFormatter(new SCDateFormatTTMMJJJJ()));
     zusatzbetraegeList.addColumn("Buchungstext", "buchungstext");
     zusatzbetraegeList.addColumn("Betrag", "betrag",
         new CurrencyFormatter("", Einstellungen.DECIMALFORMAT));
@@ -1878,10 +1878,10 @@ public class MitgliedControl extends AbstractControl
     wiedervorlageList.setRememberOrder(true);
 
     wiedervorlageList.addColumn("Datum", "datum",
-        new DateFormatter(new JVDateFormatTTMMJJJJ()));
+        new DateFormatter(new SCDateFormatTTMMJJJJ()));
     wiedervorlageList.addColumn("Vermerk", "vermerk");
     wiedervorlageList.addColumn("Erledigung", "erledigung",
-        new DateFormatter(new JVDateFormatTTMMJJJJ()));
+        new DateFormatter(new SCDateFormatTTMMJJJJ()));
     wiedervorlageList.setContextMenu(new WiedervorlageMenu(wiedervorlageList));
     return wiedervorlageList;
   }
@@ -1902,9 +1902,9 @@ public class MitgliedControl extends AbstractControl
     mailList.setRememberOrder(true);
 
     mailList.addColumn("Bearbeitung", "bearbeitung",
-        new DateFormatter(new JVDateFormatTIMESTAMP()));
+        new DateFormatter(new SCDateFormatTIMESTAMP()));
     mailList.addColumn("Versand", "versand",
-        new DateFormatter(new JVDateFormatTIMESTAMP()));
+        new DateFormatter(new SCDateFormatTIMESTAMP()));
     mailList.addColumn("Betreff", "betreff");
     mailList.setContextMenu(new MitgliedMailMenu(this));
     return mailList;
@@ -1928,7 +1928,7 @@ public class MitgliedControl extends AbstractControl
     arbeitseinsatzList.setContextMenu(new ArbeitseinsatzMenu());
 
     arbeitseinsatzList.addColumn("Datum", "datum",
-        new DateFormatter(new JVDateFormatTTMMJJJJ()));
+        new DateFormatter(new SCDateFormatTTMMJJJJ()));
     arbeitseinsatzList.addColumn("Stunden", "stunden",
         new CurrencyFormatter("", Einstellungen.DECIMALFORMAT));
     arbeitseinsatzList.addColumn("Bemerkung", "bemerkung");
@@ -1953,9 +1953,9 @@ public class MitgliedControl extends AbstractControl
 
     lehrgaengeList.addColumn("Lehrgangsart", "lehrgangsart");
     lehrgaengeList.addColumn("von/am", "von",
-        new DateFormatter(new JVDateFormatTTMMJJJJ()));
+        new DateFormatter(new SCDateFormatTTMMJJJJ()));
     lehrgaengeList.addColumn("bis", "bis",
-        new DateFormatter(new JVDateFormatTTMMJJJJ()));
+        new DateFormatter(new SCDateFormatTTMMJJJJ()));
     lehrgaengeList.addColumn("Veranstalter", "veranstalter");
     lehrgaengeList.addColumn("Ergebnis", "ergebnis");
     lehrgaengeList.setContextMenu(new LehrgangMenu());
@@ -1974,14 +1974,14 @@ public class MitgliedControl extends AbstractControl
     {
       try
       {
-        d = new JVDateFormatTTMMJJJJ().parse(tmp);
+        d = new SCDateFormatTTMMJJJJ().parse(tmp);
       }
       catch (ParseException e)
       {
         //
       }
     }
-    this.geburtsdatumvon = new DateInput(d, new JVDateFormatTTMMJJJJ());
+    this.geburtsdatumvon = new DateInput(d, new SCDateFormatTTMMJJJJ());
     this.geburtsdatumvon.setTitle("Geburtsdatum");
     this.geburtsdatumvon.setText("Beginn des Geburtszeitraumes");
     this.geburtsdatumvon.addListener(new Listener()
@@ -2013,14 +2013,14 @@ public class MitgliedControl extends AbstractControl
     {
       try
       {
-        d = new JVDateFormatTTMMJJJJ().parse(tmp);
+        d = new SCDateFormatTTMMJJJJ().parse(tmp);
       }
       catch (ParseException e)
       {
         //
       }
     }
-    this.geburtsdatumbis = new DateInput(d, new JVDateFormatTTMMJJJJ());
+    this.geburtsdatumbis = new DateInput(d, new SCDateFormatTTMMJJJJ());
     this.geburtsdatumbis.setTitle("Geburtsdatum");
     this.geburtsdatumbis.setText("Ende des Geburtszeitraumes");
     this.geburtsdatumbis.addListener(new Listener()
@@ -2052,14 +2052,14 @@ public class MitgliedControl extends AbstractControl
     {
       try
       {
-        d = new JVDateFormatTTMMJJJJ().parse(tmp);
+        d = new SCDateFormatTTMMJJJJ().parse(tmp);
       }
       catch (ParseException e)
       {
         //
       }
     }
-    this.sterbedatumvon = new DateInput(d, new JVDateFormatTTMMJJJJ());
+    this.sterbedatumvon = new DateInput(d, new SCDateFormatTTMMJJJJ());
     this.sterbedatumvon.setTitle("Sterbedatum");
     this.sterbedatumvon.setText("Beginn des Sterbezeitraumes");
     this.sterbedatumvon.addListener(new Listener()
@@ -2091,14 +2091,14 @@ public class MitgliedControl extends AbstractControl
     {
       try
       {
-        d = new JVDateFormatTTMMJJJJ().parse(tmp);
+        d = new SCDateFormatTTMMJJJJ().parse(tmp);
       }
       catch (ParseException e)
       {
         //
       }
     }
-    this.sterbedatumbis = new DateInput(d, new JVDateFormatTTMMJJJJ());
+    this.sterbedatumbis = new DateInput(d, new SCDateFormatTTMMJJJJ());
     this.sterbedatumbis.setTitle("Sterbedatum");
     this.sterbedatumbis.setText("Ende des Sterbezeitraumes");
     this.sterbedatumbis.addListener(new Listener()
@@ -2130,14 +2130,14 @@ public class MitgliedControl extends AbstractControl
     {
       try
       {
-        d = new JVDateFormatTTMMJJJJ().parse(tmp);
+        d = new SCDateFormatTTMMJJJJ().parse(tmp);
       }
       catch (ParseException e)
       {
         //
       }
     }
-    this.eintrittvon = new DateInput(d, new JVDateFormatTTMMJJJJ());
+    this.eintrittvon = new DateInput(d, new SCDateFormatTTMMJJJJ());
     this.eintrittvon.setTitle("Eintrittsdatum");
     this.eintrittvon.setText("Beginn des Eintrittszeitraumes");
     this.eintrittvon.addListener(new Listener()
@@ -2174,14 +2174,14 @@ public class MitgliedControl extends AbstractControl
     {
       try
       {
-        d = new JVDateFormatTTMMJJJJ().parse(tmp);
+        d = new SCDateFormatTTMMJJJJ().parse(tmp);
       }
       catch (ParseException e)
       {
         //
       }
     }
-    this.eintrittbis = new DateInput(d, new JVDateFormatTTMMJJJJ());
+    this.eintrittbis = new DateInput(d, new SCDateFormatTTMMJJJJ());
     this.eintrittbis.setTitle("Eintrittsdatum");
     this.eintrittbis.setText("Ende des Eintrittszeitraumes");
     this.eintrittbis.addListener(new Listener()
@@ -2213,14 +2213,14 @@ public class MitgliedControl extends AbstractControl
     {
       try
       {
-        d = new JVDateFormatTTMMJJJJ().parse(tmp);
+        d = new SCDateFormatTTMMJJJJ().parse(tmp);
       }
       catch (ParseException e)
       {
         //
       }
     }
-    this.austrittvon = new DateInput(d, new JVDateFormatTTMMJJJJ());
+    this.austrittvon = new DateInput(d, new SCDateFormatTTMMJJJJ());
     this.austrittvon.setTitle("Austrittsdatum");
     this.austrittvon.setText("Beginn des Austrittszeitraumes");
     this.austrittvon.addListener(new Listener()
@@ -2257,14 +2257,14 @@ public class MitgliedControl extends AbstractControl
     {
       try
       {
-        d = new JVDateFormatTTMMJJJJ().parse(tmp);
+        d = new SCDateFormatTTMMJJJJ().parse(tmp);
       }
       catch (ParseException e)
       {
         //
       }
     }
-    this.austrittbis = new DateInput(d, new JVDateFormatTTMMJJJJ());
+    this.austrittbis = new DateInput(d, new SCDateFormatTTMMJJJJ());
     this.austrittbis.setTitle("Austrittsdatum");
     this.austrittbis.setText("Ende des Austrittszeitraumes");
     this.austrittbis.addListener(new Listener()
@@ -2308,14 +2308,14 @@ public class MitgliedControl extends AbstractControl
     {
       try
       {
-        d = new JVDateFormatTTMMJJJJ().parse(tmp);
+        d = new SCDateFormatTTMMJJJJ().parse(tmp);
       }
       catch (ParseException e)
       {
         //
       }
     }
-    this.stichtag = new DateInput(d, new JVDateFormatTTMMJJJJ());
+    this.stichtag = new DateInput(d, new SCDateFormatTTMMJJJJ());
     this.stichtag.setTitle("Stichtag");
     this.stichtag.setText("Stichtag");
     this.stichtag.addListener(new Listener()
@@ -2349,7 +2349,7 @@ public class MitgliedControl extends AbstractControl
       cal.set(Calendar.DAY_OF_MONTH, 31);
       d = new Date(cal.getTimeInMillis());
     }
-    this.stichtag = new DateInput(d, new JVDateFormatTTMMJJJJ());
+    this.stichtag = new DateInput(d, new SCDateFormatTTMMJJJJ());
     this.stichtag.setTitle("Stichtag");
     this.stichtag.setName("Stichtag");
     return stichtag;
@@ -2797,7 +2797,7 @@ public class MitgliedControl extends AbstractControl
       if (tmp != null)
       {
         settings.setAttribute("mitglied.geburtsdatumvon",
-            new JVDateFormatTTMMJJJJ().format(tmp));
+            new SCDateFormatTTMMJJJJ().format(tmp));
       }
       else
       {
@@ -2851,7 +2851,7 @@ public class MitgliedControl extends AbstractControl
       if (tmp != null)
       {
         settings.setAttribute("mitglied.geburtsdatumbis",
-            new JVDateFormatTTMMJJJJ().format(tmp));
+            new SCDateFormatTTMMJJJJ().format(tmp));
       }
       else
       {
@@ -2865,7 +2865,7 @@ public class MitgliedControl extends AbstractControl
       if (tmp != null)
       {
         settings.setAttribute("mitglied.sterbedatumvon",
-            new JVDateFormatTTMMJJJJ().format(tmp));
+            new SCDateFormatTTMMJJJJ().format(tmp));
       }
       else
       {
@@ -2879,7 +2879,7 @@ public class MitgliedControl extends AbstractControl
       if (tmp != null)
       {
         settings.setAttribute("mitglied.sterbedatumbis",
-            new JVDateFormatTTMMJJJJ().format(tmp));
+            new SCDateFormatTTMMJJJJ().format(tmp));
       }
       else
       {
@@ -2893,7 +2893,7 @@ public class MitgliedControl extends AbstractControl
       if (tmp != null)
       {
         settings.setAttribute("mitglied.eintrittvon",
-            new JVDateFormatTTMMJJJJ().format(tmp));
+            new SCDateFormatTTMMJJJJ().format(tmp));
       }
       else
       {
@@ -2907,7 +2907,7 @@ public class MitgliedControl extends AbstractControl
       if (tmp != null)
       {
         settings.setAttribute("mitglied.eintrittbis",
-            new JVDateFormatTTMMJJJJ().format(tmp));
+            new SCDateFormatTTMMJJJJ().format(tmp));
       }
       else
       {
@@ -2921,7 +2921,7 @@ public class MitgliedControl extends AbstractControl
       if (tmp != null)
       {
         settings.setAttribute("mitglied.austrittvon",
-            new JVDateFormatTTMMJJJJ().format(tmp));
+            new SCDateFormatTTMMJJJJ().format(tmp));
       }
       else
       {
@@ -2935,7 +2935,7 @@ public class MitgliedControl extends AbstractControl
       if (tmp != null)
       {
         settings.setAttribute("mitglied.austrittbis",
-            new JVDateFormatTTMMJJJJ().format(tmp));
+            new SCDateFormatTTMMJJJJ().format(tmp));
       }
       else
       {
@@ -2948,7 +2948,7 @@ public class MitgliedControl extends AbstractControl
       if (tmp != null)
       {
         settings.setAttribute("mitglied.stichtag",
-            new JVDateFormatTTMMJJJJ().format(tmp));
+            new SCDateFormatTTMMJJJJ().format(tmp));
       }
       else
       {
@@ -3861,7 +3861,7 @@ public class MitgliedControl extends AbstractControl
     beitragsTabelle.setRememberOrder(true);
     beitragsTabelle.setContextMenu(new MitgliedNextBGruppeMenue(this));
     beitragsTabelle.addColumn("Ab Datum", MitgliedNextBGruppe.COL_AB_DATUM,
-        new DateFormatter(new JVDateFormatTTMMJJJJ()));
+        new DateFormatter(new SCDateFormatTTMMJJJJ()));
     beitragsTabelle.addColumn("Beitragsgruppe",
         MitgliedNextBGruppe.VIEW_BEITRAGSGRUPPE);
     beitragsTabelle.addColumn("Bemerkung", MitgliedNextBGruppe.COL_BEMERKUNG);

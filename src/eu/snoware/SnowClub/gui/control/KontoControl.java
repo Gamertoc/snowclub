@@ -41,7 +41,7 @@ import eu.snoware.SnowClub.gui.action.KontoAction;
 import eu.snoware.SnowClub.gui.input.KontoInput;
 import eu.snoware.SnowClub.gui.menu.KontoMenu;
 import eu.snoware.SnowClub.rmi.Konto;
-import eu.snoware.SnowClub.util.JVDateFormatTTMMJJJJ;
+import eu.snoware.SnowClub.util.SCDateFormatTTMMJJJJ;
 
 public class KontoControl extends AbstractControl
 {
@@ -106,7 +106,7 @@ public class KontoControl extends AbstractControl
       return eroeffnung;
     }
     eroeffnung = new DateInput(getKonto().getEroeffnung(),
-        new JVDateFormatTTMMJJJJ());
+        new SCDateFormatTTMMJJJJ());
     return eroeffnung;
   }
 
@@ -117,7 +117,7 @@ public class KontoControl extends AbstractControl
       return aufloesung;
     }
     aufloesung = new DateInput(getKonto().getAufloesung(),
-        new JVDateFormatTTMMJJJJ());
+        new SCDateFormatTTMMJJJJ());
     return aufloesung;
   }
 
@@ -224,9 +224,9 @@ public class KontoControl extends AbstractControl
       }
     }, false, Column.ALIGN_LEFT);
     kontenList.addColumn("Konto-Eröffnung", "eroeffnung",
-        new DateFormatter(new JVDateFormatTTMMJJJJ()));
+        new DateFormatter(new SCDateFormatTTMMJJJJ()));
     kontenList.addColumn("Konto-Auflösung", "aufloesung",
-        new DateFormatter(new JVDateFormatTTMMJJJJ()));
+        new DateFormatter(new SCDateFormatTTMMJJJJ()));
     kontenList.setRememberColWidths(true);
     kontenList.setContextMenu(new KontoMenu());
     kontenList.setRememberOrder(true);

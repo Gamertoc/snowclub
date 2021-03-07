@@ -18,6 +18,12 @@ package eu.snoware.SnowClub;
 
 import java.rmi.RemoteException;
 
+import eu.snoware.SnowClub.gui.navigation.MyExtension;
+import eu.snoware.SnowClub.io.UmsatzMessageConsumer;
+import eu.snoware.SnowClub.rmi.SnowClubDBService;
+import eu.snoware.SnowClub.server.SnowClubDBServiceImpl;
+import eu.snoware.SnowClub.util.HelpConsumer;
+import eu.snoware.SnowClub.util.MemoryAnalyzer;
 import de.willuhn.jameica.gui.extension.ExtensionRegistry;
 import de.willuhn.jameica.messaging.LookupService;
 import de.willuhn.jameica.messaging.MessageConsumer;
@@ -28,25 +34,19 @@ import de.willuhn.jameica.system.Application;
 import de.willuhn.jameica.system.Settings;
 import de.willuhn.logging.Logger;
 import de.willuhn.util.ApplicationException;
-import eu.snoware.SnowClub.gui.navigation.MyExtension;
-import eu.snoware.SnowClub.io.UmsatzMessageConsumer;
-import eu.snoware.SnowClub.rmi.JVereinDBService;
-import eu.snoware.SnowClub.server.JVereinDBServiceImpl;
-import eu.snoware.SnowClub.util.HelpConsumer;
-import eu.snoware.SnowClub.util.MemoryAnalyzer;
 
 /**
  * You need to have at least one class wich inherits from
  * <code>AbstractPlugin</code>. If so, Jameica will detect your plugin
  * automatically at startup.
  */
-public class JVereinPlugin extends AbstractPlugin
+public class SnowClubPlugin extends AbstractPlugin
 {
 
   private Settings settings;
 
   /**
-   * MessageConsumer, mit dem JVerein über neu eingetroffene Umsätze aus
+   * MessageConsumer, mit dem SnowClub über neu eingetroffene Umsätze aus
    * Hibiscus informiert wird.
    */
   private UmsatzMessageConsumer umc = null;
@@ -55,7 +55,7 @@ public class JVereinPlugin extends AbstractPlugin
    * constructor.
    * 
    */
-  public JVereinPlugin()
+  public SnowClubPlugin()
   {
     super();
     settings = new Settings(this.getClass());
@@ -106,7 +106,7 @@ public class JVereinPlugin extends AbstractPlugin
     {
 
       @Override
-      public void call(JVereinDBService service)
+      public void call(SnowClubDBService service)
           throws ApplicationException, RemoteException
       {
         service.checkConsistency();
@@ -114,7 +114,7 @@ public class JVereinPlugin extends AbstractPlugin
     });
 
     Application.getCallback().getStartupMonitor().addPercentComplete(5);
-    ExtensionRegistry.register(new MyExtension(), "jverein.main");
+    ExtensionRegistry.register(new MyExtension(), "snowclub.main");
     this.umc = new UmsatzMessageConsumer();
     Application.getMessagingFactory().registerMessageConsumer(this.umc);
     MessageConsumer mc = new HelpConsumer();
@@ -145,7 +145,7 @@ public class JVereinPlugin extends AbstractPlugin
     {
 
       @Override
-      public void call(JVereinDBService service) throws RemoteException
+      public void call(SnowClubDBService service) throws RemoteException
       {
         service.update(oldVersion, getManifest().getVersion());
       }
@@ -183,7 +183,7 @@ public class JVereinPlugin extends AbstractPlugin
      * @throws ApplicationException
      * @throws RemoteException
      */
-    public void call(JVereinDBService service)
+    public void call(SnowClubDBService service)
         throws ApplicationException, RemoteException;
   }
 
@@ -199,12 +199,12 @@ public class JVereinPlugin extends AbstractPlugin
     if (Application.inClientMode())
       return; // als Client muessen wir die DB nicht installieren
 
-    JVereinDBService service = null;
+    SnowClubDBService service = null;
     try
     {
       // Da die Service-Factory zu diesem Zeitpunkt noch nicht da ist, erzeugen
       // wir uns eine lokale Instanz des Services.
-      service = new JVereinDBServiceImpl();
+      service = new SnowClubDBServiceImpl();
       service.start();
       call.call(service);
     }
@@ -258,11 +258,11 @@ public class JVereinPlugin extends AbstractPlugin
 
   private void update() throws ApplicationException
   {
-    // Settings s1 = new Settings(JVereinDBService.class);
-    // Unter "database.driver" ist die JVerein-Klasse mit den Parametern der
+    // Settings s1 = new Settings(SnowClubDBService.class);
+    // Unter "database.driver" ist die SnowClub-Klasse mit den Parametern der
     // Datenbank gespeichert
     // String d1 = s1.getString("database.driver",
-    // "eu.snoware.SnowClub.server.DBSupportH2Impl");
+    // "de.jost_net.SnowClub.server.DBSupportH2Impl");
     try
     {
       // Die Parameterklasse wird geladen
@@ -293,7 +293,7 @@ public class JVereinPlugin extends AbstractPlugin
       call(new ServiceCall()
       {
         @Override
-        public void call(JVereinDBService service) throws RemoteException
+        public void call(SnowClubDBService service) throws RemoteException
         {
           service.install();
         }

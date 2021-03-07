@@ -84,7 +84,7 @@ public class Geschaeftsjahr
   @Override
   public String toString()
   {
-    return new JVDateFormatTTMMJJJJ().format(beginnGeschaeftsjahr) + " - "
-        + new JVDateFormatTTMMJJJJ().format(endeGeschaeftsjahr);
+    return new SCDateFormatTTMMJJJJ().format(beginnGeschaeftsjahr) + " - "
+        + new SCDateFormatTTMMJJJJ().format(endeGeschaeftsjahr);
   }
 }

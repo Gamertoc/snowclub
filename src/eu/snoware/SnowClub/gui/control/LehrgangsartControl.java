@@ -35,7 +35,7 @@ import eu.snoware.SnowClub.Einstellungen;
 import eu.snoware.SnowClub.gui.action.LehrgangsartAction;
 import eu.snoware.SnowClub.gui.menu.LehrgangsartMenu;
 import eu.snoware.SnowClub.rmi.Lehrgangsart;
-import eu.snoware.SnowClub.util.JVDateFormatTTMMJJJJ;
+import eu.snoware.SnowClub.util.SCDateFormatTTMMJJJJ;
 
 public class LehrgangsartControl extends AbstractControl
 {
@@ -96,7 +96,7 @@ public class LehrgangsartControl extends AbstractControl
     {
       d = null;
     }
-    this.von = new DateInput(d, new JVDateFormatTTMMJJJJ());
+    this.von = new DateInput(d, new SCDateFormatTTMMJJJJ());
     this.von.setTitle("von/am");
     this.von.setText("Bitte Beginn oder Tag der Veranstaltung wählen");
     return von;
@@ -113,7 +113,7 @@ public class LehrgangsartControl extends AbstractControl
     {
       d = null;
     }
-    this.bis = new DateInput(d, new JVDateFormatTTMMJJJJ());
+    this.bis = new DateInput(d, new SCDateFormatTTMMJJJJ());
     this.bis.setTitle("bis");
     this.bis.setText("Bitte Ende der Veranstaltung wählen");
     return bis;
@@ -167,9 +167,9 @@ public class LehrgangsartControl extends AbstractControl
     lehrgangsartList = new TablePart(lehrgangsarten, new LehrgangsartAction());
     lehrgangsartList.addColumn("Bezeichnung", "bezeichnung");
     lehrgangsartList.addColumn("von/am", "von",
-        new DateFormatter(new JVDateFormatTTMMJJJJ()));
+        new DateFormatter(new SCDateFormatTTMMJJJJ()));
     lehrgangsartList.addColumn("bis", "bis",
-        new DateFormatter(new JVDateFormatTTMMJJJJ()));
+        new DateFormatter(new SCDateFormatTTMMJJJJ()));
     lehrgangsartList.addColumn("Veranstalter", "veranstalter");
     lehrgangsartList.setRememberColWidths(true);
     lehrgangsartList.setContextMenu(new LehrgangsartMenu());

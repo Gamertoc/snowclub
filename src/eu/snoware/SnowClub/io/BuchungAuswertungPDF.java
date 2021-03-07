@@ -37,7 +37,7 @@ import eu.snoware.SnowClub.Queries.BuchungQuery;
 import eu.snoware.SnowClub.keys.ArtBuchungsart;
 import eu.snoware.SnowClub.rmi.Buchung;
 import eu.snoware.SnowClub.rmi.Buchungsart;
-import eu.snoware.SnowClub.util.JVDateFormatTTMMJJJJ;
+import eu.snoware.SnowClub.util.SCDateFormatTTMMJJJJ;
 
 public class BuchungAuswertungPDF
 {
@@ -186,7 +186,7 @@ public class BuchungAuswertungPDF
       if (einzel)
       {
         reporter.addColumn(b.getID(), Element.ALIGN_RIGHT);
-        reporter.addColumn(new JVDateFormatTTMMJJJJ().format(b.getDatum()),
+        reporter.addColumn(new SCDateFormatTTMMJJJJ().format(b.getDatum()),
             Element.ALIGN_CENTER);
         if (b.getAuszugsnummer() != null)
         {

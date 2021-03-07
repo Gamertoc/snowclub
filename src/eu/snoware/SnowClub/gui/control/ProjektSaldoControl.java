@@ -43,7 +43,7 @@ import eu.snoware.SnowClub.gui.parts.ProjektSaldoList;
 import eu.snoware.SnowClub.io.ProjektSaldoPDF;
 import eu.snoware.SnowClub.io.ProjektSaldoZeile;
 import eu.snoware.SnowClub.util.Dateiname;
-import eu.snoware.SnowClub.util.JVDateFormatTTMMJJJJ;
+import eu.snoware.SnowClub.util.SCDateFormatTTMMJJJJ;
 
 public class ProjektSaldoControl extends AbstractControl
 {
@@ -73,14 +73,14 @@ public class ProjektSaldoControl extends AbstractControl
     Date d = new Date();
     try
     {
-      d = new JVDateFormatTTMMJJJJ()
+      d = new SCDateFormatTTMMJJJJ()
           .parse(settings.getString("von", "01.01" + cal.get(Calendar.YEAR)));
     }
     catch (ParseException e)
     {
       //
     }
-    datumvon = new DateInput(d, new JVDateFormatTTMMJJJJ());
+    datumvon = new DateInput(d, new SCDateFormatTTMMJJJJ());
     return datumvon;
   }
 
@@ -94,14 +94,14 @@ public class ProjektSaldoControl extends AbstractControl
     Date d = new Date();
     try
     {
-      d = new JVDateFormatTTMMJJJJ()
+      d = new SCDateFormatTTMMJJJJ()
           .parse(settings.getString("bis", "31.12." + cal.get(Calendar.YEAR)));
     }
     catch (ParseException e)
     {
       //
     }
-    datumbis = new DateInput(d, new JVDateFormatTTMMJJJJ());
+    datumbis = new DateInput(d, new SCDateFormatTTMMJJJJ());
     return datumbis;
   }
 
@@ -131,12 +131,12 @@ public class ProjektSaldoControl extends AbstractControl
       if (getDatumvon().getValue() != null)
       {
         settings.setAttribute("von",
-            new JVDateFormatTTMMJJJJ().format((Date) getDatumvon().getValue()));
+            new SCDateFormatTTMMJJJJ().format((Date) getDatumvon().getValue()));
       }
       if (getDatumvon().getValue() != null)
       {
         settings.setAttribute("bis",
-            new JVDateFormatTTMMJJJJ().format((Date) getDatumbis().getValue()));
+            new SCDateFormatTTMMJJJJ().format((Date) getDatumbis().getValue()));
       }
 
       if (saldoList == null)
@@ -147,7 +147,7 @@ public class ProjektSaldoControl extends AbstractControl
       else
       {
         settings.setAttribute("von",
-            new JVDateFormatTTMMJJJJ().format((Date) getDatumvon().getValue()));
+            new SCDateFormatTTMMJJJJ().format((Date) getDatumvon().getValue()));
 
         saldoList.setDatumvon((Date) datumvon.getValue());
         saldoList.setDatumbis((Date) datumbis.getValue());

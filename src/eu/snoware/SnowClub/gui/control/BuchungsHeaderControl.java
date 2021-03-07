@@ -35,7 +35,7 @@ import eu.snoware.SnowClub.Einstellungen;
 import eu.snoware.SnowClub.rmi.Anfangsbestand;
 import eu.snoware.SnowClub.rmi.Buchung;
 import eu.snoware.SnowClub.rmi.Konto;
-import eu.snoware.SnowClub.util.JVDateFormatTTMMJJJJ;
+import eu.snoware.SnowClub.util.SCDateFormatTTMMJJJJ;
 
 public class BuchungsHeaderControl extends AbstractControl
 {
@@ -239,7 +239,7 @@ public class BuchungsHeaderControl extends AbstractControl
         Einstellungen.DECIMALFORMAT);
 
     private static DateFormatter dateFormater = new DateFormatter(
-        new JVDateFormatTTMMJJJJ());
+        new SCDateFormatTTMMJJJJ());
 
     Anfangsbestand anfangsBestand;
 

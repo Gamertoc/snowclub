@@ -44,7 +44,7 @@ import eu.snoware.SnowClub.gui.input.BuchungsartInput;
 import eu.snoware.SnowClub.keys.IntervallZusatzzahlung;
 import eu.snoware.SnowClub.rmi.Buchungsart;
 import eu.snoware.SnowClub.rmi.ZusatzbetragVorlage;
-import eu.snoware.SnowClub.util.JVDateFormatTTMMJJJJ;
+import eu.snoware.SnowClub.util.SCDateFormatTTMMJJJJ;
 
 public class ZusatzbetragVorlageControl extends AbstractControl
 {
@@ -97,7 +97,7 @@ public class ZusatzbetragVorlageControl extends AbstractControl
 
     Date d = getZusatzbetragVorlage().getFaelligkeit();
 
-    this.faelligkeit = new DateInput(d, new JVDateFormatTTMMJJJJ());
+    this.faelligkeit = new DateInput(d, new SCDateFormatTTMMJJJJ());
     this.faelligkeit.setTitle("Fälligkeit");
     this.faelligkeit.setText("Bitte Fälligkeitsdatum wählen");
     this.faelligkeit.addListener(new Listener()
@@ -148,7 +148,7 @@ public class ZusatzbetragVorlageControl extends AbstractControl
     }
 
     Date d = getZusatzbetragVorlage().getStartdatum();
-    this.startdatum = new DateInput(d, new JVDateFormatTTMMJJJJ());
+    this.startdatum = new DateInput(d, new SCDateFormatTTMMJJJJ());
     this.startdatum.setTitle("Startdatum");
     this.startdatum.setText("Bitte Startdatum wählen");
     this.startdatum.addListener(new Listener()
@@ -210,7 +210,7 @@ public class ZusatzbetragVorlageControl extends AbstractControl
     }
 
     Date d = getZusatzbetragVorlage().getEndedatum();
-    this.endedatum = new DateInput(d, new JVDateFormatTTMMJJJJ());
+    this.endedatum = new DateInput(d, new SCDateFormatTTMMJJJJ());
     this.endedatum.setTitle("Endedatum");
     this.endedatum.setText("Bitte Endedatum wählen");
     this.endedatum.addListener(new Listener()
@@ -279,12 +279,12 @@ public class ZusatzbetragVorlageControl extends AbstractControl
         }
       });
       zusatzbetraegeList.addColumn("Startdatum", "startdatum",
-          new DateFormatter(new JVDateFormatTTMMJJJJ()));
+          new DateFormatter(new SCDateFormatTTMMJJJJ()));
       zusatzbetraegeList.addColumn("nächste Fälligkeit", "faelligkeit",
-          new DateFormatter(new JVDateFormatTTMMJJJJ()));
+          new DateFormatter(new SCDateFormatTTMMJJJJ()));
       zusatzbetraegeList.addColumn("Intervall", "intervalltext");
       zusatzbetraegeList.addColumn("Endedatum", "endedatum",
-          new DateFormatter(new JVDateFormatTTMMJJJJ()));
+          new DateFormatter(new SCDateFormatTTMMJJJJ()));
       zusatzbetraegeList.addColumn("Buchungstext", "buchungstext");
       zusatzbetraegeList.addColumn("Betrag", "betrag",
           new CurrencyFormatter("", Einstellungen.DECIMALFORMAT));

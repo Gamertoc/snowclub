@@ -56,7 +56,7 @@ import eu.snoware.SnowClub.rmi.Zusatzbetrag;
 import eu.snoware.SnowClub.rmi.Zusatzfelder;
 import eu.snoware.SnowClub.server.MitgliedUtils;
 import eu.snoware.SnowClub.util.Datum;
-import eu.snoware.SnowClub.util.JVDateFormatTTMMJJJJ;
+import eu.snoware.SnowClub.util.SCDateFormatTTMMJJJJ;
 
 /**
  * 
@@ -932,7 +932,7 @@ public class Import
         {
           try
           {
-            zusatzfeld.setFeldDatum(new JVDateFormatTTMMJJJJ().parse(inhalt));
+            zusatzfeld.setFeldDatum(new SCDateFormatTTMMJJJJ().parse(inhalt));
           }
           catch (ParseException e)
           {

@@ -67,7 +67,7 @@ import eu.snoware.SnowClub.rmi.Mitglied;
 import eu.snoware.SnowClub.rmi.Zusatzbetrag;
 import eu.snoware.SnowClub.rmi.ZusatzbetragVorlage;
 import eu.snoware.SnowClub.util.Dateiname;
-import eu.snoware.SnowClub.util.JVDateFormatTTMMJJJJ;
+import eu.snoware.SnowClub.util.SCDateFormatTTMMJJJJ;
 
 public class ZusatzbetragControl extends AbstractControl
 {
@@ -151,7 +151,7 @@ public class ZusatzbetragControl extends AbstractControl
       {
         while (rs.next())
         {
-          werte.addElement(new JVDateFormatTTMMJJJJ().format(rs.getDate(1)));
+          werte.addElement(new SCDateFormatTTMMJJJJ().format(rs.getDate(1)));
         }
         return null;
       }
@@ -265,14 +265,14 @@ public class ZusatzbetragControl extends AbstractControl
         }
       });
       zusatzbetraegeList.addColumn("Startdatum", "startdatum",
-          new DateFormatter(new JVDateFormatTTMMJJJJ()));
+          new DateFormatter(new SCDateFormatTTMMJJJJ()));
       zusatzbetraegeList.addColumn("nächste Fälligkeit", "faelligkeit",
-          new DateFormatter(new JVDateFormatTTMMJJJJ()));
+          new DateFormatter(new SCDateFormatTTMMJJJJ()));
       zusatzbetraegeList.addColumn("letzte Ausführung", "ausfuehrung",
-          new DateFormatter(new JVDateFormatTTMMJJJJ()));
+          new DateFormatter(new SCDateFormatTTMMJJJJ()));
       zusatzbetraegeList.addColumn("Intervall", "intervalltext");
       zusatzbetraegeList.addColumn("Endedatum", "endedatum",
-          new DateFormatter(new JVDateFormatTTMMJJJJ()));
+          new DateFormatter(new SCDateFormatTTMMJJJJ()));
       zusatzbetraegeList.addColumn("Buchungstext", "buchungstext");
       zusatzbetraegeList.addColumn("Betrag", "betrag",
           new CurrencyFormatter("", Einstellungen.DECIMALFORMAT));
@@ -321,7 +321,7 @@ public class ZusatzbetragControl extends AbstractControl
     {
       try
       {
-        Date d = new JVDateFormatTTMMJJJJ()
+        Date d = new SCDateFormatTTMMJJJJ()
             .parse(this.ausfuehrungSuch.getText());
         java.sql.Date sqd = new java.sql.Date(d.getTime());
         zusatzbetraege.addFilter("ausfuehrung = ?", new Object[] { sqd });

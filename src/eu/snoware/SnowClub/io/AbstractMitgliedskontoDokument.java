@@ -43,7 +43,7 @@ import eu.snoware.SnowClub.rmi.Formular;
 import eu.snoware.SnowClub.rmi.Mitglied;
 import eu.snoware.SnowClub.rmi.Mitgliedskonto;
 import eu.snoware.SnowClub.util.Dateiname;
-import eu.snoware.SnowClub.util.JVDateFormatJJJJMMTT;
+import eu.snoware.SnowClub.util.SCDateFormatJJJJMMTT;
 import eu.snoware.SnowClub.util.StringTool;
 
 public abstract class AbstractMitgliedskontoDokument
@@ -284,7 +284,7 @@ public abstract class AbstractMitgliedskontoDokument
   {
     Mitglied m = mk.get(0).getMitglied();
     String filename = m.getID() + "#"
-        + new JVDateFormatJJJJMMTT().format(mk.get(0).getDatum()) + "#";
+        + new SCDateFormatJJJJMMTT().format(mk.get(0).getDatum()) + "#";
     String email = StringTool.toNotNullString(m.getEmail());
     if (email.length() > 0)
     {

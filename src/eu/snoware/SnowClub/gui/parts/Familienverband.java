@@ -83,7 +83,7 @@ public class Familienverband implements Part
         grid.heightHint = 1;
         contPlatzhalter.getComposite().setLayoutData(grid);
         // Alternativ kann Textfeld angezeigt werden:
-        // contPlatzhalter.addText(JVereinPlugin.getI18n().tr("Ohne Familienzugehörigkeit"),
+        // contPlatzhalter.addText(SnowClubPlugin.getI18n().tr("Ohne Familienzugehörigkeit"),
         // false);
       }
       return;

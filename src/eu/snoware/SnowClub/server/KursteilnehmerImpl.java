@@ -31,7 +31,7 @@ import de.willuhn.util.ApplicationException;
 import eu.snoware.SnowClub.Einstellungen;
 import eu.snoware.SnowClub.keys.Zahlungsweg;
 import eu.snoware.SnowClub.rmi.Kursteilnehmer;
-import eu.snoware.SnowClub.util.JVDateFormatTTMMJJJJ;
+import eu.snoware.SnowClub.util.SCDateFormatTTMMJJJJ;
 
 public class KursteilnehmerImpl extends AbstractDBObject implements
     Kursteilnehmer
@@ -469,7 +469,7 @@ public class KursteilnehmerImpl extends AbstractDBObject implements
 
     try
     {
-      d = new JVDateFormatTTMMJJJJ().parse(datum);
+      d = new SCDateFormatTTMMJJJJ().parse(datum);
     }
     catch (Exception e)
     {

@@ -35,7 +35,7 @@ import de.willuhn.jameica.system.Application;
 import de.willuhn.jameica.util.InfoReader;
 import de.willuhn.logging.Logger;
 import de.willuhn.util.I18N;
-import eu.snoware.SnowClub.JVereinPlugin;
+import eu.snoware.SnowClub.SnowClubPlugin;
 
 /**
  * Controller für die Lizenzinformationen.
@@ -73,7 +73,7 @@ public class LizenzControl extends AbstractControl
         + i18n.tr("Verwendete Komponenten") + "</span></p>");
 
     AbstractPlugin plugin = Application.getPluginLoader().getPlugin(
-        JVereinPlugin.class);
+        SnowClubPlugin.class);
     String path = plugin.getManifest().getPluginDir();
 
     FileFinder finder = new FileFinder(new File(path + "/lib"));

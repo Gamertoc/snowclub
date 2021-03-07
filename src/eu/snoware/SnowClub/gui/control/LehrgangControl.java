@@ -47,7 +47,7 @@ import eu.snoware.SnowClub.io.Adressbuch.Adressaufbereitung;
 import eu.snoware.SnowClub.rmi.Lehrgang;
 import eu.snoware.SnowClub.rmi.Lehrgangsart;
 import eu.snoware.SnowClub.rmi.Mitglied;
-import eu.snoware.SnowClub.util.JVDateFormatTTMMJJJJ;
+import eu.snoware.SnowClub.util.SCDateFormatTTMMJJJJ;
 
 public class LehrgangControl extends AbstractControl
 {
@@ -138,7 +138,7 @@ public class LehrgangControl extends AbstractControl
 
     Date d = getLehrgang().getVon();
 
-    this.von = new DateInput(d, new JVDateFormatTTMMJJJJ());
+    this.von = new DateInput(d, new SCDateFormatTTMMJJJJ());
     this.von.setTitle("Datum");
     this.von.setText("Bitte (Beginn-)Datum wählen");
     return von;
@@ -153,7 +153,7 @@ public class LehrgangControl extends AbstractControl
 
     Date d = getLehrgang().getBis();
 
-    this.bis = new DateInput(d, new JVDateFormatTTMMJJJJ());
+    this.bis = new DateInput(d, new SCDateFormatTTMMJJJJ());
     this.bis.setTitle("Datum");
     this.bis.setText("Bitte Ende-Datum wählen");
     return bis;
@@ -216,14 +216,14 @@ public class LehrgangControl extends AbstractControl
     {
       try
       {
-        d = new JVDateFormatTTMMJJJJ().parse(tmp);
+        d = new SCDateFormatTTMMJJJJ().parse(tmp);
       }
       catch (ParseException e)
       {
         //
       }
     }
-    this.datumvon = new DateInput(d, new JVDateFormatTTMMJJJJ());
+    this.datumvon = new DateInput(d, new SCDateFormatTTMMJJJJ());
     this.datumvon.setTitle("Datum von");
     this.datumvon.setText("Datum von");
     datumvon.addListener(new FilterListener());
@@ -242,14 +242,14 @@ public class LehrgangControl extends AbstractControl
     {
       try
       {
-        d = new JVDateFormatTTMMJJJJ().parse(tmp);
+        d = new SCDateFormatTTMMJJJJ().parse(tmp);
       }
       catch (ParseException e)
       {
         //
       }
     }
-    this.datumbis = new DateInput(d, new JVDateFormatTTMMJJJJ());
+    this.datumbis = new DateInput(d, new SCDateFormatTTMMJJJJ());
     this.datumbis.setTitle("Datum bis");
     this.datumbis.setText("Datum bis");
     datumbis.addListener(new FilterListener());
@@ -352,7 +352,7 @@ public class LehrgangControl extends AbstractControl
       if (tmp != null)
       {
         settings.setAttribute("datum.von",
-            new JVDateFormatTTMMJJJJ().format(tmp));
+            new SCDateFormatTTMMJJJJ().format(tmp));
       }
       else
       {
@@ -366,7 +366,7 @@ public class LehrgangControl extends AbstractControl
       if (tmp != null)
       {
         settings.setAttribute("datum.bis",
-            new JVDateFormatTTMMJJJJ().format(tmp));
+            new SCDateFormatTTMMJJJJ().format(tmp));
       }
       else
       {
@@ -405,9 +405,9 @@ public class LehrgangControl extends AbstractControl
       });
       lehrgaengeList.addColumn("Lehrgangsart", "lehrgangsart");
       lehrgaengeList.addColumn("von/am", "von",
-          new DateFormatter(new JVDateFormatTTMMJJJJ()));
+          new DateFormatter(new SCDateFormatTTMMJJJJ()));
       lehrgaengeList.addColumn("bis", "bis",
-          new DateFormatter(new JVDateFormatTTMMJJJJ()));
+          new DateFormatter(new SCDateFormatTTMMJJJJ()));
       lehrgaengeList.addColumn("Veranstalter", "veranstalter");
       lehrgaengeList.addColumn("Ergebnis", "ergebnis");
       lehrgaengeList.setContextMenu(new LehrgangMenu());

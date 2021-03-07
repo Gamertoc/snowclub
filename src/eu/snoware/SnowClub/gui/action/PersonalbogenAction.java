@@ -65,7 +65,7 @@ import eu.snoware.SnowClub.rmi.Wiedervorlage;
 import eu.snoware.SnowClub.rmi.Zusatzbetrag;
 import eu.snoware.SnowClub.rmi.Zusatzfelder;
 import eu.snoware.SnowClub.util.Dateiname;
-import eu.snoware.SnowClub.util.JVDateFormatTTMMJJJJ;
+import eu.snoware.SnowClub.util.SCDateFormatTTMMJJJJ;
 
 public class PersonalbogenAction implements Action
 {
@@ -354,7 +354,7 @@ public class PersonalbogenAction implements Action
       String akdatum = "";
       if (m.getAustritt() != null)
       {
-        akdatum += new JVDateFormatTTMMJJJJ().format(m.getAustritt());
+        akdatum += new SCDateFormatTTMMJJJJ().format(m.getAustritt());
       }
       if (m.getKuendigung() != null)
       {
@@ -362,7 +362,7 @@ public class PersonalbogenAction implements Action
         {
           akdatum += " / ";
         }
-        akdatum += new JVDateFormatTTMMJJJJ().format(m.getKuendigung());
+        akdatum += new SCDateFormatTTMMJJJJ().format(m.getKuendigung());
       }
       rpt.addColumn(akdatum, Element.ALIGN_LEFT);
     }

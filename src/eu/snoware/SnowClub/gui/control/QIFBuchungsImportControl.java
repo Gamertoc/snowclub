@@ -59,7 +59,7 @@ import de.willuhn.logging.Logger;
 import de.willuhn.util.ApplicationException;
 import eu.snoware.SnowClub.Einstellungen;
 import eu.snoware.SnowClub.Messaging.QIFImportHeaderMessage;
-import eu.snoware.SnowClub.gui.input.JVereinKontoInput;
+import eu.snoware.SnowClub.gui.input.SnowClubKontoInput;
 import eu.snoware.SnowClub.gui.input.QIFExternKontenInput;
 import eu.snoware.SnowClub.keys.Zahlungsweg;
 import eu.snoware.SnowClub.rmi.Anfangsbestand;
@@ -73,7 +73,7 @@ import eu.snoware.SnowClub.rmi.QIFImportHead;
 import eu.snoware.SnowClub.rmi.QIFImportPos;
 import eu.snoware.SnowClub.server.BuchungImpl;
 import eu.snoware.SnowClub.server.QIFImportPosImpl;
-import eu.snoware.SnowClub.util.JVDateFormatTTMMJJJJ;
+import eu.snoware.SnowClub.util.SCDateFormatTTMMJJJJ;
 
 /***
  * Dieses Control verwaltet die Komponenten und Aktionen des Hauptfenster beim
@@ -88,7 +88,7 @@ public class QIFBuchungsImportControl extends AbstractControl
 
   private QIFExternKontenInput auswahlExternesKonto;
 
-  private JVereinKontoInput auswahlJVereinKonto;
+  private SnowClubKontoInput auswahlJVereinKonto;
 
   private TextInput beschreibungKonto;
 
@@ -135,7 +135,7 @@ public class QIFBuchungsImportControl extends AbstractControl
   {
     if (null == auswahlJVereinKonto)
     {
-      auswahlJVereinKonto = new JVereinKontoInput();
+      auswahlJVereinKonto = new SnowClubKontoInput();
       auswahlJVereinKonto.disable();
       auswahlJVereinKonto.addListener(new JVereinKontoAuswahlListener());
     }
@@ -237,7 +237,7 @@ public class QIFBuchungsImportControl extends AbstractControl
   class DateAnzeigeInput extends TextInput
   {
     private DateFormatter dateFormater = new DateFormatter(
-        new JVDateFormatTTMMJJJJ());
+        new SCDateFormatTTMMJJJJ());
 
     private String commentLeer;
 
@@ -270,7 +270,7 @@ public class QIFBuchungsImportControl extends AbstractControl
     qifImportPosList.addColumn("ID", QIFImportPos.COL_POSID, null, false,
         Column.ALIGN_RIGHT);
     qifImportPosList.addColumn("Datum", QIFImportPos.COL_DATUM,
-        new DateFormatter(new JVDateFormatTTMMJJJJ()));
+        new DateFormatter(new SCDateFormatTTMMJJJJ()));
     qifImportPosList.addColumn("Betrag", QIFImportPos.COL_BETRAG,
         new CurrencyFormatter("", Einstellungen.DECIMALFORMAT), false,
         Column.ALIGN_RIGHT);

@@ -34,7 +34,7 @@ import eu.snoware.SnowClub.gui.menu.WiedervorlageMenu;
 import eu.snoware.SnowClub.io.Adressbuch.Adressaufbereitung;
 import eu.snoware.SnowClub.rmi.Mitglied;
 import eu.snoware.SnowClub.rmi.Wiedervorlage;
-import eu.snoware.SnowClub.util.JVDateFormatTTMMJJJJ;
+import eu.snoware.SnowClub.util.SCDateFormatTTMMJJJJ;
 
 public class WiedervorlageList extends TablePart implements Part
 {
@@ -79,10 +79,10 @@ public class WiedervorlageList extends TablePart implements Part
         }
       });
       wiedervorlageList.addColumn("Datum", "datum",
-          new DateFormatter(new JVDateFormatTTMMJJJJ()));
+          new DateFormatter(new SCDateFormatTTMMJJJJ()));
       wiedervorlageList.addColumn("Vermerk", "vermerk");
       wiedervorlageList.addColumn("Erledigung", "erledigung",
-          new DateFormatter(new JVDateFormatTTMMJJJJ()));
+          new DateFormatter(new SCDateFormatTTMMJJJJ()));
       wiedervorlageList
           .setContextMenu(new WiedervorlageMenu(wiedervorlageList));
       wiedervorlageList.setRememberColWidths(true);

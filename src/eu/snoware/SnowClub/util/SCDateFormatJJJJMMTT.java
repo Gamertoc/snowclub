@@ -18,12 +18,12 @@ package eu.snoware.SnowClub.util;
 
 import java.text.SimpleDateFormat;
 
-public class JVDateFormatMM extends SimpleDateFormat
+public class SCDateFormatJJJJMMTT extends SimpleDateFormat
 {
   private static final long serialVersionUID = 4017644423840096050L;
 
-  public JVDateFormatMM()
+  public SCDateFormatJJJJMMTT()
   {
-    super("MM");
+    super("yyyy-MM-dd");
   }
 }

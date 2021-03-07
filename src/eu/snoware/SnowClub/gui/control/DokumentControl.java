@@ -48,7 +48,7 @@ import eu.snoware.SnowClub.gui.menu.DokumentMenu;
 import eu.snoware.SnowClub.gui.parts.DokumentPart;
 import eu.snoware.SnowClub.gui.view.DokumentView;
 import eu.snoware.SnowClub.rmi.AbstractDokument;
-import eu.snoware.SnowClub.util.JVDateFormatTTMMJJJJ;
+import eu.snoware.SnowClub.util.SCDateFormatTTMMJJJJ;
 
 public class DokumentControl extends AbstractControl
 {
@@ -202,7 +202,7 @@ public class DokumentControl extends AbstractControl
 
     docsList = new TablePart(docs, null /* new KontoAction() */);
     docsList.addColumn("Datum", "datum",
-        new DateFormatter(new JVDateFormatTTMMJJJJ()));
+        new DateFormatter(new SCDateFormatTTMMJJJJ()));
     docsList.addColumn("Bemerkung", "bemerkung");
     docsList.setRememberColWidths(true);
     docsList.setContextMenu(new DokumentMenu(enabled));

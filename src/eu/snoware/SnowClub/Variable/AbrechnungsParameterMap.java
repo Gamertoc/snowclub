@@ -23,7 +23,7 @@ import java.util.Map;
 import eu.snoware.SnowClub.gui.input.AbbuchungsmodusInput;
 import eu.snoware.SnowClub.io.AbrechnungSEPAParam;
 import eu.snoware.SnowClub.keys.Monat;
-import eu.snoware.SnowClub.util.JVDateFormatTTMMJJJJ;
+import eu.snoware.SnowClub.util.SCDateFormatTTMMJJJJ;
 
 public class AbrechnungsParameterMap
 {
@@ -50,9 +50,9 @@ public class AbrechnungsParameterMap
     map.put(AbrechnungsParameterVar.ABRECHNUNGSMONAT.getName(),
         Monat.getByKey(param.abrechnungsmonat));
     map.put(AbrechnungsParameterVar.FAELLIGKEIT1.getName(),
-        new JVDateFormatTTMMJJJJ().format(param.faelligkeit1));
+        new SCDateFormatTTMMJJJJ().format(param.faelligkeit1));
     map.put(AbrechnungsParameterVar.FAELLIGKEIT2.getName(),
-        new JVDateFormatTTMMJJJJ().format(param.faelligkeit2));
+        new SCDateFormatTTMMJJJJ().format(param.faelligkeit2));
     map.put(AbrechnungsParameterVar.KOMPAKTEABBUCHUNG.getName(),
         param.kompakteabbuchung ? "J" : "N");
     map.put(AbrechnungsParameterVar.KURSTEILNEHMER.getName(),
@@ -60,18 +60,18 @@ public class AbrechnungsParameterMap
     map.put(AbrechnungsParameterVar.SEPAPRINT.getName(),
         param.sepaprint ? "J" : "N");
     map.put(AbrechnungsParameterVar.STICHTAG.getName(),
-        new JVDateFormatTTMMJJJJ().format(param.stichtag));
+        new SCDateFormatTTMMJJJJ().format(param.stichtag));
     map.put(AbrechnungsParameterVar.VERWENDUNGSZWECK.getName(),
         param.verwendungszweck);
     if (param.vondatum != null)
     {
       map.put(AbrechnungsParameterVar.VONDATUM.getName(),
-          new JVDateFormatTTMMJJJJ().format(param.vondatum));
+          new SCDateFormatTTMMJJJJ().format(param.vondatum));
     }
     if (param.bisdatum != null)
     {
       map.put(AbrechnungsParameterVar.BISDATUM.getName(),
-          new JVDateFormatTTMMJJJJ().format(param.bisdatum));
+          new SCDateFormatTTMMJJJJ().format(param.bisdatum));
     }
     map.put(AbrechnungsParameterVar.ZUSATZBETRAEGE.getName(),
         param.zusatzbetraege ? "J" : "N");

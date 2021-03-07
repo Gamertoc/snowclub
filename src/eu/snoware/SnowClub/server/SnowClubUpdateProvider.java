@@ -39,10 +39,10 @@ import eu.snoware.SnowClub.Variable.MitgliedVar;
 import eu.snoware.SnowClub.Variable.MitgliedskontoVar;
 import eu.snoware.SnowClub.keys.Zahlungsweg;
 import eu.snoware.SnowClub.rmi.Einstellung;
-import eu.snoware.SnowClub.rmi.JVereinDBService;
+import eu.snoware.SnowClub.rmi.SnowClubDBService;
 import eu.snoware.SnowClub.server.DDLTool.AbstractDDLUpdate;
 
-public class JVereinUpdateProvider
+public class SnowClubUpdateProvider
 {
   private ProgressMonitor progressmonitor;
 
@@ -54,11 +54,11 @@ public class JVereinUpdateProvider
 
   public static final String H2 = DBSupportH2Impl.class.getName();
 
-  public JVereinUpdateProvider(Connection conn, ProgressMonitor progressmonitor)
+  public SnowClubUpdateProvider(Connection conn, ProgressMonitor progressmonitor)
       throws ApplicationException
   {
     this.progressmonitor = progressmonitor;
-    driver = JVereinDBService.SETTINGS.getString("database.driver", H2);
+    driver = SnowClubDBService.SETTINGS.getString("database.driver", H2);
 
     int cv = getCurrentVersion(conn);
     if (cv == 0)
@@ -290,7 +290,7 @@ public class JVereinUpdateProvider
   public void execute(Connection conn, Map<String, String> statements,
       int version) throws ApplicationException
   {
-    String driver = JVereinDBService.SETTINGS.getString("database.driver",
+    String driver = SnowClubDBService.SETTINGS.getString("database.driver",
         DBSupportH2Impl.class.getName());
     String sql = statements.get(driver);
     if (sql != null)
@@ -4413,7 +4413,7 @@ public class JVereinUpdateProvider
   @SuppressWarnings("unused")
   private void update0203(Connection conn) throws ApplicationException
   {
-    ArrayList<BooleanUpdate> bu = new ArrayList<JVereinUpdateProvider.BooleanUpdate>();
+    ArrayList<BooleanUpdate> bu = new ArrayList<SnowClubUpdateProvider.BooleanUpdate>();
     bu.add(new BooleanUpdate("einstellung", "vorlaeufig"));
     bu.add(new BooleanUpdate("einstellung", "geburtsdatumpflicht"));
     bu.add(new BooleanUpdate("einstellung", "eintrittsdatumpflicht"));

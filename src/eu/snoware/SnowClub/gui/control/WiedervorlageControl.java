@@ -31,7 +31,7 @@ import de.willuhn.jameica.gui.input.TextInput;
 import de.willuhn.logging.Logger;
 import de.willuhn.util.ApplicationException;
 import eu.snoware.SnowClub.rmi.Wiedervorlage;
-import eu.snoware.SnowClub.util.JVDateFormatTTMMJJJJ;
+import eu.snoware.SnowClub.util.SCDateFormatTTMMJJJJ;
 
 public class WiedervorlageControl extends AbstractControl
 {
@@ -68,7 +68,7 @@ public class WiedervorlageControl extends AbstractControl
 
     Date d = getWiedervorlage().getDatum();
 
-    this.datum = new DateInput(d, new JVDateFormatTTMMJJJJ());
+    this.datum = new DateInput(d, new SCDateFormatTTMMJJJJ());
     this.datum.setTitle("Datum");
     this.datum.setText("Bitte Wiedervorlagedatum wählen");
     this.datum.addListener(new Listener()
@@ -111,7 +111,7 @@ public class WiedervorlageControl extends AbstractControl
 
     Date d = getWiedervorlage().getErledigung();
 
-    this.erledigung = new DateInput(d, new JVDateFormatTTMMJJJJ());
+    this.erledigung = new DateInput(d, new SCDateFormatTTMMJJJJ());
     this.erledigung.setTitle("Erledigung");
     this.erledigung.setText("Bitte Erledigungsdatum wählen");
     this.erledigung.addListener(new Listener()

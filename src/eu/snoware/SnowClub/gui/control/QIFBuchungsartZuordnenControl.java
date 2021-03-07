@@ -49,7 +49,7 @@ import de.willuhn.util.ApplicationException;
 import eu.snoware.SnowClub.Einstellungen;
 import eu.snoware.SnowClub.rmi.Buchungsart;
 import eu.snoware.SnowClub.rmi.QIFImportPos;
-import eu.snoware.SnowClub.util.JVDateFormatTTMMJJJJ;
+import eu.snoware.SnowClub.util.SCDateFormatTTMMJJJJ;
 
 public class QIFBuchungsartZuordnenControl extends AbstractControl
 {
@@ -168,7 +168,7 @@ public class QIFBuchungsartZuordnenControl extends AbstractControl
     {
       posBeispielListTable = new TablePart(iteratorQIFImportPosList, null);
       posBeispielListTable.addColumn("Datum", QIFImportPos.COL_DATUM,
-          new DateFormatter(new JVDateFormatTTMMJJJJ()));
+          new DateFormatter(new SCDateFormatTTMMJJJJ()));
       posBeispielListTable.addColumn("Beleg", QIFImportPos.COL_BELEG);
       posBeispielListTable.addColumn("Betrag", QIFImportPos.COL_BETRAG,
           new CurrencyFormatter("", Einstellungen.DECIMALFORMAT), false,

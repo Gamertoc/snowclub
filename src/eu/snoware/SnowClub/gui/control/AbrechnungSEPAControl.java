@@ -52,7 +52,7 @@ import eu.snoware.SnowClub.keys.Abrechnungsausgabe;
 import eu.snoware.SnowClub.keys.Abrechnungsmodi;
 import eu.snoware.SnowClub.keys.Monat;
 import eu.snoware.SnowClub.util.Dateiname;
-import eu.snoware.SnowClub.util.JVDateFormatTTMMJJJJ;
+import eu.snoware.SnowClub.util.SCDateFormatTTMMJJJJ;
 
 public class AbrechnungSEPAControl extends AbstractControl
 {
@@ -147,7 +147,7 @@ public class AbrechnungSEPAControl extends AbstractControl
       return stichtag;
     }
     Date d = null;
-    this.stichtag = new DateInput(d, new JVDateFormatTTMMJJJJ());
+    this.stichtag = new DateInput(d, new SCDateFormatTTMMJJJJ());
     this.stichtag.setTitle("Stichtag für die Abrechnung");
     this.stichtag.setText("Bitte Stichtag für die Abrechnung wählen");
     this.stichtag.setComment("*)");
@@ -165,7 +165,7 @@ public class AbrechnungSEPAControl extends AbstractControl
     cal = bat.getCalendar(cal,
         5 + Einstellungen.getEinstellung().getSEPADatumOffset());
     this.faelligkeit1 = new DateInput(cal.getTime(),
-        new JVDateFormatTTMMJJJJ());
+        new SCDateFormatTTMMJJJJ());
     this.faelligkeit1.setTitle("Fälligkeit SEPA-Lastschrift / Erst+einmalig");
     this.faelligkeit1.setText(
         "Bitte Fälligkeitsdatum der SEPA-Lastschrift (Erst+einmalig) wählen");
@@ -183,7 +183,7 @@ public class AbrechnungSEPAControl extends AbstractControl
     cal = bat.getCalendar(cal,
         2 + Einstellungen.getEinstellung().getSEPADatumOffset());
     this.faelligkeit2 = new DateInput(cal.getTime(),
-        new JVDateFormatTTMMJJJJ());
+        new SCDateFormatTTMMJJJJ());
     this.faelligkeit2.setTitle("Fälligkeit SEPA-Lastschrift / Folge");
     this.faelligkeit2
         .setText("Bitte Fälligkeitsdatum der SEPA-Lastschrift (Folge) wählen");
@@ -197,7 +197,7 @@ public class AbrechnungSEPAControl extends AbstractControl
       return vondatum;
     }
     Date d = null;
-    this.vondatum = new DateInput(d, new JVDateFormatTTMMJJJJ());
+    this.vondatum = new DateInput(d, new SCDateFormatTTMMJJJJ());
     this.vondatum.setTitle("Anfangsdatum Abrechnung");
     this.vondatum.setText("Bitte Anfangsdatum der Abrechnung wählen");
     this.vondatum.setEnabled(false);
@@ -211,7 +211,7 @@ public class AbrechnungSEPAControl extends AbstractControl
       return bisdatum;
     }
     Date d = null;
-    this.bisdatum = new DateInput(d, new JVDateFormatTTMMJJJJ());
+    this.bisdatum = new DateInput(d, new SCDateFormatTTMMJJJJ());
     this.bisdatum.setTitle("Enddatum Abrechnung");
     this.bisdatum
         .setText("Bitte maximales Austrittsdatum für die Abrechnung wählen");

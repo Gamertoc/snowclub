@@ -33,7 +33,7 @@ import eu.snoware.SnowClub.io.Adressbuch.Adressaufbereitung;
 import eu.snoware.SnowClub.keys.Zahlungsweg;
 import eu.snoware.SnowClub.rmi.Abrechnungslauf;
 import eu.snoware.SnowClub.rmi.Mitgliedskonto;
-import eu.snoware.SnowClub.util.JVDateFormatTTMMJJJJ;
+import eu.snoware.SnowClub.util.SCDateFormatTTMMJJJJ;
 
 public class AbrechnungslaufPDF
 {
@@ -46,7 +46,7 @@ public class AbrechnungslaufPDF
       FileOutputStream fos = new FileOutputStream(file);
       String title = "Abrechnungslauf";
       String subtitle = "Nr. " + lauf.getNr() + " vom "
-          + new JVDateFormatTTMMJJJJ().format(lauf.getDatum());
+          + new SCDateFormatTTMMJJJJ().format(lauf.getDatum());
       Reporter reporter = new Reporter(fos, title, subtitle, it.size());
 
       reporter.addHeaderColumn("Fälligkeit", Element.ALIGN_CENTER, 80,
@@ -67,7 +67,7 @@ public class AbrechnungslaufPDF
       {
         Mitgliedskonto mk = it.next();
 
-        reporter.addColumn(new JVDateFormatTTMMJJJJ().format(mk.getDatum()),
+        reporter.addColumn(new SCDateFormatTTMMJJJJ().format(mk.getDatum()),
             Element.ALIGN_LEFT);
         reporter.addColumn(Adressaufbereitung.getNameVorname(mk.getMitglied()),
             Element.ALIGN_LEFT);

@@ -165,7 +165,7 @@ public class Einstellungen
       // Jameica server.
       // The name and class of the service is defined in plugin.xml
       db = (DBService) Application.getServiceFactory()
-          .lookup(JVereinPlugin.class, "database");
+          .lookup(SnowClubPlugin.class, "database");
       return db;
     }
     catch (Exception e)

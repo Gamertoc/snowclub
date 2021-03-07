@@ -27,7 +27,7 @@ import de.willuhn.util.ApplicationException;
 import eu.snoware.SnowClub.Messaging.BuchungMessage;
 import eu.snoware.SnowClub.rmi.Buchung;
 import eu.snoware.SnowClub.rmi.Jahresabschluss;
-import eu.snoware.SnowClub.util.JVDateFormatTTMMJJJJ;
+import eu.snoware.SnowClub.util.SCDateFormatTTMMJJJJ;
 
 /**
  * Loeschen einer Buchung.
@@ -98,7 +98,7 @@ public class BuchungDeleteAction implements Action
         {
           throw new ApplicationException(String.format(
               "Buchung wurde bereits am %s von %s abgeschlossen.",
-              new JVDateFormatTTMMJJJJ().format(ja.getDatum()), ja.getName()));
+              new SCDateFormatTTMMJJJJ().format(ja.getDatum()), ja.getName()));
         }
         if (bu.getSplitId() == null)
         {

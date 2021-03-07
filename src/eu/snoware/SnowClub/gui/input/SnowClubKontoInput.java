@@ -25,9 +25,9 @@ import de.willuhn.logging.Logger;
 import eu.snoware.SnowClub.Einstellungen;
 import eu.snoware.SnowClub.rmi.Konto;
 
-public class JVereinKontoInput extends SelectInput
+public class SnowClubKontoInput extends SelectInput
 {
-  public JVereinKontoInput() throws RemoteException
+  public SnowClubKontoInput() throws RemoteException
   {
     super(init(), null);
     this.setPleaseChoose("Wähle ein JVerein Konto");

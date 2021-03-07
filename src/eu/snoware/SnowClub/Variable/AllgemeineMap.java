@@ -21,24 +21,24 @@ import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 
-import eu.snoware.SnowClub.util.JVDateFormatJJJJ;
-import eu.snoware.SnowClub.util.JVDateFormatMM;
-import eu.snoware.SnowClub.util.JVDateFormatMMJJJJ;
-import eu.snoware.SnowClub.util.JVDateFormatTT;
-import eu.snoware.SnowClub.util.JVDateFormatTTMMJJJJ;
+import eu.snoware.SnowClub.util.SCDateFormatJJJJ;
+import eu.snoware.SnowClub.util.SCDateFormatMM;
+import eu.snoware.SnowClub.util.SCDateFormatMMJJJJ;
+import eu.snoware.SnowClub.util.SCDateFormatTT;
+import eu.snoware.SnowClub.util.SCDateFormatTTMMJJJJ;
 
 public class AllgemeineMap
 {
 
-  private JVDateFormatTTMMJJJJ ttmmjjjj = new JVDateFormatTTMMJJJJ();
+  private SCDateFormatTTMMJJJJ ttmmjjjj = new SCDateFormatTTMMJJJJ();
 
-  private JVDateFormatMMJJJJ mmjjjj = new JVDateFormatMMJJJJ();
+  private SCDateFormatMMJJJJ mmjjjj = new SCDateFormatMMJJJJ();
 
-  private JVDateFormatTT tt = new JVDateFormatTT();
+  private SCDateFormatTT tt = new SCDateFormatTT();
 
-  private JVDateFormatMM mm = new JVDateFormatMM();
+  private SCDateFormatMM mm = new SCDateFormatMM();
 
-  private JVDateFormatJJJJ jjjj = new JVDateFormatJJJJ();
+  private SCDateFormatJJJJ jjjj = new SCDateFormatJJJJ();
 
   public AllgemeineMap()
   {

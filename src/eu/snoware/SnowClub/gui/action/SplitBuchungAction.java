@@ -26,7 +26,7 @@ import eu.snoware.SnowClub.io.SplitbuchungsContainer;
 import eu.snoware.SnowClub.keys.SplitbuchungTyp;
 import eu.snoware.SnowClub.rmi.Buchung;
 import eu.snoware.SnowClub.rmi.Jahresabschluss;
-import eu.snoware.SnowClub.util.JVDateFormatTTMMJJJJ;
+import eu.snoware.SnowClub.util.SCDateFormatTTMMJJJJ;
 
 public class SplitBuchungAction implements Action
 {
@@ -46,7 +46,7 @@ public class SplitBuchungAction implements Action
         {
           throw new ApplicationException(String.format(
               "Buchung wurde bereits am %s von %s abgeschlossen.",
-              new JVDateFormatTTMMJJJJ().format(ja.getDatum()), ja.getName()));
+              new SCDateFormatTTMMJJJJ().format(ja.getDatum()), ja.getName()));
         }
         if (b.getBuchungsart() == null)
         {

@@ -31,7 +31,7 @@ import eu.snoware.SnowClub.Einstellungen;
 import eu.snoware.SnowClub.io.Adressbuch.Adressaufbereitung;
 import eu.snoware.SnowClub.rmi.Buchung;
 import eu.snoware.SnowClub.rmi.Mitglied;
-import eu.snoware.SnowClub.util.JVDateFormatTTMMJJJJ;
+import eu.snoware.SnowClub.util.SCDateFormatTTMMJJJJ;
 
 public class SpendenbescheinigungNode implements GenericObjectNode
 {
@@ -263,7 +263,7 @@ public class SpendenbescheinigungNode implements GenericObjectNode
       }
       case BUCHUNG:
       {
-        return new JVDateFormatTTMMJJJJ().format(buchung.getDatum()) + ", "
+        return new SCDateFormatTTMMJJJJ().format(buchung.getDatum()) + ", "
             + (buchung.getZweck() != null && buchung.getZweck().length() > 0
                 ? buchung.getZweck()
                 : "")

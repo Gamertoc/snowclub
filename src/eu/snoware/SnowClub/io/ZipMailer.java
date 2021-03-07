@@ -45,7 +45,7 @@ import eu.snoware.SnowClub.Variable.MitgliedMap;
 import eu.snoware.SnowClub.Variable.VarTools;
 import eu.snoware.SnowClub.rmi.MailAnhang;
 import eu.snoware.SnowClub.rmi.Mitglied;
-import eu.snoware.SnowClub.util.JVDateFormatTTMMJJJJ;
+import eu.snoware.SnowClub.util.SCDateFormatTTMMJJJJ;
 
 /**
  * Versand von Mails mit Anhang aus einer Zip-Datei an die Mitglieder. Wird z.
@@ -115,7 +115,7 @@ public class ZipMailer
               anhang.add(ma);
 
               VelocityContext context = new VelocityContext();
-              context.put("dateformat", new JVDateFormatTTMMJJJJ());
+              context.put("dateformat", new SCDateFormatTTMMJJJJ());
               context.put("decimalformat", Einstellungen.DECIMALFORMAT);
               Map<String, Object> map = new MitgliedMap().getMap(m, null);
               map = new AllgemeineMap().getMap(map);

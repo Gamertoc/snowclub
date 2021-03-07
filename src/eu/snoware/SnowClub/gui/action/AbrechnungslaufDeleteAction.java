@@ -31,7 +31,7 @@ import eu.snoware.SnowClub.rmi.Jahresabschluss;
 import eu.snoware.SnowClub.rmi.Mitgliedskonto;
 import eu.snoware.SnowClub.rmi.Zusatzbetrag;
 import eu.snoware.SnowClub.rmi.ZusatzbetragAbrechnungslauf;
-import eu.snoware.SnowClub.util.JVDateFormatTTMMJJJJ;
+import eu.snoware.SnowClub.util.SCDateFormatTTMMJJJJ;
 
 /**
  * Löschen eines Abrechnungslaufes
@@ -92,7 +92,7 @@ public class AbrechnungslaufDeleteAction implements Action
           throw new ApplicationException(
               String.format("Buchung wurde bereits am %s von %s abgeschlossen.",
                   new Object[] {
-                      new JVDateFormatTTMMJJJJ().format(ja.getDatum()),
+                      new SCDateFormatTTMMJJJJ().format(ja.getDatum()),
                       ja.getName() }));
         }
         b.setMitgliedskontoID(null);

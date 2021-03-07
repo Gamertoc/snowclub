@@ -38,7 +38,7 @@ import eu.snoware.SnowClub.rmi.Eigenschaft;
 import eu.snoware.SnowClub.rmi.EigenschaftGruppe;
 import eu.snoware.SnowClub.rmi.Felddefinition;
 import eu.snoware.SnowClub.rmi.Mitglied;
-import eu.snoware.SnowClub.util.JVDateFormatTTMMJJJJ;
+import eu.snoware.SnowClub.util.SCDateFormatTTMMJJJJ;
 
 public class MitgliedQuery
 {
@@ -112,7 +112,7 @@ public class MitgliedQuery
             {
               try
               {
-                Date datum = new JVDateFormatTTMMJJJJ().parse(value);
+                Date datum = new SCDateFormatTTMMJJJJ().parse(value);
                 sql += "join zusatzfelder " + synonym + " on " + synonym
                     + ".mitglied = mitglied.id  and " + synonym + ".FELDDATUM "
                     + cond + " ? and " + synonym + ".felddefinition = ? ";

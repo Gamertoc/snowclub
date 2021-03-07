@@ -27,12 +27,12 @@ import de.willuhn.util.ApplicationException;
 /**
  * Interface fuer den Datenbank-Service von JVerein.
  */
-public interface JVereinDBService extends DBService
+public interface SnowClubDBService extends DBService
 {
   /**
    * Einstellungen fuer die DB-Services.
    */
-  public final static Settings SETTINGS = new Settings(JVereinDBService.class);
+  public final static Settings SETTINGS = new Settings(SnowClubDBService.class);
 
   /**
    * Aktualisiert die Datenbank.

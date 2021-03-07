@@ -26,7 +26,7 @@ import de.willuhn.jameica.gui.input.DateInput;
 import de.willuhn.jameica.gui.input.TextInput;
 import de.willuhn.jameica.gui.util.LabelGroup;
 import eu.snoware.SnowClub.rmi.AbstractDokument;
-import eu.snoware.SnowClub.util.JVDateFormatTTMMJJJJ;
+import eu.snoware.SnowClub.util.SCDateFormatTTMMJJJJ;
 
 public class DokumentPart implements Part
 {
@@ -60,7 +60,7 @@ public class DokumentPart implements Part
     {
       d = new Date();
     }
-    this.datum = new DateInput(d, new JVDateFormatTTMMJJJJ());
+    this.datum = new DateInput(d, new SCDateFormatTTMMJJJJ());
     this.datum.setTitle("Datum");
     this.datum.setText("Bitte Datum wählen");
     return datum;

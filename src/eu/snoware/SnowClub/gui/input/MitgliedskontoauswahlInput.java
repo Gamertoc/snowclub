@@ -31,7 +31,7 @@ import eu.snoware.SnowClub.io.Adressbuch.Adressaufbereitung;
 import eu.snoware.SnowClub.rmi.Buchung;
 import eu.snoware.SnowClub.rmi.Mitglied;
 import eu.snoware.SnowClub.rmi.Mitgliedskonto;
-import eu.snoware.SnowClub.util.JVDateFormatTTMMJJJJ;
+import eu.snoware.SnowClub.util.SCDateFormatTTMMJJJJ;
 
 public class MitgliedskontoauswahlInput
 {
@@ -70,7 +70,7 @@ public class MitgliedskontoauswahlInput
 
     mitgliedskontoAuswahl = new DialogInput(
         konto != null ? Adressaufbereitung.getNameVorname(konto.getMitglied())
-            + ", " + new JVDateFormatTTMMJJJJ().format(konto.getDatum()) + ", "
+            + ", " + new SCDateFormatTTMMJJJJ().format(konto.getDatum()) + ", "
             + Einstellungen.DECIMALFORMAT.format(konto.getBetrag()) : "", d);
     mitgliedskontoAuswahl.disableClientControl();
     mitgliedskontoAuswahl.setValue(buchungen[0].getMitgliedskonto());
@@ -118,7 +118,7 @@ public class MitgliedskontoauswahlInput
         {
           konto = (Mitgliedskonto) event.data;
           b = Adressaufbereitung.getNameVorname(konto.getMitglied()) + ", "
-              + new JVDateFormatTTMMJJJJ().format(konto.getDatum()) + ", "
+              + new SCDateFormatTTMMJJJJ().format(konto.getDatum()) + ", "
               + Einstellungen.DECIMALFORMAT.format(konto.getBetrag());
           String name = buchungen[0].getName();
           String zweck1 = buchungen[0].getZweck();

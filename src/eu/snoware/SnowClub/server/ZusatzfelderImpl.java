@@ -27,7 +27,7 @@ import eu.snoware.SnowClub.keys.Datentyp;
 import eu.snoware.SnowClub.rmi.Felddefinition;
 import eu.snoware.SnowClub.rmi.Mitglied;
 import eu.snoware.SnowClub.rmi.Zusatzfelder;
-import eu.snoware.SnowClub.util.JVDateFormatTTMMJJJJ;
+import eu.snoware.SnowClub.util.SCDateFormatTTMMJJJJ;
 
 public class ZusatzfelderImpl extends AbstractDBObject implements Zusatzfelder
 {
@@ -207,7 +207,7 @@ public class ZusatzfelderImpl extends AbstractDBObject implements Zusatzfelder
         case Datentyp.DATUM:
           if (getFeldDatum() != null)
           {
-            return new JVDateFormatTTMMJJJJ().format(getFeldDatum());
+            return new SCDateFormatTTMMJJJJ().format(getFeldDatum());
           }
           else
           {

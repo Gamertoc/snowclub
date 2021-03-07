@@ -36,8 +36,8 @@ import de.willuhn.logging.Logger;
 import eu.snoware.SnowClub.Einstellungen;
 import eu.snoware.SnowClub.rmi.Buchung;
 import eu.snoware.SnowClub.rmi.Konto;
-import eu.snoware.SnowClub.util.JVDateFormatDATETIME;
-import eu.snoware.SnowClub.util.JVDateFormatTTMMJJJJ;
+import eu.snoware.SnowClub.util.SCDateFormatDATETIME;
+import eu.snoware.SnowClub.util.SCDateFormatTTMMJJJJ;
 
 /**
  * Ein Dialog, ueber den man ein Konto auswaehlen kann.
@@ -90,7 +90,7 @@ public class BuchungUebernahmeProtokollDialog extends AbstractDialog<Buchung>
       }
     });
     bu.addColumn("Datum", "datum",
-        new DateFormatter(new JVDateFormatTTMMJJJJ()));
+        new DateFormatter(new SCDateFormatTTMMJJJJ()));
     bu.addColumn("Name", "name");
     bu.addColumn("Verwendungszweck", "zweck", new Formatter()
     {
@@ -120,7 +120,7 @@ public class BuchungUebernahmeProtokollDialog extends AbstractDialog<Buchung>
       LabelGroup lbFehler = new LabelGroup(parent, "Fehler");
       if (fehlerbuchung != null)
       {
-        lbFehler.addInput(new LabelInput(new JVDateFormatDATETIME()
+        lbFehler.addInput(new LabelInput(new SCDateFormatDATETIME()
             .format(fehlerbuchung.getDatum())));
         lbFehler.addInput(new LabelInput(fehlerbuchung.getName()));
         lbFehler.addInput(new LabelInput(fehlerbuchung.getZweck()));

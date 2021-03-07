@@ -14,16 +14,39 @@
  * heiner@jverein.de
  * www.jverein.de
  **********************************************************************/
-package eu.snoware.SnowClub.util;
+package eu.snoware.SnowClub.io;
 
-import java.text.SimpleDateFormat;
+import de.jost_net.OBanToo.SEPA.Basislastschrift.Zahler;
 
-public class JVDateFormatMMJJJJ extends SimpleDateFormat
+public class SnowClubZahler extends Zahler
 {
-  private static final long serialVersionUID = 4017644423840096050L;
 
-  public JVDateFormatMMJJJJ()
+  private String personId;
+
+  private SnowClubZahlerTyp personTyp;
+
+  public SnowClubZahler()
   {
-    super("MM.yyyy");
   }
+
+  public String getPersonId()
+  {
+    return personId;
+  }
+
+  public void setPersonId(String personId)
+  {
+    this.personId = personId;
+  }
+
+  public SnowClubZahlerTyp getPersonTyp()
+  {
+    return personTyp;
+  }
+
+  public void setPersonTyp(SnowClubZahlerTyp personTyp)
+  {
+    this.personTyp = personTyp;
+  }
+
 }

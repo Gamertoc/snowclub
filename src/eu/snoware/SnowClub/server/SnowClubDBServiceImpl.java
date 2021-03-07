@@ -27,10 +27,10 @@ import de.willuhn.logging.Logger;
 import de.willuhn.util.ApplicationException;
 import de.willuhn.util.ProgressMonitor;
 import eu.snoware.SnowClub.rmi.DBSupport;
-import eu.snoware.SnowClub.rmi.JVereinDBService;
+import eu.snoware.SnowClub.rmi.SnowClubDBService;
 
-public class JVereinDBServiceImpl extends DBServiceImpl implements
-    JVereinDBService
+public class SnowClubDBServiceImpl extends DBServiceImpl implements
+    SnowClubDBService
 {
 
   private static final long serialVersionUID = 7221618925760171630L;
@@ -40,7 +40,7 @@ public class JVereinDBServiceImpl extends DBServiceImpl implements
   /**
    * @throws RemoteException
    */
-  public JVereinDBServiceImpl() throws RemoteException
+  public SnowClubDBServiceImpl() throws RemoteException
   {
     this(SETTINGS.getString("database.driver", DBSupportH2Impl.class.getName()));
   }
@@ -52,7 +52,7 @@ public class JVereinDBServiceImpl extends DBServiceImpl implements
    *          der zu verwendende Treiber.
    * @throws RemoteException
    */
-  protected JVereinDBServiceImpl(String driverClass) throws RemoteException
+  protected SnowClubDBServiceImpl(String driverClass) throws RemoteException
   {
     super();
     this.setClassloader(Application.getClassLoader());
@@ -130,7 +130,7 @@ public class JVereinDBServiceImpl extends DBServiceImpl implements
     // this.driver.install();
 
     // PluginResources res = Application.getPluginLoader().getPlugin(
-    // JVereinPlugin.class).getResources();
+    // SnowClubPlugin.class).getResources();
     // Wir schreiben unseren Prefix davor.
     // String prefix = JVereinDBService.SETTINGS.getString(
     // "database.driver.scriptprefix", "h2-");
@@ -155,7 +155,7 @@ public class JVereinDBServiceImpl extends DBServiceImpl implements
   // df.setGroupingUsed(false);
   //
   // PluginResources res = Application.getPluginLoader().getPlugin(
-  // JVereinPlugin.class).getResources();
+  // SnowClubPlugin.class).getResources();
   //
   // double target = newVersion;
   //
@@ -171,7 +171,7 @@ public class JVereinDBServiceImpl extends DBServiceImpl implements
   // + df.format(oldVersion) + "-" + df.format(newVersion) + ".sql");
   //
   // I18N i18n = Application.getPluginLoader()
-  // .getPlugin(JVereinPlugin.class).getResources().getI18N();
+  // .getPlugin(SnowClubPlugin.class).getResources().getI18N();
   // ProgressMonitor monitor = Application.getCallback().getStartupMonitor();
   // monitor.setStatusText(i18n.tr(
   // "Führe JVerein-Update durch: von {0} zu {1}", new String[] {

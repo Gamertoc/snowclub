@@ -40,7 +40,7 @@ import eu.snoware.SnowClub.rmi.Adresstyp;
 import eu.snoware.SnowClub.rmi.Beitragsgruppe;
 import eu.snoware.SnowClub.rmi.Mitglied;
 import eu.snoware.SnowClub.server.Tools.EigenschaftenTool;
-import eu.snoware.SnowClub.util.JVDateFormatTTMMJJJJ;
+import eu.snoware.SnowClub.util.SCDateFormatTTMMJJJJ;
 
 public class MitgliedAuswertungPDF implements IAuswertung
 {
@@ -82,42 +82,42 @@ public class MitgliedAuswertungPDF implements IAuswertung
       if (control.getGeburtsdatumvon().getValue() != null)
       {
         Date d = (Date) control.getGeburtsdatumvon().getValue();
-        params.put("Geburtsdatum von ", new JVDateFormatTTMMJJJJ().format(d));
+        params.put("Geburtsdatum von ", new SCDateFormatTTMMJJJJ().format(d));
       }
       if (control.getGeburtsdatumbis().getValue() != null)
       {
         Date d = (Date) control.getGeburtsdatumbis().getValue();
-        params.put("Geburtsdatum bis ", new JVDateFormatTTMMJJJJ().format(d));
+        params.put("Geburtsdatum bis ", new SCDateFormatTTMMJJJJ().format(d));
       }
       if (control.getEintrittvon().getValue() != null)
       {
         Date d = (Date) control.getEintrittvon().getValue();
-        params.put("Eintritt von ", new JVDateFormatTTMMJJJJ().format(d));
+        params.put("Eintritt von ", new SCDateFormatTTMMJJJJ().format(d));
       }
       if (control.getEintrittbis().getValue() != null)
       {
         Date d = (Date) control.getEintrittbis().getValue();
-        params.put("Eintritt bis ", new JVDateFormatTTMMJJJJ().format(d));
+        params.put("Eintritt bis ", new SCDateFormatTTMMJJJJ().format(d));
       }
       if (control.getAustrittvon().getValue() != null)
       {
         Date d = (Date) control.getAustrittvon().getValue();
-        params.put("Austritt von ", new JVDateFormatTTMMJJJJ().format(d));
+        params.put("Austritt von ", new SCDateFormatTTMMJJJJ().format(d));
       }
       if (control.getAustrittbis().getValue() != null)
       {
         Date d = (Date) control.getAustrittbis().getValue();
-        params.put("Austritt bis ", new JVDateFormatTTMMJJJJ().format(d));
+        params.put("Austritt bis ", new SCDateFormatTTMMJJJJ().format(d));
       }
       if (control.getSterbedatumvon().getValue() != null)
       {
         Date d = (Date) control.getSterbedatumvon().getValue();
-        params.put("Sterbetag von", new JVDateFormatTTMMJJJJ().format(d));
+        params.put("Sterbetag von", new SCDateFormatTTMMJJJJ().format(d));
       }
       if (control.getSterbedatumbis().getValue() != null)
       {
         Date d = (Date) control.getSterbedatumbis().getValue();
-        params.put("Sterbedatum bis", new JVDateFormatTTMMJJJJ().format(d));
+        params.put("Sterbedatum bis", new SCDateFormatTTMMJJJJ().format(d));
       }
       if (control.getBeitragsgruppeAusw().getValue() != null)
       {
@@ -136,7 +136,7 @@ public class MitgliedAuswertungPDF implements IAuswertung
         params.put("Geschlecht", control.getGeschlecht().getText());
       }
       Date d = (Date) control.getStichtag(false).getValue();
-      params.put("Stichtag", new JVDateFormatTTMMJJJJ().format(d));
+      params.put("Stichtag", new SCDateFormatTTMMJJJJ().format(d));
     }
     for (int i = 0; i < control.getSettings().getInt("zusatzfelder.selected",
         0); i++)
@@ -226,20 +226,20 @@ public class MitgliedAuswertungPDF implements IAuswertung
         String zelle = "";
         if (d != null)
         {
-          zelle = new JVDateFormatTTMMJJJJ().format(d);
+          zelle = new SCDateFormatTTMMJJJJ().format(d);
         }
 
         if (m.getAustritt() != null)
         {
-          zelle += "\n" + new JVDateFormatTTMMJJJJ().format(m.getAustritt());
+          zelle += "\n" + new SCDateFormatTTMMJJJJ().format(m.getAustritt());
         }
         if (m.getKuendigung() != null)
         {
-          zelle += "\n" + new JVDateFormatTTMMJJJJ().format(m.getKuendigung());
+          zelle += "\n" + new SCDateFormatTTMMJJJJ().format(m.getKuendigung());
         }
         if (m.getSterbetag() != null)
         {
-          zelle += "\n" + new JVDateFormatTTMMJJJJ().format(m.getSterbetag());
+          zelle += "\n" + new SCDateFormatTTMMJJJJ().format(m.getSterbetag());
         }
         if (adresstyp.getJVereinid() == 1)
         {

@@ -29,7 +29,7 @@ import eu.snoware.SnowClub.Einstellungen;
 import eu.snoware.SnowClub.rmi.Anfangsbestand;
 import eu.snoware.SnowClub.rmi.Jahresabschluss;
 import eu.snoware.SnowClub.rmi.Konto;
-import eu.snoware.SnowClub.util.JVDateFormatTTMMJJJJ;
+import eu.snoware.SnowClub.util.SCDateFormatTTMMJJJJ;
 
 public class AnfangsbestandImpl extends AbstractDBObject
     implements Anfangsbestand
@@ -112,7 +112,7 @@ public class AnfangsbestandImpl extends AbstractDBObject
   {
     try
     {
-      Date beginngeschaeftsjahr = new JVDateFormatTTMMJJJJ().parse(
+      Date beginngeschaeftsjahr = new SCDateFormatTTMMJJJJ().parse(
           Einstellungen.getEinstellung().getBeginnGeschaeftsjahr() + "2009");
       DBIterator<Anfangsbestand> it = Einstellungen.getDBService()
           .createList(Anfangsbestand.class);
@@ -124,7 +124,7 @@ public class AnfangsbestandImpl extends AbstractDBObject
         Anfangsbestand anf = (Anfangsbestand) it.next();
         throw new ApplicationException(
             String.format("Datum muss nach dem %s liegen",
-                new JVDateFormatTTMMJJJJ().format(anf.getDatum())));
+                new SCDateFormatTTMMJJJJ().format(anf.getDatum())));
       }
       it = Einstellungen.getDBService().createList(Anfangsbestand.class);
       it.addFilter("konto = ?", new Object[] { getKonto().getID() });

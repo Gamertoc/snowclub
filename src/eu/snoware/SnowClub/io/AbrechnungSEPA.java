@@ -79,7 +79,7 @@ import eu.snoware.SnowClub.rmi.Zusatzbetrag;
 import eu.snoware.SnowClub.rmi.ZusatzbetragAbrechnungslauf;
 import eu.snoware.SnowClub.server.MitgliedUtils;
 import eu.snoware.SnowClub.util.Datum;
-import eu.snoware.SnowClub.util.JVDateFormatDATETIME;
+import eu.snoware.SnowClub.util.SCDateFormatDATETIME;
 
 public class AbrechnungSEPA
 {
@@ -147,9 +147,9 @@ public class AbrechnungSEPA
           .createObject(Lastschrift.class, null);
       ls.setAbrechnungslauf(Integer.parseInt(abrl.getID()));
 
-      assert (za instanceof JVereinZahler) : "Illegaler Zahlertyp in Sepa-Abrechnung detektiert.";
+      assert (za instanceof SnowClubZahler) : "Illegaler Zahlertyp in Sepa-Abrechnung detektiert.";
 
-      JVereinZahler vza = (JVereinZahler) za;
+      SnowClubZahler vza = (SnowClubZahler) za;
 
       switch (vza.getPersonTyp())
       {
@@ -322,7 +322,7 @@ public class AbrechnungSEPA
         monitor.setStatus((int) ((double) count / (double) list.size() * 100d));
         Mitglied m = (Mitglied) list.next();
 
-        JVereinZahler z = abrechnungMitgliederSub(param, lastschrift, monitor,
+        SnowClubZahler z = abrechnungMitgliederSub(param, lastschrift, monitor,
             abrl, konto, m, m.getBeitragsgruppe(), true);
 
         DBIterator<SekundaereBeitragsgruppe> sekundaer = Einstellungen
@@ -332,7 +332,7 @@ public class AbrechnungSEPA
         {
           SekundaereBeitragsgruppe sb = (SekundaereBeitragsgruppe) sekundaer
               .next();
-          JVereinZahler z2 = abrechnungMitgliederSub(param, lastschrift,
+          SnowClubZahler z2 = abrechnungMitgliederSub(param, lastschrift,
               monitor, abrl, konto, m, sb.getBeitragsgruppe(), false);
           if (z2 != null)
           {
@@ -354,13 +354,13 @@ public class AbrechnungSEPA
     }
   }
 
-  private JVereinZahler abrechnungMitgliederSub(AbrechnungSEPAParam param,
+  private SnowClubZahler abrechnungMitgliederSub(AbrechnungSEPAParam param,
       JVereinBasislastschrift lastschrift, ProgressMonitor monitor,
       Abrechnungslauf abrl, Konto konto, Mitglied m, Beitragsgruppe bg,
       boolean primaer) throws RemoteException, ApplicationException
   {
     Double betr = 0d;
-    JVereinZahler zahler = null;
+    SnowClubZahler zahler = null;
     if (Einstellungen.getEinstellung()
         .getBeitragsmodel() == Beitragsmodel.FLEXIBEL)
     {
@@ -422,9 +422,9 @@ public class AbrechnungSEPA
     {
       try
       {
-        zahler = new JVereinZahler();
+        zahler = new SnowClubZahler();
         zahler.setPersonId(m.getID());
-        zahler.setPersonTyp(JVereinZahlerTyp.MITGLIED);
+        zahler.setPersonTyp(SnowClubZahlerTyp.MITGLIED);
         zahler.setBetrag(
             new BigDecimal(betr).setScale(2, BigDecimal.ROUND_HALF_UP));
         new BIC(m.getBic()); // Prüfung des BIC
@@ -518,9 +518,9 @@ public class AbrechnungSEPA
         {
           try
           {
-            JVereinZahler zahler = new JVereinZahler();
+            SnowClubZahler zahler = new SnowClubZahler();
             zahler.setPersonId(m.getID());
-            zahler.setPersonTyp(JVereinZahlerTyp.MITGLIED);
+            zahler.setPersonTyp(SnowClubZahlerTyp.MITGLIED);
             zahler.setBetrag(new BigDecimal(z.getBetrag()).setScale(2,
                 BigDecimal.ROUND_HALF_UP));
             new BIC(m.getBic());
@@ -597,9 +597,9 @@ public class AbrechnungSEPA
       Kursteilnehmer kt = (Kursteilnehmer) list.next();
       try
       {
-        JVereinZahler zahler = new JVereinZahler();
+        SnowClubZahler zahler = new SnowClubZahler();
         zahler.setPersonId(kt.getID());
-        zahler.setPersonTyp(JVereinZahlerTyp.KURSTEILNEHMER);
+        zahler.setPersonTyp(SnowClubZahlerTyp.KURSTEILNEHMER);
         zahler.setBetrag(new BigDecimal(kt.getBetrag()).setScale(2,
             BigDecimal.ROUND_HALF_UP));
         new BIC(kt.getBic());
@@ -707,7 +707,7 @@ public class AbrechnungSEPA
         // Hier noch die eigene Bezeichnung einfuegen
         String vzweck = getVerwendungszweck(param) + " "
             + s.getBezeichnung().substring(0, s.getBezeichnung().indexOf(" "))
-            + " vom " + new JVDateFormatDATETIME().format(new Date());
+            + " vom " + new SCDateFormatDATETIME().format(new Date());
         s.setBezeichnung(vzweck);
         s.store();
       }

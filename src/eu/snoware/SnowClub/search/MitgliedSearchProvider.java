@@ -29,7 +29,7 @@ import eu.snoware.SnowClub.Einstellungen;
 import eu.snoware.SnowClub.gui.action.MitgliedDetailAction;
 import eu.snoware.SnowClub.io.Adressbuch.Adressaufbereitung;
 import eu.snoware.SnowClub.rmi.Mitglied;
-import eu.snoware.SnowClub.util.JVDateFormatTTMMJJJJ;
+import eu.snoware.SnowClub.util.SCDateFormatTTMMJJJJ;
 
 /**
  * Implementierung eines Search-Provider fuer die Suche nach Mitgliedern.
@@ -97,7 +97,7 @@ public class MitgliedSearchProvider implements SearchProvider
         return Adressaufbereitung.getNameVorname(m) + ", "
             + Adressaufbereitung.getAnschrift(m)
             + (m.getGeburtsdatum() != null
-                ? ", " + new JVDateFormatTTMMJJJJ().format(m.getGeburtsdatum())
+                ? ", " + new SCDateFormatTTMMJJJJ().format(m.getGeburtsdatum())
                 : "")
             + (m.getIban() != null ? ", " + "IBAN" + ": " + m.getIban() + ", "
                 + "BIC" + ": " + m.getBic() : "");

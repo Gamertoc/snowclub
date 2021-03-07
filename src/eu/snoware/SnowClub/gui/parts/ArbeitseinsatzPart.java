@@ -28,7 +28,7 @@ import de.willuhn.jameica.gui.input.DecimalInput;
 import de.willuhn.jameica.gui.input.TextInput;
 import de.willuhn.jameica.gui.util.LabelGroup;
 import eu.snoware.SnowClub.rmi.Arbeitseinsatz;
-import eu.snoware.SnowClub.util.JVDateFormatTTMMJJJJ;
+import eu.snoware.SnowClub.util.SCDateFormatTTMMJJJJ;
 
 public class ArbeitseinsatzPart implements Part
 {
@@ -66,7 +66,7 @@ public class ArbeitseinsatzPart implements Part
     {
       d = new Date();
     }
-    this.datum = new DateInput(d, new JVDateFormatTTMMJJJJ());
+    this.datum = new DateInput(d, new SCDateFormatTTMMJJJJ());
     this.datum.setTitle("Datum");
     this.datum.setName("Datum");
     this.datum.setText("Datum Arbeitseinsatz wählen");

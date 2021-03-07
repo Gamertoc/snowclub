@@ -36,7 +36,7 @@ import eu.snoware.SnowClub.rmi.Buchung;
 import eu.snoware.SnowClub.rmi.Formular;
 import eu.snoware.SnowClub.rmi.Mitglied;
 import eu.snoware.SnowClub.rmi.Spendenbescheinigung;
-import eu.snoware.SnowClub.util.JVDateFormatTTMMJJJJ;
+import eu.snoware.SnowClub.util.SCDateFormatTTMMJJJJ;
 import eu.snoware.SnowClub.util.StringTool;
 import jonelo.NumericalChameleon.SpokenNumbers.GermanNumber;
 
@@ -608,7 +608,7 @@ public class SpendenbescheinigungImpl extends AbstractDBObject
     GregorianCalendar gc = new GregorianCalendar();
     gc.setTime(getBescheinigungsdatum());
 
-    String bescheinigungsdatum = new JVDateFormatTTMMJJJJ()
+    String bescheinigungsdatum = new SCDateFormatTTMMJJJJ()
         .format(getBescheinigungsdatum());
     map.put(SpendenbescheinigungVar.BESCHEINIGUNGDATUM.getName(),
         bescheinigungsdatum);
@@ -626,7 +626,7 @@ public class SpendenbescheinigungImpl extends AbstractDBObject
         map.put(SpendenbescheinigungVar.SPENDEART.getName(), "Sachzuwendungen");
         break;
     }
-    String spendedatum = new JVDateFormatTTMMJJJJ().format(getSpendedatum());
+    String spendedatum = new SCDateFormatTTMMJJJJ().format(getSpendedatum());
     boolean printBuchungsart = Einstellungen.getEinstellung()
         .getSpendenbescheinigungPrintBuchungsart();
     map.put(SpendenbescheinigungVar.BEZEICHNUNGSACHZUWENDUNG.getName(),
@@ -674,7 +674,7 @@ public class SpendenbescheinigungImpl extends AbstractDBObject
     // bei Sammelbestätigungen ein Zeitraum und "siehe Anlage"
     if (getBuchungen() != null && getBuchungen().size() > 1)
     {
-      String zeitraumende = new JVDateFormatTTMMJJJJ().format(getZeitraumBis());
+      String zeitraumende = new SCDateFormatTTMMJJJJ().format(getZeitraumBis());
       map.put(SpendenbescheinigungVar.SPENDEDATUM.getName(), "s. Anlage");
       map.put(SpendenbescheinigungVar.SPENDENZEITRAUM.getName(),
           String.format("%s bis %s", spendedatum, zeitraumende));
@@ -696,7 +696,7 @@ public class SpendenbescheinigungImpl extends AbstractDBObject
         bl.append(newLineStr);
         for (Buchung b : buchungen)
         {
-          bl.append(new JVDateFormatTTMMJJJJ().format(b.getDatum()));
+          bl.append(new SCDateFormatTTMMJJJJ().format(b.getDatum()));
           bl.append("  ");
           String str = Einstellungen.DECIMALFORMAT.format(b.getBetrag());
           bl.append(StringTool.lpad(str, 11));
@@ -781,7 +781,7 @@ public class SpendenbescheinigungImpl extends AbstractDBObject
         for (Buchung b : buchungen)
         {
           bl.append(StringTool.rpad(
-              new JVDateFormatTTMMJJJJ().format(b.getDatum()), colDatumLen));
+              new SCDateFormatTTMMJJJJ().format(b.getDatum()), colDatumLen));
           bl.append("  ");
           if (printBuchungsart)
           {

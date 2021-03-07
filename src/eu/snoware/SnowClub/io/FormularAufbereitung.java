@@ -40,7 +40,7 @@ import de.willuhn.util.ApplicationException;
 import eu.snoware.SnowClub.Einstellungen;
 import eu.snoware.SnowClub.rmi.Formular;
 import eu.snoware.SnowClub.rmi.Formularfeld;
-import eu.snoware.SnowClub.util.JVDateFormatTTMMJJJJ;
+import eu.snoware.SnowClub.util.SCDateFormatTTMMJJJJ;
 
 public class FormularAufbereitung
 {
@@ -236,7 +236,7 @@ public class FormularAufbereitung
       {
         for (Object od : o)
         {
-          stringVal.append(new JVDateFormatTTMMJJJJ().format((Date) od));
+          stringVal.append(new SCDateFormatTTMMJJJJ().format((Date) od));
           stringVal.append("\n");
         }
       }
@@ -268,7 +268,7 @@ public class FormularAufbereitung
     if (val instanceof Date)
     {
       stringVal = new StringBuilder(
-          new JVDateFormatTTMMJJJJ().format((Date) val));
+          new SCDateFormatTTMMJJJJ().format((Date) val));
     }
     return stringVal.toString();
   }

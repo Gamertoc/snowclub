@@ -28,7 +28,7 @@ import java.util.HashMap;
 import de.willuhn.jameica.system.Application;
 import de.willuhn.logging.Logger;
 import de.willuhn.util.ApplicationException;
-import eu.snoware.SnowClub.JVereinPlugin;
+import eu.snoware.SnowClub.SnowClubPlugin;
 
 /**
  * Implementierung des Datenbank-Supports fuer H2-Database
@@ -52,7 +52,7 @@ public class DBSupportH2Impl extends AbstractDBSupportImpl
   {
     // H2-Datenbank verwendet uppercase Identifier
     Logger.info("switching dbservice to uppercase");
-    System.setProperty(JVereinDBServiceImpl.class.getName() + ".uppercase",
+    System.setProperty(SnowClubDBServiceImpl.class.getName() + ".uppercase",
         "true");
 
     try
@@ -135,7 +135,7 @@ public class DBSupportH2Impl extends AbstractDBSupportImpl
   public String getJdbcUrl()
   {
     String url = "jdbc:h2:" + Application.getPluginLoader()
-        .getPlugin(JVereinPlugin.class).getResources().getWorkPath()
+        .getPlugin(SnowClubPlugin.class).getResources().getWorkPath()
         + "/h2db/jverein";
 
     // if (JVereinDBService.SETTINGS.getBoolean("database.driver.h2.encryption",
@@ -160,13 +160,13 @@ public class DBSupportH2Impl extends AbstractDBSupportImpl
       try
       {
         // PluginResources res = Application.getPluginLoader().getPlugin(
-        // JVereinPlugin.class).getResources();
+        // SnowClubPlugin.class).getResources();
         // JVereinUpdateProvider udp = new JVereinUpdateProvider(conn, res
         // .getPath()
         // + File.separator + "sql.h2", Application.getCallback()
         // .getStartupMonitor());
 
-        new JVereinUpdateProvider(conn,
+        new SnowClubUpdateProvider(conn,
             Application.getCallback().getStartupMonitor());
       }
       catch (Exception e2)

@@ -35,7 +35,7 @@ import de.willuhn.jameica.gui.GUI;
 import de.willuhn.logging.Logger;
 import de.willuhn.util.ApplicationException;
 import eu.snoware.SnowClub.Einstellungen;
-import eu.snoware.SnowClub.util.JVDateFormatTTMMJJJJ;
+import eu.snoware.SnowClub.util.SCDateFormatTTMMJJJJ;
 
 public class BuchungsklassesaldoCSV
 {
@@ -69,8 +69,8 @@ public class BuchungsklassesaldoCSV
       String[] header = { "Buchungsart", "Einnahmen", "Ausgaben", "Umbuchung" };
       writer.writeHeader(header);
 
-      String subtitle = new JVDateFormatTTMMJJJJ().format(datumvon) + " - "
-          + new JVDateFormatTTMMJJJJ().format(datumbis);
+      String subtitle = new SCDateFormatTTMMJJJJ().format(datumvon) + " - "
+          + new SCDateFormatTTMMJJJJ().format(datumbis);
       csvzeile.put(header[0], subtitle);
       writer.write(csvzeile, header, processors);
 

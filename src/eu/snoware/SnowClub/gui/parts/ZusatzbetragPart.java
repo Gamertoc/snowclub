@@ -34,7 +34,7 @@ import eu.snoware.SnowClub.Einstellungen;
 import eu.snoware.SnowClub.gui.input.BuchungsartInput;
 import eu.snoware.SnowClub.keys.IntervallZusatzzahlung;
 import eu.snoware.SnowClub.rmi.Zusatzbetrag;
-import eu.snoware.SnowClub.util.JVDateFormatTTMMJJJJ;
+import eu.snoware.SnowClub.util.SCDateFormatTTMMJJJJ;
 
 public class ZusatzbetragPart implements Part
 {
@@ -83,7 +83,7 @@ public class ZusatzbetragPart implements Part
 
     Date d = zusatzbetrag.getFaelligkeit();
 
-    this.faelligkeit = new DateInput(d, new JVDateFormatTTMMJJJJ());
+    this.faelligkeit = new DateInput(d, new SCDateFormatTTMMJJJJ());
     this.faelligkeit.setTitle("Fälligkeit");
     this.faelligkeit.setText("Bitte Fälligkeitsdatum wählen");
     this.faelligkeit.addListener(new Listener()
@@ -133,7 +133,7 @@ public class ZusatzbetragPart implements Part
     }
 
     Date d = zusatzbetrag.getStartdatum();
-    this.startdatum = new DateInput(d, new JVDateFormatTTMMJJJJ());
+    this.startdatum = new DateInput(d, new SCDateFormatTTMMJJJJ());
     this.startdatum.setTitle("Startdatum");
     this.startdatum.setText("Bitte Startdatum wählen");
     this.startdatum.addListener(new Listener()
@@ -185,7 +185,7 @@ public class ZusatzbetragPart implements Part
     }
 
     Date d = zusatzbetrag.getEndedatum();
-    this.endedatum = new DateInput(d, new JVDateFormatTTMMJJJJ());
+    this.endedatum = new DateInput(d, new SCDateFormatTTMMJJJJ());
     this.endedatum.setTitle("Endedatum");
     this.endedatum.setText("Bitte Endedatum wählen");
     this.endedatum.addListener(new Listener()
@@ -213,7 +213,7 @@ public class ZusatzbetragPart implements Part
 
     Date d = zusatzbetrag.getAusfuehrung();
 
-    this.ausfuehrung = new DateInput(d, new JVDateFormatTTMMJJJJ());
+    this.ausfuehrung = new DateInput(d, new SCDateFormatTTMMJJJJ());
     this.ausfuehrung.setTitle("Ausführung");
     this.ausfuehrung.setText("Bitte Ausführungsdatum wählen");
     this.ausfuehrung.addListener(new Listener()

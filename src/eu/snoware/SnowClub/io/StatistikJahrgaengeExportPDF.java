@@ -27,7 +27,7 @@ import com.itextpdf.text.Element;
 
 import eu.snoware.SnowClub.Einstellungen;
 import eu.snoware.SnowClub.gui.view.StatistikJahrgaengeView;
-import eu.snoware.SnowClub.util.JVDateFormatTTMMJJJJ;
+import eu.snoware.SnowClub.util.SCDateFormatTTMMJJJJ;
 
 public class StatistikJahrgaengeExportPDF extends StatistikJahrgaengeExport
 {
@@ -81,7 +81,7 @@ public class StatistikJahrgaengeExportPDF extends StatistikJahrgaengeExport
   {
     fos = new FileOutputStream(file);
     reporter = new Reporter(fos, "Statistik Jahrgänge, Stichtag: "
-        + new JVDateFormatTTMMJJJJ().format(stichtag) + "", "", 3);
+        + new SCDateFormatTTMMJJJJ().format(stichtag) + "", "", 3);
     reporter.addHeaderColumn("Jahrgang", Element.ALIGN_CENTER, 50,
         BaseColor.LIGHT_GRAY);
     reporter.addHeaderColumn("Insgesamt", Element.ALIGN_CENTER, 50,

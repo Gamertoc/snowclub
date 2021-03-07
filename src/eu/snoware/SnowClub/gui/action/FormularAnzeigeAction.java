@@ -40,10 +40,10 @@ import eu.snoware.SnowClub.rmi.Formular;
 import eu.snoware.SnowClub.rmi.Lastschrift;
 import eu.snoware.SnowClub.rmi.Mitglied;
 import eu.snoware.SnowClub.rmi.Spendenbescheinigung;
-import eu.snoware.SnowClub.util.JVDateFormatJJJJ;
-import eu.snoware.SnowClub.util.JVDateFormatMM;
-import eu.snoware.SnowClub.util.JVDateFormatTT;
-import eu.snoware.SnowClub.util.JVDateFormatTTMMJJJJ;
+import eu.snoware.SnowClub.util.SCDateFormatJJJJ;
+import eu.snoware.SnowClub.util.SCDateFormatMM;
+import eu.snoware.SnowClub.util.SCDateFormatTT;
+import eu.snoware.SnowClub.util.SCDateFormatTTMMJJJJ;
 import eu.snoware.SnowClub.util.StringTool;
 import jonelo.NumericalChameleon.SpokenNumbers.GermanNumber;
 
@@ -111,10 +111,10 @@ public class FormularAnzeigeAction implements Action
       map.put(FormularfeldControl.ZAHLUNGSWEG,
           "Abbuchung von Konto 1234567, BLZ: 10020030");
       map.put(FormularfeldControl.TAGESDATUM,
-          new JVDateFormatTTMMJJJJ().format(new Date()));
-      map.put(FormularfeldControl.TAGESDATUMTT, new JVDateFormatTT());
-      map.put(FormularfeldControl.TAGESDATUMMM, new JVDateFormatMM());
-      map.put(FormularfeldControl.TAGESDATUMJJJJ, new JVDateFormatJJJJ());
+          new SCDateFormatTTMMJJJJ().format(new Date()));
+      map.put(FormularfeldControl.TAGESDATUMTT, new SCDateFormatTT());
+      map.put(FormularfeldControl.TAGESDATUMMM, new SCDateFormatMM());
+      map.put(FormularfeldControl.TAGESDATUMJJJJ, new SCDateFormatJJJJ());
 
       Spendenbescheinigung spb = (Spendenbescheinigung) Einstellungen
           .getDBService().createObject(Spendenbescheinigung.class, null);
@@ -123,7 +123,7 @@ public class FormularAnzeigeAction implements Action
       map.put("Buchungsdatum", new Date());
       map.put(SpendenbescheinigungVar.BESCHEINIGUNGDATUM.getName(),
           "17.12.2008");
-      map.put("Tagesdatum", new JVDateFormatTTMMJJJJ().format(new Date()));
+      map.put("Tagesdatum", new SCDateFormatTTMMJJJJ().format(new Date()));
       map.put(SpendenbescheinigungVar.SPENDENZEITRAUM.getName(),
           "13.02.2008 bis 12.11.2008");
 

@@ -42,7 +42,7 @@ import de.willuhn.jameica.gui.util.SimpleContainer;
 import de.willuhn.jameica.gui.util.TabGroup;
 import de.willuhn.logging.Logger;
 import eu.snoware.SnowClub.Einstellungen;
-import eu.snoware.SnowClub.JVereinPlugin;
+import eu.snoware.SnowClub.SnowClubPlugin;
 import eu.snoware.SnowClub.gui.action.AdresseDeleteAction;
 import eu.snoware.SnowClub.gui.action.AdresseDetailAction;
 import eu.snoware.SnowClub.gui.action.DokumentationAction;
@@ -241,7 +241,7 @@ public abstract class AbstractAdresseDetailView extends AbstractView
   private void zeichneDokumente(Composite parentComposite)
       throws RemoteException
   {
-    if (JVereinPlugin.isArchiveServiceActive()
+    if (SnowClubPlugin.isArchiveServiceActive()
         && !control.getMitglied().isNewObject())
     {
       Container cont = getTabOrLabelContainer(parentComposite, "Dokumente");

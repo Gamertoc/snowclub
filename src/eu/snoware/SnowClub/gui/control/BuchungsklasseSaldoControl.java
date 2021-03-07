@@ -44,7 +44,7 @@ import eu.snoware.SnowClub.io.BuchungsklasseSaldoZeile;
 import eu.snoware.SnowClub.io.BuchungsklassesaldoCSV;
 import eu.snoware.SnowClub.io.BuchungsklassesaldoPDF;
 import eu.snoware.SnowClub.util.Dateiname;
-import eu.snoware.SnowClub.util.JVDateFormatTTMMJJJJ;
+import eu.snoware.SnowClub.util.SCDateFormatTTMMJJJJ;
 
 public class BuchungsklasseSaldoControl extends AbstractControl
 {
@@ -78,14 +78,14 @@ public class BuchungsklasseSaldoControl extends AbstractControl
     Date d = new Date();
     try
     {
-      d = new JVDateFormatTTMMJJJJ()
+      d = new SCDateFormatTTMMJJJJ()
           .parse(settings.getString("von", "01.01" + cal.get(Calendar.YEAR)));
     }
     catch (ParseException e)
     {
       //
     }
-    datumvon = new DateInput(d, new JVDateFormatTTMMJJJJ());
+    datumvon = new DateInput(d, new SCDateFormatTTMMJJJJ());
     return datumvon;
   }
 
@@ -99,14 +99,14 @@ public class BuchungsklasseSaldoControl extends AbstractControl
     Date d = new Date();
     try
     {
-      d = new JVDateFormatTTMMJJJJ()
+      d = new SCDateFormatTTMMJJJJ()
           .parse(settings.getString("bis", "31.12." + cal.get(Calendar.YEAR)));
     }
     catch (ParseException e)
     {
       //
     }
-    datumbis = new DateInput(d, new JVDateFormatTTMMJJJJ());
+    datumbis = new DateInput(d, new SCDateFormatTTMMJJJJ());
     return datumbis;
   }
 
@@ -150,12 +150,12 @@ public class BuchungsklasseSaldoControl extends AbstractControl
       if (getDatumvon().getValue() != null)
       {
         settings.setAttribute("von",
-            new JVDateFormatTTMMJJJJ().format((Date) getDatumvon().getValue()));
+            new SCDateFormatTTMMJJJJ().format((Date) getDatumvon().getValue()));
       }
       if (getDatumvon().getValue() != null)
       {
         settings.setAttribute("bis",
-            new JVDateFormatTTMMJJJJ().format((Date) getDatumbis().getValue()));
+            new SCDateFormatTTMMJJJJ().format((Date) getDatumbis().getValue()));
       }
 
       if (saldoList == null)
@@ -166,7 +166,7 @@ public class BuchungsklasseSaldoControl extends AbstractControl
       else
       {
         settings.setAttribute("von",
-            new JVDateFormatTTMMJJJJ().format((Date) getDatumvon().getValue()));
+            new SCDateFormatTTMMJJJJ().format((Date) getDatumvon().getValue()));
 
         saldoList.setDatumvon((Date) datumvon.getValue());
         saldoList.setDatumbis((Date) datumbis.getValue());

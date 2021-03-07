@@ -45,7 +45,7 @@ import eu.snoware.SnowClub.rmi.Jahresabschluss;
 import eu.snoware.SnowClub.rmi.Konto;
 import eu.snoware.SnowClub.util.Datum;
 import eu.snoware.SnowClub.util.Geschaeftsjahr;
-import eu.snoware.SnowClub.util.JVDateFormatTTMMJJJJ;
+import eu.snoware.SnowClub.util.SCDateFormatTTMMJJJJ;
 
 public class JahresabschlussControl extends AbstractControl
 {
@@ -255,11 +255,11 @@ public class JahresabschlussControl extends AbstractControl
 
     jahresabschlussList = new TablePart(jahresabschluesse, null);
     jahresabschlussList.addColumn("von", "von",
-        new DateFormatter(new JVDateFormatTTMMJJJJ()));
+        new DateFormatter(new SCDateFormatTTMMJJJJ()));
     jahresabschlussList.addColumn("bis", "bis",
-        new DateFormatter(new JVDateFormatTTMMJJJJ()));
+        new DateFormatter(new SCDateFormatTTMMJJJJ()));
     jahresabschlussList.addColumn("Datum", "datum",
-        new DateFormatter(new JVDateFormatTTMMJJJJ()));
+        new DateFormatter(new SCDateFormatTTMMJJJJ()));
     jahresabschlussList.addColumn("Name", "name");
     jahresabschlussList.setRememberColWidths(true);
     jahresabschlussList.setContextMenu(new JahresabschlussMenu());

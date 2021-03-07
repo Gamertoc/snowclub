@@ -44,7 +44,7 @@ import eu.snoware.SnowClub.gui.formatter.JaNeinFormatter;
 import eu.snoware.SnowClub.gui.menu.AbrechnungslaufMenu;
 import eu.snoware.SnowClub.keys.Abrechnungsmodi;
 import eu.snoware.SnowClub.rmi.Abrechnungslauf;
-import eu.snoware.SnowClub.util.JVDateFormatTTMMJJJJ;
+import eu.snoware.SnowClub.util.SCDateFormatTTMMJJJJ;
 
 public class AbrechnungslaufControl extends AbstractControl
 {
@@ -105,7 +105,7 @@ public class AbrechnungslaufControl extends AbstractControl
       return datum;
     }
     datum = new LabelInput(
-        new JVDateFormatTTMMJJJJ().format(getAbrechnungslaeufe().getDatum()));
+        new SCDateFormatTTMMJJJJ().format(getAbrechnungslaeufe().getDatum()));
     datum.setName("Datum");
     return datum;
   }
@@ -140,7 +140,7 @@ public class AbrechnungslaufControl extends AbstractControl
     {
       return faelligkeit1;
     }
-    faelligkeit1 = new LabelInput(new JVDateFormatTTMMJJJJ()
+    faelligkeit1 = new LabelInput(new SCDateFormatTTMMJJJJ()
         .format(getAbrechnungslaeufe().getFaelligkeit()));
     faelligkeit1.setName("Fälligkeit 1");
     return faelligkeit1;
@@ -152,7 +152,7 @@ public class AbrechnungslaufControl extends AbstractControl
     {
       return faelligkeit2;
     }
-    faelligkeit2 = new LabelInput(new JVDateFormatTTMMJJJJ()
+    faelligkeit2 = new LabelInput(new SCDateFormatTTMMJJJJ()
         .format(getAbrechnungslaeufe().getFaelligkeit2()));
     faelligkeit2.setName("Fälligkeit 2");
     return faelligkeit2;
@@ -164,7 +164,7 @@ public class AbrechnungslaufControl extends AbstractControl
     {
       return stichtag;
     }
-    stichtag = new LabelInput(new JVDateFormatTTMMJJJJ()
+    stichtag = new LabelInput(new SCDateFormatTTMMJJJJ()
         .format(getAbrechnungslaeufe().getStichtag()));
     stichtag.setName("Stichtag");
     return stichtag;
@@ -178,7 +178,7 @@ public class AbrechnungslaufControl extends AbstractControl
     }
     Date ed = getAbrechnungslaeufe().getEingabedatum();
     // TODO ungültige Daten ausfiltern
-    eingabedatum = new LabelInput(new JVDateFormatTTMMJJJJ().format(ed));
+    eingabedatum = new LabelInput(new SCDateFormatTTMMJJJJ().format(ed));
     eingabedatum.setName("Eingabedatum");
     return eingabedatum;
   }
@@ -190,7 +190,7 @@ public class AbrechnungslaufControl extends AbstractControl
       return austrittsdatum;
     }
     Date ed = getAbrechnungslaeufe().getAustrittsdatum();
-    austrittsdatum = new LabelInput(new JVDateFormatTTMMJJJJ().format(ed));
+    austrittsdatum = new LabelInput(new SCDateFormatTTMMJJJJ().format(ed));
     austrittsdatum.setName("Austrittsdatum");
     return austrittsdatum;
   }
@@ -370,19 +370,19 @@ public class AbrechnungslaufControl extends AbstractControl
           new AbrechnungslaufBuchungenAction());
       abrechnungslaufList.addColumn("Nr", "nr");
       abrechnungslaufList.addColumn("Datum", "datum",
-          new DateFormatter(new JVDateFormatTTMMJJJJ()));
+          new DateFormatter(new SCDateFormatTTMMJJJJ()));
       abrechnungslaufList.addColumn("Modus", "modus",
           new AbrechnungsmodusFormatter(), false, Column.ALIGN_LEFT);
       abrechnungslaufList.addColumn("Fälligkeit 1", "faelligkeit",
-          new DateFormatter(new JVDateFormatTTMMJJJJ()));
+          new DateFormatter(new SCDateFormatTTMMJJJJ()));
       abrechnungslaufList.addColumn("Fälligkeit 2", "faelligkeit2",
-          new DateFormatter(new JVDateFormatTTMMJJJJ()));
+          new DateFormatter(new SCDateFormatTTMMJJJJ()));
       abrechnungslaufList.addColumn("Stichtag", "stichtag",
-          new DateFormatter(new JVDateFormatTTMMJJJJ()));
+          new DateFormatter(new SCDateFormatTTMMJJJJ()));
       abrechnungslaufList.addColumn("Eingabedatum", "eingabedatum",
-          new DateFormatter(new JVDateFormatTTMMJJJJ()));
+          new DateFormatter(new SCDateFormatTTMMJJJJ()));
       abrechnungslaufList.addColumn("Austrittsdatum", "austrittsdatum",
-          new DateFormatter(new JVDateFormatTTMMJJJJ()));
+          new DateFormatter(new SCDateFormatTTMMJJJJ()));
       abrechnungslaufList.addColumn("Zahlungsgrund", "zahlungsgrund");
       abrechnungslaufList.addColumn("Zusatzbeträge", "zusatzbetraege",
           new JaNeinFormatter());

@@ -30,7 +30,7 @@ import eu.snoware.SnowClub.io.Adressbuch.Adressaufbereitung;
 import eu.snoware.SnowClub.keys.ArtBeitragsart;
 import eu.snoware.SnowClub.rmi.Beitragsgruppe;
 import eu.snoware.SnowClub.rmi.Mitglied;
-import eu.snoware.SnowClub.util.JVDateFormatTTMMJJJJ;
+import eu.snoware.SnowClub.util.SCDateFormatTTMMJJJJ;
 
 public class FamilienbeitragNode implements GenericObjectNode
 {
@@ -148,7 +148,7 @@ public class FamilienbeitragNode implements GenericObjectNode
       {
         return "Familienbeiträge";
       }
-      JVDateFormatTTMMJJJJ jvttmmjjjj = new JVDateFormatTTMMJJJJ();
+      SCDateFormatTTMMJJJJ jvttmmjjjj = new SCDateFormatTTMMJJJJ();
       return Adressaufbereitung.getNameVorname(mitglied)
           + (mitglied.getGeburtsdatum() != null
               ? ", " + jvttmmjjjj.format(mitglied.getGeburtsdatum())

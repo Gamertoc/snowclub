@@ -35,7 +35,7 @@ import eu.snoware.SnowClub.Einstellungen;
 import eu.snoware.SnowClub.gui.action.ProjektAction;
 import eu.snoware.SnowClub.gui.menu.ProjektMenu;
 import eu.snoware.SnowClub.rmi.Projekt;
-import eu.snoware.SnowClub.util.JVDateFormatTTMMJJJJ;
+import eu.snoware.SnowClub.util.SCDateFormatTTMMJJJJ;
 
 public class ProjektControl extends AbstractControl
 {
@@ -91,7 +91,7 @@ public class ProjektControl extends AbstractControl
     {
       d = null;
     }
-    startDatum = new DateInput(d, new JVDateFormatTTMMJJJJ());
+    startDatum = new DateInput(d, new SCDateFormatTTMMJJJJ());
     startDatum.setName("Startdatum");
     startDatum.setTitle("Startdatum");
     startDatum.setText("Bitte Startdatum w?hlen");
@@ -110,7 +110,7 @@ public class ProjektControl extends AbstractControl
     {
         d = null;
     }
-    endeDatum = new DateInput(d, new JVDateFormatTTMMJJJJ());
+    endeDatum = new DateInput(d, new SCDateFormatTTMMJJJJ());
     endeDatum.setName("Endedatum");
     endeDatum.setTitle("Endedatum");
     endeDatum.setText("Bitte Endedatum w?hlen");

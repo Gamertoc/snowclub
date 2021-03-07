@@ -66,7 +66,7 @@ import eu.snoware.SnowClub.rmi.Formular;
 import eu.snoware.SnowClub.rmi.Konto;
 import eu.snoware.SnowClub.rmi.Spendenbescheinigung;
 import eu.snoware.SnowClub.util.Dateiname;
-import eu.snoware.SnowClub.util.JVDateFormatTTMMJJJJ;
+import eu.snoware.SnowClub.util.SCDateFormatTTMMJJJJ;
 
 public class SpendenbescheinigungControl extends AbstractControl
 {
@@ -374,7 +374,7 @@ public class SpendenbescheinigungControl extends AbstractControl
         }
       });
       buchungsList.addColumn("Datum", "datum",
-          new DateFormatter(new JVDateFormatTTMMJJJJ()));
+          new DateFormatter(new SCDateFormatTTMMJJJJ()));
       buchungsList.addColumn("Auszug", "auszugsnummer");
       buchungsList.addColumn("Blatt", "blattnummer");
       buchungsList.addColumn("Name", "name");
@@ -641,9 +641,9 @@ public class SpendenbescheinigungControl extends AbstractControl
     spbList = new TablePart(spendenbescheinigungen,
         new SpendenbescheinigungAction());
     spbList.addColumn("Bescheinigungsdatum", "bescheinigungsdatum",
-        new DateFormatter(new JVDateFormatTTMMJJJJ()));
+        new DateFormatter(new SCDateFormatTTMMJJJJ()));
     spbList.addColumn("Spendedatum", "spendedatum",
-        new DateFormatter(new JVDateFormatTTMMJJJJ()));
+        new DateFormatter(new SCDateFormatTTMMJJJJ()));
     spbList.addColumn("Betrag", "betrag",
         new CurrencyFormatter("", Einstellungen.DECIMALFORMAT));
     spbList.addColumn("Zeile 1", "zeile1");

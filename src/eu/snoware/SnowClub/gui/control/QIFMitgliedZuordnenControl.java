@@ -50,7 +50,7 @@ import de.willuhn.util.ApplicationException;
 import eu.snoware.SnowClub.Einstellungen;
 import eu.snoware.SnowClub.rmi.Mitglied;
 import eu.snoware.SnowClub.rmi.QIFImportPos;
-import eu.snoware.SnowClub.util.JVDateFormatTTMMJJJJ;
+import eu.snoware.SnowClub.util.SCDateFormatTTMMJJJJ;
 
 public class QIFMitgliedZuordnenControl extends AbstractControl
 {
@@ -164,7 +164,7 @@ public class QIFMitgliedZuordnenControl extends AbstractControl
     {
       posBeispielListTable = new TablePart(iteratorQIFImportPosList, null);
       posBeispielListTable.addColumn("Datum", QIFImportPos.COL_DATUM,
-          new DateFormatter(new JVDateFormatTTMMJJJJ()));
+          new DateFormatter(new SCDateFormatTTMMJJJJ()));
       posBeispielListTable.addColumn("Beleg", QIFImportPos.COL_BELEG);
       posBeispielListTable.addColumn("Betrag", QIFImportPos.COL_BETRAG,
           new CurrencyFormatter("", Einstellungen.DECIMALFORMAT), false,

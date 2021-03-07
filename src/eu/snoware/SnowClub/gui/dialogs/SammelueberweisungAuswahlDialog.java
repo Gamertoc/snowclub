@@ -33,7 +33,7 @@ import de.willuhn.jameica.hbci.rmi.SepaSammelUeberweisung;
 import de.willuhn.jameica.system.OperationCanceledException;
 import eu.snoware.SnowClub.Einstellungen;
 import eu.snoware.SnowClub.rmi.Buchung;
-import eu.snoware.SnowClub.util.JVDateFormatTTMMJJJJ;
+import eu.snoware.SnowClub.util.SCDateFormatTTMMJJJJ;
 
 /**
  * Ein Dialog, ueber den man eine Sammelüberweisung zur Übernahme zur
@@ -104,7 +104,7 @@ public class SammelueberweisungAuswahlDialog
       }
     });
     this.sammelueberweisung.addColumn("Termin", "termin",
-        new DateFormatter(new JVDateFormatTTMMJJJJ()));
+        new DateFormatter(new SCDateFormatTTMMJJJJ()));
     this.sammelueberweisung.addColumn("Bezeichnung", "bezeichnung");
     this.sammelueberweisung.addColumn("Summe", "summe",
         new CurrencyFormatter("", Einstellungen.DECIMALFORMAT));

@@ -29,7 +29,7 @@ import de.willuhn.jameica.gui.util.SimpleContainer;
 import de.willuhn.util.ApplicationException;
 import eu.snoware.SnowClub.gui.action.DokumentationAction;
 import eu.snoware.SnowClub.gui.control.AbrechnungslaufBuchungenControl;
-import eu.snoware.SnowClub.util.JVDateFormatTTMMJJJJ;
+import eu.snoware.SnowClub.util.SCDateFormatTTMMJJJJ;
 
 public class AbrechnungslaufBuchungenView extends AbstractView
 {
@@ -61,7 +61,7 @@ public class AbrechnungslaufBuchungenView extends AbstractView
 
     spalte1.addText(control.getLauf().getValue().toString(), false);
     spalte2.addText(
-        new JVDateFormatTTMMJJJJ().format(control.getDatum(false).getValue()),
+        new SCDateFormatTTMMJJJJ().format(control.getDatum(false).getValue()),
         false);
     spalte3.addText(control.getZahlungsgrund().getValue().toString(), false);
     spalte4.addText(control.getBemerkung().getValue().toString(), false);

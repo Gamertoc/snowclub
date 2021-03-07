@@ -52,7 +52,7 @@ import eu.snoware.SnowClub.rmi.Mitgliedfoto;
 import eu.snoware.SnowClub.rmi.Zusatzfelder;
 import eu.snoware.SnowClub.util.Datum;
 import eu.snoware.SnowClub.util.EmailValidator;
-import eu.snoware.SnowClub.util.JVDateFormatTTMMJJJJ;
+import eu.snoware.SnowClub.util.SCDateFormatTTMMJJJJ;
 
 public class MitgliedImpl extends AbstractDBObject implements Mitglied
 {
@@ -1252,7 +1252,7 @@ public class MitgliedImpl extends AbstractDBObject implements Mitglied
 
     try
     {
-      d = new JVDateFormatTTMMJJJJ().parse(datum);
+      d = new SCDateFormatTTMMJJJJ().parse(datum);
     }
     catch (Exception e)
     {

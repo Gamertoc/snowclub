@@ -38,7 +38,7 @@ import eu.snoware.SnowClub.gui.action.AnfangsbestandDetailAction;
 import eu.snoware.SnowClub.gui.menu.AnfangsbestandMenu;
 import eu.snoware.SnowClub.rmi.Anfangsbestand;
 import eu.snoware.SnowClub.rmi.Konto;
-import eu.snoware.SnowClub.util.JVDateFormatTTMMJJJJ;
+import eu.snoware.SnowClub.util.SCDateFormatTTMMJJJJ;
 
 public class AnfangsbestandControl extends AbstractControl
 {
@@ -159,7 +159,7 @@ public class AnfangsbestandControl extends AbstractControl
         new AnfangsbestandDetailAction());
     anfangsbestandList.addColumn("Konto", "kontotext");
     anfangsbestandList.addColumn("Datum", "datum",
-        new DateFormatter(new JVDateFormatTTMMJJJJ()));
+        new DateFormatter(new SCDateFormatTTMMJJJJ()));
     anfangsbestandList.addColumn("Betrag", "betrag",
         new CurrencyFormatter("", Einstellungen.DECIMALFORMAT));
     anfangsbestandList.setRememberColWidths(true);

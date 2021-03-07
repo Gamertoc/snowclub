@@ -100,7 +100,7 @@ import eu.snoware.SnowClub.rmi.Mitglied;
 import eu.snoware.SnowClub.rmi.Mitgliedskonto;
 import eu.snoware.SnowClub.rmi.Projekt;
 import eu.snoware.SnowClub.util.Dateiname;
-import eu.snoware.SnowClub.util.JVDateFormatTTMMJJJJ;
+import eu.snoware.SnowClub.util.SCDateFormatTTMMJJJJ;
 
 public class BuchungsControl extends AbstractControl
 {
@@ -339,7 +339,7 @@ public class BuchungsControl extends AbstractControl
       return datum;
     }
     Date d = getBuchung().getDatum();
-    this.datum = new DateInput(d, new JVDateFormatTTMMJJJJ());
+    this.datum = new DateInput(d, new SCDateFormatTTMMJJJJ());
     this.datum.setTitle("Datum");
     this.datum.setText("Bitte Datum wählen");
     return datum;
@@ -645,14 +645,14 @@ public class BuchungsControl extends AbstractControl
     Date d = null;
     try
     {
-      d = new JVDateFormatTTMMJJJJ()
+      d = new SCDateFormatTTMMJJJJ()
           .parse(settings.getString("vondatum", "01.01.2006"));
     }
     catch (ParseException e)
     {
       //
     }
-    this.vondatum = new DateInput(d, new JVDateFormatTTMMJJJJ());
+    this.vondatum = new DateInput(d, new SCDateFormatTTMMJJJJ());
     this.vondatum.setTitle("Anfangsdatum");
     this.vondatum.setText("Bitte Anfangsdatum wählen");
     this.vondatum.addListener(new FilterListener());
@@ -669,14 +669,14 @@ public class BuchungsControl extends AbstractControl
     Date d = null;
     try
     {
-      d = new JVDateFormatTTMMJJJJ()
+      d = new SCDateFormatTTMMJJJJ()
           .parse(settings.getString("bisdatum", "31.12.2006"));
     }
     catch (ParseException e)
     {
       //
     }
-    this.bisdatum = new DateInput(d, new JVDateFormatTTMMJJJJ());
+    this.bisdatum = new DateInput(d, new SCDateFormatTTMMJJJJ());
     this.bisdatum.setTitle("Anfangsdatum");
     this.bisdatum.setText("Bitte Anfangsdatum wählen");
     this.bisdatum.addListener(new FilterListener());
@@ -905,13 +905,13 @@ public class BuchungsControl extends AbstractControl
     {
       throw new RemoteException("von-Datum fehlt!");
     }
-    settings.setAttribute("vondatum", new JVDateFormatTTMMJJJJ().format(dv));
+    settings.setAttribute("vondatum", new SCDateFormatTTMMJJJJ().format(dv));
     Date db = (Date) getBisdatum().getValue();
     if (db == null)
     {
       throw new RemoteException("bis-Datum fehlt!");
     }
-    settings.setAttribute("bisdatum", new JVDateFormatTTMMJJJJ().format(db));
+    settings.setAttribute("bisdatum", new SCDateFormatTTMMJJJJ().format(db));
     Konto k = null;
     if (getSuchKonto().getValue() != null)
     {
@@ -984,7 +984,7 @@ public class BuchungsControl extends AbstractControl
         }
       });
       buchungsList.addColumn("Datum", "datum",
-          new DateFormatter(new JVDateFormatTTMMJJJJ()));
+          new DateFormatter(new SCDateFormatTTMMJJJJ()));
       // buchungsList.addColumn(new Column("auszugsnummer", "Auszug",
       // new Formatter()
       // {
@@ -1093,7 +1093,7 @@ public class BuchungsControl extends AbstractControl
         }
       });
       splitbuchungsList.addColumn("Datum", "datum",
-          new DateFormatter(new JVDateFormatTTMMJJJJ()));
+          new DateFormatter(new SCDateFormatTTMMJJJJ()));
       splitbuchungsList.addColumn("Auszug", "auszugsnummer");
       splitbuchungsList.addColumn("Blatt", "blattnummer");
       splitbuchungsList.addColumn("Name", "name");
@@ -1496,7 +1496,7 @@ public class BuchungsControl extends AbstractControl
         {
           GUI.getStatusBar().setErrorText(String.format(
               "Buchung wurde bereits am %s von %s abgeschlossen.",
-              new JVDateFormatTTMMJJJJ().format(ja.getDatum()), ja.getName()));
+              new SCDateFormatTTMMJJJJ().format(ja.getDatum()), ja.getName()));
           return true;
         }
       }

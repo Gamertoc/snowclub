@@ -36,7 +36,7 @@ import eu.snoware.SnowClub.rmi.Beitragsgruppe;
 import eu.snoware.SnowClub.rmi.Mitglied;
 import eu.snoware.SnowClub.server.MitgliedUtils;
 import eu.snoware.SnowClub.util.Geschaeftsjahr;
-import eu.snoware.SnowClub.util.JVDateFormatTTMMJJJJ;
+import eu.snoware.SnowClub.util.SCDateFormatTTMMJJJJ;
 import eu.snoware.SnowClub.util.VonBis;
 
 public class MitgliederStatistik
@@ -55,7 +55,7 @@ public class MitgliederStatistik
       String subtitle = "";
       if (stichtag != null)
       {
-        subtitle = "Stichtag: " + new JVDateFormatTTMMJJJJ().format(stichtag);
+        subtitle = "Stichtag: " + new SCDateFormatTTMMJJJJ().format(stichtag);
       }
       Reporter reporter = new Reporter(fos, "Mitgliederstatistik", subtitle, 3);
 
@@ -115,7 +115,7 @@ public class MitgliederStatistik
 
       try
       {
-        JVDateFormatTTMMJJJJ ttmmjj = new JVDateFormatTTMMJJJJ();
+        SCDateFormatTTMMJJJJ ttmmjj = new SCDateFormatTTMMJJJJ();
         Geschaeftsjahr gj = new Geschaeftsjahr(stichtag);
         Paragraph pGuV = new Paragraph(
             "\n" + String.format("Anmeldungen/Abmeldungen (%s - %s)",

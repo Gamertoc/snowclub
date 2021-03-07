@@ -66,8 +66,8 @@ import eu.snoware.SnowClub.rmi.MailAnhang;
 import eu.snoware.SnowClub.rmi.MailEmpfaenger;
 import eu.snoware.SnowClub.util.Dateiname;
 import eu.snoware.SnowClub.util.Datum;
-import eu.snoware.SnowClub.util.JVDateFormatDATETIME;
-import eu.snoware.SnowClub.util.JVDateFormatTTMMJJJJ;
+import eu.snoware.SnowClub.util.SCDateFormatDATETIME;
+import eu.snoware.SnowClub.util.SCDateFormatTTMMJJJJ;
 
 public class PreNotificationControl extends AbstractControl
 {
@@ -290,7 +290,7 @@ public class PreNotificationControl extends AbstractControl
           }
           Date d = (Date) ausfuehrungsdatum.getValue();
           settings.setAttribute("faelligkeitsdatum",
-              new JVDateFormatDATETIME().format(d));
+              new SCDateFormatDATETIME().format(d));
           settings.setAttribute("verwendungszweck",
               (String) getVerwendungszweck().getValue());
           settings.setAttribute("tab.selection", folder.getSelectionIndex());
@@ -504,7 +504,7 @@ public class PreNotificationControl extends AbstractControl
           {
             Lastschrift ls = (Lastschrift) it.next();
             VelocityContext context = new VelocityContext();
-            context.put("dateformat", new JVDateFormatTTMMJJJJ());
+            context.put("dateformat", new SCDateFormatTTMMJJJJ());
             context.put("decimalformat", Einstellungen.DECIMALFORMAT);
             context.put("email", ls.getEmail());
 

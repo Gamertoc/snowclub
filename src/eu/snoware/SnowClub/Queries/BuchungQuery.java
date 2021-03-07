@@ -29,7 +29,7 @@ import eu.snoware.SnowClub.rmi.Buchung;
 import eu.snoware.SnowClub.rmi.Buchungsart;
 import eu.snoware.SnowClub.rmi.Konto;
 import eu.snoware.SnowClub.rmi.Projekt;
-import eu.snoware.SnowClub.util.JVDateFormatTTMMJJJJ;
+import eu.snoware.SnowClub.util.SCDateFormatTTMMJJJJ;
 
 public class BuchungQuery
 {
@@ -287,8 +287,8 @@ public class BuchungQuery
   public String getSubtitle() throws RemoteException
   {
     String subtitle = String.format("vom %s bis %s",
-        new JVDateFormatTTMMJJJJ().format(getDatumvon()),
-        new JVDateFormatTTMMJJJJ().format(getDatumbis()));
+        new SCDateFormatTTMMJJJJ().format(getDatumvon()),
+        new SCDateFormatTTMMJJJJ().format(getDatumbis()));
     if (getKonto() != null)
     {
       subtitle += " " + String.format("für Konto %s - %s",

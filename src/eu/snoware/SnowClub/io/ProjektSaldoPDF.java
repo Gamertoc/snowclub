@@ -28,7 +28,7 @@ import com.itextpdf.text.Element;
 import de.willuhn.jameica.gui.GUI;
 import de.willuhn.logging.Logger;
 import de.willuhn.util.ApplicationException;
-import eu.snoware.SnowClub.util.JVDateFormatTTMMJJJJ;
+import eu.snoware.SnowClub.util.SCDateFormatTTMMJJJJ;
 
 public class ProjektSaldoPDF
 {
@@ -40,8 +40,8 @@ public class ProjektSaldoPDF
     try
     {
       FileOutputStream fos = new FileOutputStream(file);
-      String subtitle = new JVDateFormatTTMMJJJJ().format(datumvon) + " - "
-          + new JVDateFormatTTMMJJJJ().format(datumbis);
+      String subtitle = new SCDateFormatTTMMJJJJ().format(datumvon) + " - "
+          + new SCDateFormatTTMMJJJJ().format(datumbis);
       Reporter reporter = new Reporter(fos, "Projekte-Saldo", subtitle,
           zeile.size());
       makeHeader(reporter);

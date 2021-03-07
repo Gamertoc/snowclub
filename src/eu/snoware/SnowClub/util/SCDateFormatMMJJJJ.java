@@ -14,10 +14,16 @@
  * heiner@jverein.de
  * www.jverein.de
  **********************************************************************/
+package eu.snoware.SnowClub.util;
 
-package eu.snoware.SnowClub.io;
+import java.text.SimpleDateFormat;
 
-public enum JVereinZahlerTyp
+public class SCDateFormatMMJJJJ extends SimpleDateFormat
 {
-  MITGLIED, KURSTEILNEHMER
+  private static final long serialVersionUID = 4017644423840096050L;
+
+  public SCDateFormatMMJJJJ()
+  {
+    super("MM.yyyy");
+  }
 }

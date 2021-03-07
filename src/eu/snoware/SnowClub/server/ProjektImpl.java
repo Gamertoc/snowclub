@@ -24,7 +24,7 @@ import de.willuhn.logging.Logger;
 import de.willuhn.util.ApplicationException;
 import eu.snoware.SnowClub.Einstellungen;
 import eu.snoware.SnowClub.rmi.Projekt;
-import eu.snoware.SnowClub.util.JVDateFormatTTMMJJJJ;
+import eu.snoware.SnowClub.util.SCDateFormatTTMMJJJJ;
 
 public class ProjektImpl extends AbstractDBObject implements Projekt
 {
@@ -175,7 +175,7 @@ public class ProjektImpl extends AbstractDBObject implements Projekt
 
     try
     {
-      d = new JVDateFormatTTMMJJJJ().parse(datum);
+      d = new SCDateFormatTTMMJJJJ().parse(datum);
     }
     catch (Exception e)
     {

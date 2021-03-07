@@ -37,7 +37,7 @@ import eu.snoware.SnowClub.rmi.Konto;
 import eu.snoware.SnowClub.rmi.Mitgliedskonto;
 import eu.snoware.SnowClub.rmi.Projekt;
 import eu.snoware.SnowClub.rmi.Spendenbescheinigung;
-import eu.snoware.SnowClub.util.JVDateFormatTTMMJJJJ;
+import eu.snoware.SnowClub.util.SCDateFormatTTMMJJJJ;
 import eu.snoware.SnowClub.util.StringTool;
 
 public class BuchungImpl extends AbstractDBObject implements Buchung
@@ -564,7 +564,7 @@ public class BuchungImpl extends AbstractDBObject implements Buchung
 
     try
     {
-      d = new JVDateFormatTTMMJJJJ().parse(datum);
+      d = new SCDateFormatTTMMJJJJ().parse(datum);
     }
     catch (Exception e)
     {

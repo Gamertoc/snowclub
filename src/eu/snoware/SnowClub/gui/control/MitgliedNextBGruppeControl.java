@@ -35,7 +35,7 @@ import eu.snoware.SnowClub.keys.ArtBeitragsart;
 import eu.snoware.SnowClub.rmi.Beitragsgruppe;
 import eu.snoware.SnowClub.rmi.Mitglied;
 import eu.snoware.SnowClub.rmi.MitgliedNextBGruppe;
-import eu.snoware.SnowClub.util.JVDateFormatTTMMJJJJ;
+import eu.snoware.SnowClub.util.SCDateFormatTTMMJJJJ;
 
 /**
  * @author Rolf Mamat
@@ -150,7 +150,7 @@ public class MitgliedNextBGruppeControl extends AbstractControl
     }
 
     this.abDatum = new DateInput(getMitgliedNextBGruppe().getAbDatum(),
-        new JVDateFormatTTMMJJJJ());
+        new SCDateFormatTTMMJJJJ());
     this.abDatum.setComment("Wann soll Beitragsgruppe aktiviert werden?");
     this.abDatum.setMandatory(true);
     return abDatum;

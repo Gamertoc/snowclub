@@ -26,7 +26,7 @@ import eu.snoware.SnowClub.keys.FormularArt;
 import eu.snoware.SnowClub.keys.Zahlungsweg;
 import eu.snoware.SnowClub.rmi.Formular;
 import eu.snoware.SnowClub.rmi.Mitgliedskonto;
-import eu.snoware.SnowClub.util.JVDateFormatTTMMJJJJ;
+import eu.snoware.SnowClub.util.SCDateFormatTTMMJJJJ;
 
 public class Rechnungsausgabe extends AbstractMitgliedskontoDokument
 {
@@ -62,7 +62,7 @@ public class Rechnungsausgabe extends AbstractMitgliedskontoDokument
         {
           control.getSettings().setAttribute(
               control.getDatumverwendung() + "datumvon",
-              new JVDateFormatTTMMJJJJ().format(d));
+              new SCDateFormatTTMMJJJJ().format(d));
         }
         it.addFilter("datum >= ?", d);
       }
@@ -78,7 +78,7 @@ public class Rechnungsausgabe extends AbstractMitgliedskontoDokument
         {
           control.getSettings().setAttribute(
               control.getDatumverwendung() + "datumbis",
-              new JVDateFormatTTMMJJJJ().format(d));
+              new SCDateFormatTTMMJJJJ().format(d));
         }
         it.addFilter("datum <= ?", d);
       }

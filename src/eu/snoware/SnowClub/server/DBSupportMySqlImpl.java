@@ -26,7 +26,7 @@ import java.sql.Statement;
 import de.willuhn.jameica.system.Application;
 import de.willuhn.logging.Logger;
 import de.willuhn.util.ApplicationException;
-import eu.snoware.SnowClub.rmi.JVereinDBService;
+import eu.snoware.SnowClub.rmi.SnowClubDBService;
 
 /**
  * Implementierung des Datenbank-Supports fuer MySQL.
@@ -42,7 +42,7 @@ public class DBSupportMySqlImpl extends AbstractDBSupportImpl
   @Override
   public String getJdbcDriver()
   {
-    return JVereinDBService.SETTINGS.getString(
+    return SnowClubDBService.SETTINGS.getString(
         "database.driver.mysql.jdbcdriver", "com.mysql.jdbc.Driver");
   }
 
@@ -53,7 +53,7 @@ public class DBSupportMySqlImpl extends AbstractDBSupportImpl
   public String getJdbcPassword()
   {
     String key = "database.driver.mysql.password";
-    return JVereinDBService.SETTINGS.getString(key, null).trim();
+    return SnowClubDBService.SETTINGS.getString(key, null).trim();
   }
 
   /**
@@ -62,7 +62,7 @@ public class DBSupportMySqlImpl extends AbstractDBSupportImpl
   @Override
   public String getJdbcUrl()
   {
-    return JVereinDBService.SETTINGS
+    return SnowClubDBService.SETTINGS
         .getString(
             "database.driver.mysql.jdbcurl",
             "jdbc:mysql://localhost:3306/jverein?useUnicode=Yes&characterEncoding=ISO8859_1")
@@ -75,7 +75,7 @@ public class DBSupportMySqlImpl extends AbstractDBSupportImpl
   @Override
   public String getJdbcUsername()
   {
-    return JVereinDBService.SETTINGS.getString(
+    return SnowClubDBService.SETTINGS.getString(
         "database.driver.mysql.username", "jverein").trim();
   }
 
@@ -86,7 +86,7 @@ public class DBSupportMySqlImpl extends AbstractDBSupportImpl
     {
       try
       {
-        new JVereinUpdateProvider(conn, Application.getCallback()
+        new SnowClubUpdateProvider(conn, Application.getCallback()
             .getStartupMonitor());
       }
       catch (Exception e2)

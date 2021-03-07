@@ -130,7 +130,7 @@ public class Datum
    */
   public final static String formatDate(Date d)
   {
-    return d == null ? "" : new JVDateFormatTTMMJJJJ().format(d);
+    return d == null ? "" : new SCDateFormatTTMMJJJJ().format(d);
   }
 
   public final static Integer getAlter(Date geburtstag, int altersModel)

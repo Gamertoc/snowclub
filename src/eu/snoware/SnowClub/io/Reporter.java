@@ -45,8 +45,8 @@ import de.willuhn.jameica.gui.GUI;
 import de.willuhn.jameica.plugin.AbstractPlugin;
 import de.willuhn.jameica.system.Application;
 import eu.snoware.SnowClub.Einstellungen;
-import eu.snoware.SnowClub.JVereinPlugin;
-import eu.snoware.SnowClub.util.JVDateFormatTTMMJJJJ;
+import eu.snoware.SnowClub.SnowClubPlugin;
+import eu.snoware.SnowClub.util.SCDateFormatTTMMJJJJ;
 
 /**
  * Kapselt den Export von Daten im PDF-Format.
@@ -105,7 +105,7 @@ public class Reporter
     hyph = new HyphenationAuto("de", "DE", 2, 2);
     PdfWriter.getInstance(rpt, out);
     AbstractPlugin plugin = Application.getPluginLoader()
-        .getPlugin(JVereinPlugin.class);
+        .getPlugin(SnowClubPlugin.class);
     rpt.addAuthor(plugin.getManifest().getName() + " - Version "
         + plugin.getManifest().getVersion());
     rpt.open();
@@ -123,13 +123,13 @@ public class Reporter
     PdfWriter writer = PdfWriter.getInstance(rpt, out);
     rpt.setMargins(linkerRand, rechterRand, obererRand, untererRand);
     AbstractPlugin plugin = Application.getPluginLoader()
-        .getPlugin(JVereinPlugin.class);
+        .getPlugin(SnowClubPlugin.class);
     rpt.addAuthor(plugin.getManifest().getName() + " - Version "
         + plugin.getManifest().getVersion());
     rpt.addTitle(subtitle);
 
     String fuss = title + " | " + subtitle + " | " + "erstellt am "
-        + new JVDateFormatTTMMJJJJ().format(new Date()) + "     " + "Seite: ";
+        + new SCDateFormatTTMMJJJJ().format(new Date()) + "     " + "Seite: ";
     HeaderFooter hf = new HeaderFooter();
     hf.setFooter(fuss);
     writer.setPageEvent(hf);
