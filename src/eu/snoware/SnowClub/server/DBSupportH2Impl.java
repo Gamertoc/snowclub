@@ -19,16 +19,22 @@
 
 package eu.snoware.SnowClub.server;
 
+import java.io.ByteArrayInputStream;
+import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.lang.reflect.Method;
 import java.rmi.RemoteException;
+import java.security.SecureRandom;
 import java.sql.Connection;
+import java.util.Date;
 import java.util.HashMap;
 
 import de.willuhn.jameica.system.Application;
 import de.willuhn.logging.Logger;
 import de.willuhn.util.ApplicationException;
+import de.willuhn.util.Base64;
 import eu.snoware.SnowClub.SnowClubPlugin;
+import eu.snoware.SnowClub.rmi.SnowClubDBService;
 
 /**
  * Implementierung des Datenbank-Supports fuer H2-Database
@@ -78,57 +84,58 @@ public class DBSupportH2Impl extends AbstractDBSupportImpl
   public String getJdbcPassword()
   {
     // Zunächst "schlichte" Version: Passwort wird hart codiert
-    return "jverein";
-    // String password = JVereinDBService.SETTINGS.getString(
-    // "database.driver.h2.encryption.encryptedpassword", null);
-    // try
-    // {
-    // Existiert noch nicht. Also neu erstellen.
-    // if (password == null)
-    // {
-    // Wir koennen als Passwort nicht so einfach das Masterpasswort
-    // nehmen, weil der User es aendern kann. Wir koennen zwar
-    // das Passwort der Datenbank aendern. Allerdings kriegen wir
-    // hier nicht mit, wenn sich das Passwort geaendert hat.
-    // Daher erzeugen wir ein selbst ein Passwort.
-    // Logger.info("generating new random password for database");
-    // byte[] data = new byte[8];
-    // SecureRandom random = SecureRandom.getInstance("SHA1PRNG");
-    // random.setSeed((long) (new Date().getTime()));
-    // random.nextBytes(data);
+    // return "jverein";
+     String password = SnowClubDBService.SETTINGS.getString("database.driver.h2.encryption.encryptedpassword", null);
+     try
+     {
+    	 // Existiert noch nicht. Also neu erstellen.
+    	 if (password == null)
+    	 {
+		    // Wir koennen als Passwort nicht so einfach das Masterpasswort
+		    // nehmen, weil der User es aendern kann. Wir koennen zwar
+		    // das Passwort der Datenbank aendern. Allerdings kriegen wir
+		    // hier nicht mit, wenn sich das Passwort geaendert hat.
+		    // Daher erzeugen wir ein selbst ein Passwort.
+		     Logger.info("generating new random password for database");
+		     byte[] data = new byte[8];
+		     SecureRandom random = SecureRandom.getInstance("SHA1PRNG");
+		     random.setSeed((long) (new Date().getTime()));
+		     random.nextBytes(data);
+		
+		    // Jetzt noch verschluesselt abspeichern
+		     Logger.info("encrypting password with system certificate");
+		     ByteArrayOutputStream bos = new ByteArrayOutputStream();
+		     Application.getSSLFactory()
+		     .encrypt(new ByteArrayInputStream(data), bos);
 
-    // Jetzt noch verschluesselt abspeichern
-    // Logger.info("encrypting password with system certificate");
-    // ByteArrayOutputStream bos = new ByteArrayOutputStream();
-    // Application.getSSLFactory()
-    // .encrypt(new ByteArrayInputStream(data), bos);
-
-    // Verschluesseltes Passwort als Base64 speichern
-    // JVereinDBService.SETTINGS.setAttribute(
-    // "database.driver.h2.encryption.encryptedpassword", Base64
-    // .encode(bos.toByteArray()));
-
-    // Entschluesseltes Passwort als Base64 zurueckliefern, damit keine
-    // Binaer-Daten drin sind.
-    // Die Datenbank will es doppelt mit Leerzeichen getrennt haben.
-    // Das erste ist fuer den User. Das zweite fuer die Verschluesselung.
-    // String encoded = Base64.encode(data);
-    // return encoded + " " + encoded;
-    // }
-    //
-    // Logger.debug("decrypting database password");
-    // ByteArrayOutputStream bos = new ByteArrayOutputStream();
-    // Application.getSSLFactory().decrypt(
-    // new ByteArrayInputStream(Base64.decode(password)), bos);
-    //
-    // String encoded = Base64.encode(bos.toByteArray());
-    // return encoded + " " + encoded;
-    // }
-    // catch (Exception e)
-    // {
-    // throw new RuntimeException("error while determining database password",
-    // e);
-    // }
+		    // Verschluesseltes Passwort als Base64 speichern
+		     SnowClubDBService.SETTINGS.setAttribute(
+		     "database.driver.h2.encryption.encryptedpassword", Base64
+		     .encode(bos.toByteArray()));
+		
+		    // Entschluesseltes Passwort als Base64 zurueckliefern, damit keine
+		    // Binaer-Daten drin sind.
+		    // Die Datenbank will es doppelt mit Leerzeichen getrennt haben.
+		    // Das erste ist fuer den User. Das zweite fuer die Verschluesselung.
+		     String encoded = Base64.encode(data);
+		     return encoded + " " + encoded;
+    	 }
+    
+    Logger.debug("decrypting database password");
+     ByteArrayOutputStream bos = new ByteArrayOutputStream();
+     Application.getSSLFactory().decrypt(
+     new ByteArrayInputStream(Base64.decode(password)), bos);
+    
+     String encoded = Base64.encode(bos.toByteArray());
+     System.out.println(encoded);
+     return encoded + " " + encoded;
+    	 
+     }
+     catch (Exception e)
+     {
+     throw new RuntimeException("error while determining database password",
+     e);
+     }
   }
 
   @Override
